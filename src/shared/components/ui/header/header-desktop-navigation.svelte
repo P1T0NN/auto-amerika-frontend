@@ -2,11 +2,12 @@
     // SVELTEKIT IMPORTS
     import { page } from '$app/state';
 
-    // CONFIG
-    import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
-
     // COMPONENTS
-    import { Button } from '@/shared/components/ui/button';
+    import HeaderDesktopNavigationAuthenticated from './header-desktop-navigation-authenticated.svelte';
+    import HeaderDesktopNavigationUnauthenticated from './header-desktop-navigation-unauthenticated.svelte';
+
+    // QUERIES
+    import { fetchCurrentUser } from '@/features/user/queries/user-queries.remote';
 
     // DATA
     import { navigationLinks } from '@/shared/data/navigation-links-data';
@@ -26,11 +27,17 @@
     </div>
 </div>
 
-<div class="hidden md:block">
-    <Button 
-    href={UNPROTECTED_PAGE_ENDPOINTS.LOGIN_PAGE}
-    aria-label="Login"
->
-        Login
-    </Button>
-</div>
+<svelte:boundary>
+    {@const { data: user } = await fetchCurrentUser()}
+    {#if user}
+        <HeaderDesktopNavigationAuthenticated {user} />
+    {/if}
+    
+    {#snippet pending()}
+        <HeaderDesktopNavigationUnauthenticated />
+    {/snippet}
+
+    {#snippet failed()}
+        <HeaderDesktopNavigationUnauthenticated />
+    {/snippet}
+</svelte:boundary>

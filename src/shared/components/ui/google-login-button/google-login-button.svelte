@@ -4,13 +4,14 @@
     async function handleGoogleLogin() {
         isLoading = true;
         try {
-            // This would integrate with your Google OAuth setup
-            console.log('[AutoAmerika] Google sign-in initiated');
-            // Example: window.location.href = '/auth/google';
+            const response = await fetch('/api/auth/google/login');
+            const data = await response.json();
 
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1000));
-
+            if (data.success && data.data?.redirect_uri) {
+                window.location.href = data.data.redirect_uri;
+            } else {
+                console.error('Google login failed:', data.message);
+            }
         } catch (error) {
             console.error('Google login error:', error);
         } finally {

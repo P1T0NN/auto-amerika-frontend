@@ -15,15 +15,4 @@
         </div>
     </div>
 
-    <div>
-        <h3 class="mb-4 text-xl font-semibold">Oprema i karakteristike</h3>
-        <div class="grid grid-cols-2 gap-2 md:grid-cols-3">
-            {#each car.features as feature}
-                <div class="flex items-center gap-2 rounded bg-muted p-2">
-                    <Check class="h-4 w-4 flex-shrink-0 text-green-600" />
-                    <span class="text-sm">{feature}</span>
-                </div>
-            {/each}
-        </div>
-    </div>
 </div>

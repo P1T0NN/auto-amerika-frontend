@@ -21,21 +21,12 @@ export type typesCar = {
     description: string | null;
   
     // Relations
-    specifications?: typesCarSpecifications[];
     history?: typesCarHistory | null;
     import?: typesCarImport | null;
     images?: typesCarImage[];
-    features?: typesFeature[];
     sales?: typesSale[];
 }
 
-export type typesCarSpecifications = {
-    id: number;
-    carId: number;
-    specName: string | null;
-    specValue: string | null;
-}
-  
 export type typesCarHistory = {
     id: number;
     carId: number;
@@ -66,16 +57,6 @@ export type typesCarImage = {
     imageUrl: string;
 }
   
-export type typesFeature = {
-    id: number;
-    name: string;
-}
-  
-export type typesCarFeature = {
-    carId: number;
-    featureId: number;
-}
-  
 export type typesBuyer = {
     id: number;
     name: string;
@@ -93,4 +74,49 @@ export type typesSale = {
     soldDate: string | null;   // ISO date string
     finalPrice: number | null;
     notes: string | null;
+}
+
+//////////////////////////////// REQUESTS AND RESPONSES ////////////////////////////////////
+
+export type typesAddCarRequest = {
+    // Step 1: Basic Car Info
+    vin: string;
+    brand: string;
+    model: string;
+    year: number;
+    price: number;
+    currency: 'EUR' | 'USD' | 'RSD';
+    mileageKm: number;
+    fuel: string;
+    transmission: string;
+    engine: string;
+    powerHp: number;
+    drivetrain: string;
+    colorExterior: string;
+    colorInterior: string;
+    interiorMaterial: string;
+    location: string;
+    status: string;
+    description: string;
+
+    // Step 2: History
+    titleStatus: string;
+    firstRegistration: string;
+    owners: number;
+    accidents: string;
+    serviceHistory: string;
+
+    // Step 3: Import Info
+    originCountry: string;
+    purchaseSource: string;
+    purchaseDate: string;
+    usPurchasePrice: number;
+    shippingCost: number;
+    customsTax: number;
+    importDate: string;
+    homologationStatus: string;
+    registrationStatus: string;
+
+    // Step 4: Images
+    //imageFiles: File[];
 }

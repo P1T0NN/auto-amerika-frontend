@@ -32,13 +32,17 @@ export const featuredCars = [
 ];
 
 export const brands = [
-    { name: 'Ford', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Chevrolet', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Dodge', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Cadillac', logo: '/placeholder.svg?height=60&width=120' },
+    { name: 'BMW', logo: '/placeholder.svg?height=60&width=120' },
+    { name: 'Audi', logo: '/placeholder.svg?height=60&width=120' },
+    { name: 'Mercedes', logo: '/placeholder.svg?height=60&width=120' },
+    { name: 'Porsche', logo: '/placeholder.svg?height=60&width=120' },
     { name: 'Tesla', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Jeep', logo: '/placeholder.svg?height=60&width=120' }
 ];
+
+export const fuelTypes = ['Benzin', 'Dizel', 'Hibrid', 'Električni', 'Flex Fuel'];
+export const transmissionTypes = ['Automatski', 'Manuelni', 'CVT', 'Poluautomatski'];
+export const drivetrainTypes = ['FWD', 'RWD', 'AWD', '4WD'];
+export const interiorMaterials = ['Tkanina', 'Koža', 'Veštačka koža', 'Alcantara', 'Kombinovano'];
 
 export const allCars = [
     {
@@ -52,8 +56,7 @@ export const allCars = [
         fuel: 'Benzin',
         transmission: 'Automatik',
         engine: '5.0L V8',
-        location: 'Beograd',
-        features: ['Leather Seats', 'Navigation', 'Premium Sound', 'Heated Seats']
+        location: 'Beograd'
     },
     {
         id: 2,
@@ -66,8 +69,7 @@ export const allCars = [
         fuel: 'Benzin',
         transmission: 'Manuelni',
         engine: '6.2L V8',
-        location: 'Novi Sad',
-        features: ['Sport Package', 'Brembo Brakes', 'HUD Display']
+        location: 'Novi Sad'
     },
     {
         id: 3,
@@ -80,8 +82,7 @@ export const allCars = [
         fuel: 'Benzin',
         transmission: 'Automatik',
         engine: '6.4L V8',
-        location: 'Niš',
-        features: ['SRT Performance', 'Launch Control', 'Track Mode', 'Carbon Fiber']
+        location: 'Niš'
     },
     {
         id: 4,
@@ -94,8 +95,7 @@ export const allCars = [
         fuel: 'Električni',
         transmission: 'Automatik',
         engine: 'Dual Motor',
-        location: 'Beograd',
-        features: ['Autopilot', 'Premium Interior', 'Supercharging', 'Air Suspension']
+        location: 'Beograd'
     },
     {
         id: 5,
@@ -108,8 +108,7 @@ export const allCars = [
         fuel: 'Benzin',
         transmission: 'Automatik',
         engine: '3.6L V6',
-        location: 'Kragujevac',
-        features: ['4WD', 'Tow Package', 'Panoramic Roof', 'Heated Steering']
+        location: 'Kragujevac'
     },
     {
         id: 6,
@@ -122,7 +121,6 @@ export const allCars = [
         fuel: 'Benzin',
         transmission: 'Automatik',
         engine: '6.2L V8',
-        location: 'Beograd',
-        features: ['Luxury Package', 'Captain Chairs', 'Entertainment System', 'Magnetic Ride']
+        location: 'Beograd'
     }
 ];

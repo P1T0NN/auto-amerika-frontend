@@ -1,8 +1,7 @@
 <script lang="ts">
     // COMPONENTS
 	import AddCarHeader from '@/shared/components/pages/(protected)/admin/add-car/add-car-header.svelte';
-	import AddCarProgressSteps from '@/shared/components/pages/(protected)/admin/add-car/add-car-progress-steps.svelte';
-    import AddCarFormSteps from '@/shared/components/pages/(protected)/admin/add-car/add-form-steps/add-form-steps.svelte';
+    import AddCarForm from '@/shared/components/pages/(protected)/admin/add-car/add-car-form/add-car-form.svelte';
 </script>
 
 <svelte:head>
@@ -13,8 +12,6 @@
 	<div class="mx-auto max-w-4xl px-4">
 		<AddCarHeader />
 
-		<AddCarProgressSteps />
-
-		<AddCarFormSteps />
+		<AddCarForm />
 	</div>
 </div>

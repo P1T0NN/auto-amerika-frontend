@@ -5,6 +5,7 @@
     // COMPONENTS
     import Header from '@/shared/components/ui/header/header.svelte';
     import Footer from '@/shared/components/ui/footer/footer.svelte';
+    import Toaster from '@/shared/components/ui/sonner/sonner.svelte';
 
 	let { children } = $props();
 </script>
@@ -16,3 +17,4 @@
 <Header />
 {@render children?.()}
 <Footer />
+<Toaster richColors />

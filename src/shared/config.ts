@@ -15,3 +15,16 @@ export const UNPROTECTED_PAGE_ENDPOINTS = {
     TERMS_OF_USE: "/terms-of-use",
     PRIVACY_POLICY: "/privacy-policy"
 }
+
+export const ADMIN_PROTECTED_PAGE_ENDPOINTS = {
+    DASHBOARD_PAGE: "/admin/dashboard",
+    ADD_CAR_PAGE: "/admin/add-car"
+}
+
+export const CACHE_TAGS = {
+    PAGES: {
+        ADMIN: {
+            FETCH_ALL_CARS: "admin-fetch-all-cars"
+        }
+    }
+}

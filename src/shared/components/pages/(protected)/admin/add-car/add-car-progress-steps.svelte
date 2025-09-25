@@ -28,7 +28,6 @@
     
     <div class="mt-2 flex justify-between text-sm text-muted-foreground">
         <span>Osnovni podaci</span>
-        <span>Specifikacije</span>
         <span>Istorija</span>
         <span>Uvoz</span>
         <span>Slike i završetak</span>
