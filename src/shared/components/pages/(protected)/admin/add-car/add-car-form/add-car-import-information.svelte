@@ -6,20 +6,19 @@
     import { Select, SelectContent, SelectItem, SelectTrigger } from "@/shared/components/ui/select";
     import ErrorMessage from "@/shared/components/ui/error-message/error-message.svelte";
 
-    // TYPES
-    import type { RemoteForm } from "@sveltejs/kit";
-    import type { ApiResponse } from "@/shared/lib/api-client/api-client";
-    import type { typesAddCarCompleteData } from "@/features/cars/schemas/cars-schemas";
+    // CONTEXT
+    import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
-    let { addCar }: { addCar: RemoteForm<typesAddCarCompleteData, ApiResponse<void>> } = $props();
+    let selectedHomologationStatus = $state(addCarContext.formData.homologationStatus || "");
+    let selectedRegistrationStatus = $state(addCarContext.formData.registrationStatus || "");
 
-    // State variables for select components
-    let selectedHomologationStatus = $state(addCar.input?.homologationStatus || "");
-    let selectedRegistrationStatus = $state(addCar.input?.registrationStatus || "");
-
-    // Derived trigger content
     const homologationStatusTriggerContent = $derived(selectedHomologationStatus || "Izaberite status");
     const registrationStatusTriggerContent = $derived(selectedRegistrationStatus || "Izaberite status");
+
+    $effect(() => {
+        addCarContext.formData.homologationStatus = selectedHomologationStatus;
+        addCarContext.formData.registrationStatus = selectedRegistrationStatus;
+    });
 </script>
 
 <Card>
@@ -34,10 +33,10 @@
                     id="originCountry"
                     name="originCountry"
                     placeholder="USA"
-                    value={addCar.input?.originCountry}
-                    class={addCar.issues?.originCountry ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.originCountry}
+                    class={addCarContext.errors.originCountry ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.originCountry} />
+                <ErrorMessage issues={addCarContext.errors.originCountry ? [{message: addCarContext.errors.originCountry}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -46,10 +45,10 @@
                     id="purchaseSource"
                     name="purchaseSource"
                     placeholder="Aukcija, dealer, privatno..."
-                    value={addCar.input?.purchaseSource}
-                    class={addCar.issues?.purchaseSource ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.purchaseSource}
+                    class={addCarContext.errors.purchaseSource ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.purchaseSource} />
+                <ErrorMessage issues={addCarContext.errors.purchaseSource ? [{message: addCarContext.errors.purchaseSource}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -58,10 +57,10 @@
                     id="purchaseDate"
                     name="purchaseDate"
                     type="date"
-                    value={addCar.input?.purchaseDate}
-                    class={addCar.issues?.purchaseDate ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.purchaseDate}
+                    class={addCarContext.errors.purchaseDate ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.purchaseDate} />
+                <ErrorMessage issues={addCarContext.errors.purchaseDate ? [{message: addCarContext.errors.purchaseDate}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -71,10 +70,10 @@
                     name="usPurchasePrice"
                     type="number"
                     placeholder="25000"
-                    value={addCar.input?.usPurchasePrice}
-                    class={addCar.issues?.usPurchasePrice ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.usPurchasePrice}
+                    class={addCarContext.errors.usPurchasePrice ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.usPurchasePrice} />
+                <ErrorMessage issues={addCarContext.errors.usPurchasePrice ? [{message: addCarContext.errors.usPurchasePrice}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -84,10 +83,10 @@
                     name="shippingCost"
                     type="number"
                     placeholder="2000"
-                    value={addCar.input?.shippingCost}
-                    class={addCar.issues?.shippingCost ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.shippingCost}
+                    class={addCarContext.errors.shippingCost ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.shippingCost} />
+                <ErrorMessage issues={addCarContext.errors.shippingCost ? [{message: addCarContext.errors.shippingCost}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -97,10 +96,10 @@
                     name="customsTax"
                     type="number"
                     placeholder="5000"
-                    value={addCar.input?.customsTax}
-                    class={addCar.issues?.customsTax ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.customsTax}
+                    class={addCarContext.errors.customsTax ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.customsTax} />
+                <ErrorMessage issues={addCarContext.errors.customsTax ? [{message: addCarContext.errors.customsTax}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -109,21 +108,17 @@
                     id="importDate"
                     name="importDate"
                     type="date"
-                    value={addCar.input?.importDate}
-                    class={addCar.issues?.importDate ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.importDate}
+                    class={addCarContext.errors.importDate ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.importDate} />
+                <ErrorMessage issues={addCarContext.errors.importDate ? [{message: addCarContext.errors.importDate}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="homologationStatus">Status homologacije *</Label>
-                <Select
-                    type="single"
-                    name="homologationStatus"
-                    bind:value={selectedHomologationStatus}
-                >
-                    <SelectTrigger class={addCar.issues?.homologationStatus ? 'border-destructive' : ''}>
-                        {homologationStatusTriggerContent}
+                <Select type="single" name="homologationStatus" bind:value={selectedHomologationStatus}>
+                    <SelectTrigger class={addCarContext.errors.homologationStatus ? 'border-destructive' : ''}>
+                        <span>{homologationStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="completed">Završena</SelectItem>
@@ -132,18 +127,14 @@
                         <SelectItem value="not_required">Nije potrebna</SelectItem>
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.homologationStatus} />
+                <ErrorMessage issues={addCarContext.errors.homologationStatus ? [{message: addCarContext.errors.homologationStatus}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="registrationStatus">Status registracije *</Label>
-                <Select
-                    type="single"
-                    name="registrationStatus"
-                    bind:value={selectedRegistrationStatus}
-                >
-                    <SelectTrigger class={addCar.issues?.registrationStatus ? 'border-destructive' : ''}>
-                        {registrationStatusTriggerContent}
+                <Select type="single" name="registrationStatus" bind:value={selectedRegistrationStatus}>
+                    <SelectTrigger class={addCarContext.errors.registrationStatus ? 'border-destructive' : ''}>
+                        <span>{registrationStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="registered">Registrovano</SelectItem>
@@ -151,7 +142,7 @@
                         <SelectItem value="not_registered">Nije registrovano</SelectItem>
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.registrationStatus} />
+                <ErrorMessage issues={addCarContext.errors.registrationStatus ? [{message: addCarContext.errors.registrationStatus}] : undefined} />
             </div>
         </div>
     </CardContent>

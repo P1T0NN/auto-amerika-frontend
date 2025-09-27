@@ -10,21 +10,17 @@
     // DATA
     import { brands as brandData, fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials } from '@/features/cars/data/cars-data';
 
-    // TYPES
-    import type { RemoteForm } from "@sveltejs/kit";
-    import type { ApiResponse } from "@/shared/lib/api-client/api-client";
-    import type { typesAddCarCompleteData } from "@/features/cars/schemas/cars-schemas";
-
-    let { addCar }: { addCar: RemoteForm<typesAddCarCompleteData, ApiResponse<void>> } = $props();
+    // CONTEXT
+    import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
     const brands = brandData.map(brand => brand.name);
 
-    let selectedBrand = $state(addCar.input?.brand || "");
-    let selectedFuel = $state(addCar.input?.fuel || "");
-    let selectedTransmission = $state(addCar.input?.transmission || "");
-    let selectedDrivetrain = $state(addCar.input?.drivetrain || "");
-    let selectedInteriorMaterial = $state(addCar.input?.interiorMaterial || "");
-    let selectedCurrency = $state(addCar.input?.currency || "EUR");
+    let selectedBrand = $state(addCarContext.formData.brand || "");
+    let selectedFuel = $state(addCarContext.formData.fuel || "");
+    let selectedTransmission = $state(addCarContext.formData.transmission || "");
+    let selectedDrivetrain = $state(addCarContext.formData.drivetrain || "");
+    let selectedInteriorMaterial = $state(addCarContext.formData.interiorMaterial || "");
+    let selectedCurrency = $state(addCarContext.formData.currency || "EUR");
 
     const brandTriggerContent = $derived(selectedBrand || "Izaberite brend");
     const fuelTriggerContent = $derived(selectedFuel || "Izaberite gorivo");
@@ -32,6 +28,15 @@
     const drivetrainTriggerContent = $derived(selectedDrivetrain || "Izaberite pogon");
     const interiorMaterialTriggerContent = $derived(selectedInteriorMaterial || "Izaberite materijal");
     const currencyTriggerContent = $derived(selectedCurrency || "EUR");
+
+    $effect(() => {
+        addCarContext.formData.brand = selectedBrand;
+        addCarContext.formData.fuel = selectedFuel;
+        addCarContext.formData.transmission = selectedTransmission;
+        addCarContext.formData.drivetrain = selectedDrivetrain;
+        addCarContext.formData.interiorMaterial = selectedInteriorMaterial;
+        addCarContext.formData.currency = selectedCurrency;
+    });
 </script>
 
 <Card>
@@ -45,31 +50,26 @@
                 <Input
                     id="vin"
                     name="vin"
+                    bind:value={addCarContext.formData.vin}
                     placeholder="1HGBH41JXMN109186"
-                    value={addCar.input?.vin}
-                    class={addCar.issues?.vin ? 'border-destructive' : ''}
+                    class={addCarContext.errors.vin ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.vin} />
+                <ErrorMessage issues={addCarContext.errors.vin ? [{message: addCarContext.errors.vin}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="brand">Brend *</Label>
-                <Select
-                    type="single"
-                    name="brand"
-                    bind:value={selectedBrand}
-                >
-                    <SelectTrigger class={addCar.issues?.brand ? 'border-destructive' : ''}>
-                        {brandTriggerContent}
+                <Select type="single" name="brand" bind:value={selectedBrand}>
+                    <SelectTrigger class={addCarContext.errors.brand ? 'border-destructive' : ''}>
+                        <span>{brandTriggerContent}</span>
                     </SelectTrigger>
-
                     <SelectContent>
                         {#each brands as brand}
                             <SelectItem value={brand}>{brand}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.brand} />
+                <ErrorMessage issues={addCarContext.errors.brand ? [{message: addCarContext.errors.brand}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -77,11 +77,11 @@
                 <Input
                     id="model"
                     name="model"
+                    bind:value={addCarContext.formData.model}
                     placeholder="Mustang GT"
-                    value={addCar.input?.model}
-                    class={addCar.issues?.model ? 'border-destructive' : ''}
+                    class={addCarContext.errors.model ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.model} />
+                <ErrorMessage issues={addCarContext.errors.model ? [{message: addCarContext.errors.model}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -90,12 +90,12 @@
                     id="year"
                     name="year"
                     type="number"
+                    bind:value={addCarContext.formData.year}
                     min="1900"
                     max={new Date().getFullYear() + 1}
-                    value={addCar.input?.year}
-                    class={addCar.issues?.year ? 'border-destructive' : ''}
+                    class={addCarContext.errors.year ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.year} />
+                <ErrorMessage issues={addCarContext.errors.year ? [{message: addCarContext.errors.year}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -105,14 +105,13 @@
                         id="price"
                         name="price"
                         type="number"
+                        bind:value={addCarContext.formData.price}
                         placeholder="45000"
-                        value={addCar.input?.price}
-                        class="rounded-r-none {addCar.issues?.price ? 'border-destructive' : ''}"
+                        class="rounded-r-none {addCarContext.errors.price ? 'border-destructive' : ''}"
                     />
-
                     <Select type="single" name="currency" bind:value={selectedCurrency}>
                         <SelectTrigger class="w-20 rounded-l-none border-l-0">
-                            {currencyTriggerContent}
+                            <span>{currencyTriggerContent}</span>
                         </SelectTrigger>
                         <SelectContent>
                             <SelectItem value="EUR">EUR</SelectItem>
@@ -121,7 +120,7 @@
                         </SelectContent>
                     </Select>
                 </div>
-                <ErrorMessage issues={addCar.issues?.price} />
+                <ErrorMessage issues={addCarContext.errors.price ? [{message: addCarContext.errors.price}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -130,22 +129,18 @@
                     id="mileageKm"
                     name="mileageKm"
                     type="number"
+                    bind:value={addCarContext.formData.mileageKm}
                     placeholder="50000"
-                    value={addCar.input?.mileageKm}
-                    class={addCar.issues?.mileageKm ? 'border-destructive' : ''}
+                    class={addCarContext.errors.mileageKm ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.mileageKm} />
+                <ErrorMessage issues={addCarContext.errors.mileageKm ? [{message: addCarContext.errors.mileageKm}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="fuel">Gorivo *</Label>
-                <Select
-                    type="single"
-                    name="fuel"
-                    bind:value={selectedFuel}
-                >
-                    <SelectTrigger class={addCar.issues?.fuel ? 'border-destructive' : ''}>
-                        {fuelTriggerContent}
+                <Select type="single" name="fuel" bind:value={selectedFuel}>
+                    <SelectTrigger class={addCarContext.errors.fuel ? 'border-destructive' : ''}>
+                        <span>{fuelTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         {#each fuelTypes as fuel}
@@ -153,18 +148,14 @@
                         {/each}
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.fuel} />
+                <ErrorMessage issues={addCarContext.errors.fuel ? [{message: addCarContext.errors.fuel}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="transmission">Menjač *</Label>
-                <Select
-                    type="single"
-                    name="transmission"
-                    bind:value={selectedTransmission}
-                >
-                    <SelectTrigger class={addCar.issues?.transmission ? 'border-destructive' : ''}>
-                        {transmissionTriggerContent}
+                <Select type="single" name="transmission" bind:value={selectedTransmission}>
+                    <SelectTrigger class={addCarContext.errors.transmission ? 'border-destructive' : ''}>
+                        <span>{transmissionTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         {#each transmissionTypes as transmission}
@@ -172,7 +163,7 @@
                         {/each}
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.transmission} />
+                <ErrorMessage issues={addCarContext.errors.transmission ? [{message: addCarContext.errors.transmission}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -180,11 +171,11 @@
                 <Input
                     id="engine"
                     name="engine"
+                    bind:value={addCarContext.formData.engine}
                     placeholder="5.0L V8"
-                    value={addCar.input?.engine}
-                    class={addCar.issues?.engine ? 'border-destructive' : ''}
+                    class={addCarContext.errors.engine ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.engine} />
+                <ErrorMessage issues={addCarContext.errors.engine ? [{message: addCarContext.errors.engine}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -193,22 +184,18 @@
                     id="powerHp"
                     name="powerHp"
                     type="number"
+                    bind:value={addCarContext.formData.powerHp}
                     placeholder="450"
-                    value={addCar.input?.powerHp}
-                    class={addCar.issues?.powerHp ? 'border-destructive' : ''}
+                    class={addCarContext.errors.powerHp ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.powerHp} />
+                <ErrorMessage issues={addCarContext.errors.powerHp ? [{message: addCarContext.errors.powerHp}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="drivetrain">Pogon *</Label>
-                <Select
-                    type="single"
-                    name="drivetrain"
-                    bind:value={selectedDrivetrain}
-                >
-                    <SelectTrigger class={addCar.issues?.drivetrain ? 'border-destructive' : ''}>
-                        {drivetrainTriggerContent}
+                <Select type="single" name="drivetrain" bind:value={selectedDrivetrain}>
+                    <SelectTrigger class={addCarContext.errors.drivetrain ? 'border-destructive' : ''}>
+                        <span>{drivetrainTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         {#each drivetrainTypes as drivetrain}
@@ -216,7 +203,7 @@
                         {/each}
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.drivetrain} />
+                <ErrorMessage issues={addCarContext.errors.drivetrain ? [{message: addCarContext.errors.drivetrain}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -224,11 +211,11 @@
                 <Input
                     id="colorExterior"
                     name="colorExterior"
+                    bind:value={addCarContext.formData.colorExterior}
                     placeholder="Crvena"
-                    value={addCar.input?.colorExterior}
-                    class={addCar.issues?.colorExterior ? 'border-destructive' : ''}
+                    class={addCarContext.errors.colorExterior ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.colorExterior} />
+                <ErrorMessage issues={addCarContext.errors.colorExterior ? [{message: addCarContext.errors.colorExterior}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -236,22 +223,18 @@
                 <Input
                     id="colorInterior"
                     name="colorInterior"
+                    bind:value={addCarContext.formData.colorInterior}
                     placeholder="Crna"
-                    value={addCar.input?.colorInterior}
-                    class={addCar.issues?.colorInterior ? 'border-destructive' : ''}
+                    class={addCarContext.errors.colorInterior ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.colorInterior} />
+                <ErrorMessage issues={addCarContext.errors.colorInterior ? [{message: addCarContext.errors.colorInterior}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="interiorMaterial">Materijal enterijera *</Label>
-                <Select
-                    type="single"
-                    name="interiorMaterial"
-                    bind:value={selectedInteriorMaterial}
-                >
-                    <SelectTrigger class={addCar.issues?.interiorMaterial ? 'border-destructive' : ''}>
-                        {interiorMaterialTriggerContent}
+                <Select type="single" name="interiorMaterial" bind:value={selectedInteriorMaterial}>
+                    <SelectTrigger class={addCarContext.errors.interiorMaterial ? 'border-destructive' : ''}>
+                        <span>{interiorMaterialTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         {#each interiorMaterials as material}
@@ -259,7 +242,7 @@
                         {/each}
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.interiorMaterial} />
+                <ErrorMessage issues={addCarContext.errors.interiorMaterial ? [{message: addCarContext.errors.interiorMaterial}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -267,11 +250,11 @@
                 <Input
                     id="location"
                     name="location"
+                    bind:value={addCarContext.formData.location}
                     placeholder="Beograd, Srbija"
-                    value={addCar.input?.location}
-                    class={addCar.issues?.location ? 'border-destructive' : ''}
+                    class={addCarContext.errors.location ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.location} />
+                <ErrorMessage issues={addCarContext.errors.location ? [{message: addCarContext.errors.location}] : undefined} />
             </div>
 
             <div class="space-y-2 md:col-span-2">
@@ -279,12 +262,12 @@
                 <Textarea
                     id="description"
                     name="description"
+                    bind:value={addCarContext.formData.description}
                     placeholder="Detaljni opis vozila, stanja, dodatne opreme..."
-                    value={addCar.input?.description}
                     rows={4}
-                    class={addCar.issues?.description ? 'border-destructive' : ''}
+                    class={addCarContext.errors.description ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.description} />
+                <ErrorMessage issues={addCarContext.errors.description ? [{message: addCarContext.errors.description}] : undefined} />
             </div>
         </div>
     </CardContent>

@@ -118,5 +118,5 @@ export type typesAddCarRequest = {
     registrationStatus: string;
 
     // Step 4: Images
-    //imageFiles: File[];
+    images: string[];
 }

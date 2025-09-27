@@ -7,18 +7,19 @@
     import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
     import ErrorMessage from "@/shared/components/ui/error-message/error-message.svelte";
 
-    // TYPES
-    import type { RemoteForm } from "@sveltejs/kit";
-    import type { ApiResponse } from "@/shared/lib/api-client/api-client";
-    import type { typesAddCarCompleteData } from "@/features/cars/schemas/cars-schemas";
+    // CONTEXT
+    import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
-    let { addCar }: { addCar: RemoteForm<typesAddCarCompleteData, ApiResponse<void>> } = $props();
-
-    let selectedTitleStatus = $state(addCar.input?.titleStatus || "");
-    let selectedAccidents = $state(addCar.input?.accidents || "");
+    let selectedTitleStatus = $state(addCarContext.formData.titleStatus || "");
+    let selectedAccidents = $state(addCarContext.formData.accidents || "");
 
     const titleStatusTriggerContent = $derived(selectedTitleStatus || "Izaberite status");
     const accidentsTriggerContent = $derived(selectedAccidents || "Izaberite");
+
+    $effect(() => {
+        addCarContext.formData.titleStatus = selectedTitleStatus;
+        addCarContext.formData.accidents = selectedAccidents;
+    });
 </script>
 
 <Card>
@@ -29,13 +30,9 @@
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-2">
                 <Label for="titleStatus">Status vlasništva *</Label>
-                <Select
-                    type="single"
-                    name="titleStatus"
-                    bind:value={selectedTitleStatus}
-                >
-                    <SelectTrigger class={addCar.issues?.titleStatus ? 'border-destructive' : ''}>
-                        {titleStatusTriggerContent}
+                <Select type="single" name="titleStatus" bind:value={selectedTitleStatus}>
+                    <SelectTrigger class={addCarContext.errors.titleStatus ? 'border-destructive' : ''}>
+                        <span>{titleStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="clean">Čist</SelectItem>
@@ -45,7 +42,7 @@
                         <SelectItem value="flood">Poplavljeno</SelectItem>
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.titleStatus} />
+                <ErrorMessage issues={addCarContext.errors.titleStatus ? [{message: addCarContext.errors.titleStatus}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -54,10 +51,10 @@
                     id="firstRegistration"
                     name="firstRegistration"
                     type="date"
-                    value={addCar.input?.firstRegistration}
-                    class={addCar.issues?.firstRegistration ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.firstRegistration}
+                    class={addCarContext.errors.firstRegistration ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.firstRegistration} />
+                <ErrorMessage issues={addCarContext.errors.firstRegistration ? [{message: addCarContext.errors.firstRegistration}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -68,21 +65,17 @@
                     type="number"
                     min="1"
                     placeholder="1"
-                    value={addCar.input?.owners}
-                    class={addCar.issues?.owners ? 'border-destructive' : ''}
+                    bind:value={addCarContext.formData.owners}
+                    class={addCarContext.errors.owners ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.owners} />
+                <ErrorMessage issues={addCarContext.errors.owners ? [{message: addCarContext.errors.owners}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="accidents">Nesreće *</Label>
-                <Select
-                    type="single"
-                    name="accidents"
-                    bind:value={selectedAccidents}
-                >
-                    <SelectTrigger class={addCar.issues?.accidents ? 'border-destructive' : ''}>
-                        {accidentsTriggerContent}
+                <Select type="single" name="accidents" bind:value={selectedAccidents}>
+                    <SelectTrigger class={addCarContext.errors.accidents ? 'border-destructive' : ''}>
+                        <span>{accidentsTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
                         <SelectItem value="none">Bez nesreća</SelectItem>
@@ -91,7 +84,7 @@
                         <SelectItem value="unknown">Nepoznato</SelectItem>
                     </SelectContent>
                 </Select>
-                <ErrorMessage issues={addCar.issues?.accidents} />
+                <ErrorMessage issues={addCarContext.errors.accidents ? [{message: addCarContext.errors.accidents}] : undefined} />
             </div>
 
             <div class="space-y-2 md:col-span-2">
@@ -100,11 +93,11 @@
                     id="serviceHistory"
                     name="serviceHistory"
                     placeholder="Detalji o servisnoj istoriji vozila..."
-                    value={addCar.input?.serviceHistory}
+                    bind:value={addCarContext.formData.serviceHistory}
                     rows={3}
-                    class={addCar.issues?.serviceHistory ? 'border-destructive' : ''}
+                    class={addCarContext.errors.serviceHistory ? 'border-destructive' : ''}
                 />
-                <ErrorMessage issues={addCar.issues?.serviceHistory} />
+                <ErrorMessage issues={addCarContext.errors.serviceHistory ? [{message: addCarContext.errors.serviceHistory}] : undefined} />
             </div>
         </div>
     </CardContent>

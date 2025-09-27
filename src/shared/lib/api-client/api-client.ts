@@ -46,6 +46,7 @@ async function serverApiRequest<T>(
         method,
         headers: requestHeaders,
         body: body ? JSON.stringify(body) : undefined,
+        credentials: 'include',
     };
 
     try {
@@ -134,8 +135,8 @@ export const serverApiClient = {
     },
 
     cars: {
-        addCar: async (carData: typesAddCarRequest, sessionToken: string): Promise<ApiResponse<void>> => {
-            return serverApiRequest<void>('/cars/add-car', 'POST', carData, undefined, sessionToken);
+        addCar: async (carData: typesAddCarRequest): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/add-car', 'POST', carData, undefined, undefined);
         }
     }
 };
