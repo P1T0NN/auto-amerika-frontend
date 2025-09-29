@@ -1,4 +1,10 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "example_message": "Guten Tag {username}"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "example_message": "Guten Tag {username}",
+    "AlertDialogButton": {
+        "title": "Akcija ne može biti poništena",
+        "description": "Jeste li sigurni da želite uraditi ovo? Ova akcija ne može biti poništena.",
+        "cancel": "Poništi",
+        "proceed": "Nastavi"
+    }
 }

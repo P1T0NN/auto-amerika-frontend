@@ -1,10 +1,10 @@
 <script>
     // COMPONENTS
-	import HomeFeaturedCarsSection from '@/shared/components/pages/(unprotected)/home/home-featured-cars-section.svelte';
     import HomeHeroSection from '@/shared/components/pages/(unprotected)/home/home-hero-section.svelte';
 	import HomeWhyUsSection from '@/shared/components/pages/(unprotected)/home/home-why-us-section.svelte';
-    import HomeBrandsSection from '@/shared/components/pages/(unprotected)/home/home-brands-section.svelte';
     import HomeCTASection from '@/shared/components/pages/(unprotected)/home/home-cta-section.svelte';
+	import HomeCarTypesSection from '@/shared/components/pages/(unprotected)/home/home-car-types-section.svelte';
+    import HomeCarBrandsSection from '@/shared/components/pages/(unprotected)/home/home-car-brands-section.svelte';
 </script>
 
 <svelte:head>
@@ -17,10 +17,10 @@
 
 <HomeHeroSection />
 
-<HomeFeaturedCarsSection />
+<HomeCarTypesSection />
+
+<HomeCarBrandsSection />
 
 <HomeWhyUsSection />
-
-<HomeBrandsSection />
 
 <HomeCTASection />

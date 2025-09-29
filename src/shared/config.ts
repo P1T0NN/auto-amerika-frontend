@@ -18,7 +18,8 @@ export const UNPROTECTED_PAGE_ENDPOINTS = {
 
 export const ADMIN_PROTECTED_PAGE_ENDPOINTS = {
     DASHBOARD_PAGE: "/admin/dashboard",
-    ADD_CAR_PAGE: "/admin/add-car"
+    ADD_CAR_PAGE: "/admin/add-car",
+    EDIT_CAR_PAGE: "/admin/edit-car"
 }
 
 export const CACHE_TAGS = {

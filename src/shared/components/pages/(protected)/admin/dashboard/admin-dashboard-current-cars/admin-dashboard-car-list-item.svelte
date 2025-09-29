@@ -1,15 +1,21 @@
 <script lang="ts">
+    // CONFIG
+    import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from "@/shared/config";
+
     // COMPONENTS
     import { Card, CardContent } from "@/shared/components/ui/card";
     import { Button } from "@/shared/components/ui/button";
 
-    // LUCIDE ICONS
-    import { Edit2 } from "@lucide/svelte";
-
     // UTILS
     import { getCarStatusClass, getCarStatusText } from "@/features/cars/utils/cars-utils";
 
-    let { filteredCars } = $props();
+    // TYPES
+    import type { typesCar } from "@/features/cars/types/types";
+
+    // LUCIDE ICONS
+    import { Edit2 } from "@lucide/svelte";
+
+    let { cars }: { cars: typesCar[] } = $props();
 </script>
 
 <Card class="py-0 border-2 border-border hover:border-primary transition-all duration-200 hover:shadow-lg hover:shadow-primary/10">
@@ -25,54 +31,62 @@
                         <th class="p-4 text-left text-lg font-semibold">Akcije</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    {#each filteredCars as car}
+                    {#each cars as car}
                         <tr class="border-b hover:bg-muted/30 transition-colors">
                             <td class="p-4">
                                 <div class="flex items-center gap-4">
                                     <img
-                                        src={car.image || "/placeholder.svg"}
+                                        src={car.images?.[0].imageUrl || "/placeholder.svg"}
                                         alt="{car.brand} {car.model}"
                                         class="h-16 w-24 rounded-lg object-cover"
                                     />
+
                                     <div>
                                         <h3 class="text-lg font-semibold text-foreground">
-                                            {car.brand} {car.model}
+                                            {car.brand.toUpperCase()} {car.model}
                                         </h3>
+
                                         <p class="text-base text-muted-foreground">
                                             {car.year} • {car.fuel}
                                         </p>
+
                                         <p class="text-sm text-muted-foreground">
                                             VIN: {car.vin}
                                         </p>
                                     </div>
                                 </div>
                             </td>
+
                             <td class="p-4">
                                 <div class="text-base">
                                     <div>{car.mileageKm?.toLocaleString()} km</div>
                                     <div class="text-muted-foreground">{car.location}</div>
                                     <div class="text-sm text-muted-foreground">
-                                        Dodato: {car.dateAdded}
+                                        Dodato:
                                     </div>
                                 </div>
                             </td>
+
                             <td class="p-4">
                                 <div class="text-xl font-bold text-primary">
-                                    {car.priceFormatted}
+                                    {car.price}
                                 </div>
                             </td>
+
                             <td class="p-4">
                                 <span class="font-semibold px-4 py-2 rounded-full text-sm {getCarStatusClass(car.status)}">
                                     {getCarStatusText(car.status)}
                                 </span>
                             </td>
+
                             <td class="p-4">
                                 <Button
-                                    variant="secondary"
+                                    variant="outline"
                                     size="sm"
                                     class="h-10 px-4"
-                                    onclick={() => console.log('Modify car:', car.id)}
+                                    href={`${ADMIN_PROTECTED_PAGE_ENDPOINTS.EDIT_CAR_PAGE}/${car.id}`}
                                 >
                                     <Edit2 class="mr-2 h-4 w-4" />
                                     Izmeni

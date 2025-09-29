@@ -1,16 +1,15 @@
 <script lang="ts">
     // COMPONENTS
-    import { Button } from '@/shared/components/ui/button';
     import { Input } from '@/shared/components/ui/input';
 
     // LUCIDE ICONS
-    import { Search, Grid3X3, List } from '@lucide/svelte';
+    import { Search } from '@lucide/svelte';
 
-    let { filteredCars, searchTerm = $bindable(), viewMode = $bindable() } = $props();
+    let { cars, searchTerm = $bindable() } = $props();
 </script>
 
 <div class="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-    <h2 class="text-3xl font-bold text-foreground">Trenutni automobili ({filteredCars.length})</h2>
+    <h2 class="text-3xl font-bold text-foreground">Trenutni automobili ({cars.length})</h2>
     
     <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
         <div class="relative">
@@ -20,28 +19,6 @@
                 placeholder="Pretraži po marki, modelu ili VIN..."
                 class="pl-10 text-lg h-12 w-full sm:w-80"
             />
-        </div>
-
-        <div class="flex rounded-lg border bg-background p-1">
-            <Button
-                variant={viewMode === 'list' ? 'default' : 'ghost'}
-                size="sm"
-                class="h-10 px-4"
-                onclick={() => viewMode = 'list'}
-            >
-                <List class="h-4 w-4 mr-2" />
-                Lista
-            </Button>
-            
-            <Button
-                variant={viewMode === 'grid' ? 'default' : 'ghost'}
-                size="sm"
-                class="h-10 px-4"
-                onclick={() => viewMode = 'grid'}
-            >
-                <Grid3X3 class="h-4 w-4 mr-2" />
-                Mreža
-            </Button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
-<script>
-    // CONFIG
-    import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
+<script lang="ts">
+	// CONFIG
+	import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
 	// COMPONENTS
 	import { Button } from '@/shared/components/ui/button';
@@ -9,7 +9,7 @@
 <section class="relative flex h-screen items-center justify-center overflow-hidden">
 	<div class="absolute inset-0 z-0">
 		<img
-			src="/placeholder.svg?height=1080&width=1920"
+			src="/home/hero.jpg"
 			alt="Luxury American cars"
 			class="h-full w-full object-cover"
 		/>
@@ -19,7 +19,7 @@
 
 	<div class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
 		<h1 class="mb-6 text-4xl font-bold text-balance md:text-6xl">
-			Uvozimo najbolje <span class="text-primary">američke automobile</span> za vas
+			Prodajemo najbolje <span class="text-primary">američke automobile</span> za vas
 		</h1>
 
 		<p class="mb-8 text-xl text-pretty text-white/90 md:text-2xl">
@@ -34,7 +34,6 @@
 			<Button
 				size="lg"
                 variant="outline"
-                class="text-white"
                 href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT_PAGE}
 			>
 				Kontaktiraj nas

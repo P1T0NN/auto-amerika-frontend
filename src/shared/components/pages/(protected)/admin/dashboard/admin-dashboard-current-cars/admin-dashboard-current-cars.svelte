@@ -1,43 +1,26 @@
 <script lang="ts">
     // COMPONENTS
     import AdminDashboardCarListItem from './admin-dashboard-car-list-item.svelte';
-    import AdminDashboardCarGridItem from './admin-dashboard-car-grid-item.svelte';
     import AdminDashboardCurrentCarsHeader from './admin-dashboard-current-cars-header.svelte';
+    import AdminDashboardCurrentCarsEmpty from './admin-dashboard-current-cars-empty.svelte';
 
-    // DATA
-    import { dummyCurrentCars } from '@/features/cars/data/cars-data';
+    // QUERIES
+    import { fetchAllCars } from '@/features/cars/queries/cars-queries.remote';
 
-    // STATE
     let searchTerm = $state('');
-    let viewMode = $state<'grid' | 'list'>('list');
 
-    // COMPUTED
-    const filteredCars = $derived.by(() => {
-        return dummyCurrentCars
-            .filter(car => 
-                car.brand.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                car.vin.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-            .map((car) => ({
-                ...car,
-                priceFormatted: `€${car.price.toLocaleString()}`,
-                dateAdded: new Date(car.import?.importDate || '2024-01-15').toLocaleDateString('sr-RS'),
-                image: car.images?.[0]?.imageUrl || '/placeholder.svg?height=80&width=120'
-            }));
-    });
+    const { data: cars } = $derived(await fetchAllCars());
 </script>
 
 <div class="mb-12">
-    <AdminDashboardCurrentCarsHeader
-        filteredCars={filteredCars}
-        bind:searchTerm={searchTerm}
-        bind:viewMode={viewMode}
-    />
-
-    {#if viewMode === 'list'}
-        <AdminDashboardCarListItem filteredCars={filteredCars} />
+    {#if cars?.length === 0}
+        <AdminDashboardCurrentCarsEmpty />
     {:else}
-        <AdminDashboardCarGridItem filteredCars={filteredCars} />
+        <AdminDashboardCurrentCarsHeader
+            cars={cars}
+            bind:searchTerm={searchTerm}
+        />
+
+        <AdminDashboardCarListItem cars={cars} />
     {/if}
 </div>

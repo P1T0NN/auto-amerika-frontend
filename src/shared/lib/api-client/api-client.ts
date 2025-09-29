@@ -119,7 +119,14 @@ async function serverApiRequest<T>(
  * Server-side API client for use in server-side code
  */
 
-import type { typesAddCarRequest } from '@/features/cars/types/types';
+import type { 
+    typesAddCarRequest, 
+    typesEditCarInformationRequest, 
+    typesEditCarHistoryRequest,
+    typesEditCarImport,
+    typesEditCarImagesRequest, 
+    typesCar 
+} from '@/features/cars/types/types';
 
 export const serverApiClient = {
     auth: {
@@ -137,6 +144,27 @@ export const serverApiClient = {
     cars: {
         addCar: async (carData: typesAddCarRequest): Promise<ApiResponse<void>> => {
             return serverApiRequest<void>('/cars/add-car', 'POST', carData, undefined, undefined);
+        },
+        editCarInformation: async (carData: typesEditCarInformationRequest, sessionToken: string): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/edit-car-information', 'PUT', carData, undefined, sessionToken);
+        },
+        editCarHistory: async (carData: typesEditCarHistoryRequest, sessionToken: string): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/edit-car-history', 'PUT', carData, undefined, sessionToken);
+        },
+        editCarImport: async (carData: typesEditCarImport, sessionToken: string): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/edit-car-import', 'PUT', carData, undefined, sessionToken);
+        },
+        editCarImages: async (carData: typesEditCarImagesRequest): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/edit-car-images', 'PUT', carData, undefined, undefined);
+        },
+        makeUnavailable: async (carId: string, sessionToken: string): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/make-unavailable', 'PUT', { carId }, undefined, sessionToken);
+        },
+        fetchAllCars: async (sessionToken: string): Promise<ApiResponse<typesCar[]>> => {
+            return serverApiRequest<typesCar[]>('/cars/get-all-cars', 'GET', undefined, undefined, sessionToken);
+        },
+        fetchCarById: async (carId: string, sessionToken: string): Promise<ApiResponse<typesCar>> => {
+            return serverApiRequest<typesCar>(`/cars/get-car-by-id?carId=${carId}`, 'GET', undefined, undefined, sessionToken);
         }
     }
 };

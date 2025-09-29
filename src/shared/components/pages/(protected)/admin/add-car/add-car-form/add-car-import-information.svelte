@@ -9,13 +9,30 @@
     // CONTEXT
     import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
+    // DATA
+    import { originCountries, purchaseSources, homologationStatusOptions, registrationStatusOptions } from "@/features/cars/data/cars-data";
+
+    let selectedOriginCountry = $state(addCarContext.formData.originCountry || "");
+    let selectedPurchaseSource = $state(addCarContext.formData.purchaseSource || "");
     let selectedHomologationStatus = $state(addCarContext.formData.homologationStatus || "");
     let selectedRegistrationStatus = $state(addCarContext.formData.registrationStatus || "");
 
-    const homologationStatusTriggerContent = $derived(selectedHomologationStatus || "Izaberite status");
-    const registrationStatusTriggerContent = $derived(selectedRegistrationStatus || "Izaberite status");
+    const originCountryTriggerContent = $derived(
+        originCountries.find(option => option.value === selectedOriginCountry)?.text || "Izaberite zemlju"
+    );
+    const purchaseSourceTriggerContent = $derived(
+        purchaseSources.find(option => option.value === selectedPurchaseSource)?.text || "Izaberite izvor"
+    );
+    const homologationStatusTriggerContent = $derived(
+        homologationStatusOptions.find(option => option.value === selectedHomologationStatus)?.text || "Izaberite status"
+    );
+    const registrationStatusTriggerContent = $derived(
+        registrationStatusOptions.find(option => option.value === selectedRegistrationStatus)?.text || "Izaberite status"
+    );
 
     $effect(() => {
+        addCarContext.formData.originCountry = selectedOriginCountry;
+        addCarContext.formData.purchaseSource = selectedPurchaseSource;
         addCarContext.formData.homologationStatus = selectedHomologationStatus;
         addCarContext.formData.registrationStatus = selectedRegistrationStatus;
     });
@@ -29,25 +46,31 @@
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-2">
                 <Label for="originCountry">Zemlja porekla *</Label>
-                <Input
-                    id="originCountry"
-                    name="originCountry"
-                    placeholder="USA"
-                    bind:value={addCarContext.formData.originCountry}
-                    class={addCarContext.errors.originCountry ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="originCountry" bind:value={selectedOriginCountry}>
+                    <SelectTrigger class={addCarContext.errors.originCountry ? 'border-destructive' : ''}>
+                        <span>{originCountryTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each originCountries as country}
+                            <SelectItem value={country.value}>{country.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={addCarContext.errors.originCountry ? [{message: addCarContext.errors.originCountry}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="purchaseSource">Izvor kupovine *</Label>
-                <Input
-                    id="purchaseSource"
-                    name="purchaseSource"
-                    placeholder="Aukcija, dealer, privatno..."
-                    bind:value={addCarContext.formData.purchaseSource}
-                    class={addCarContext.errors.purchaseSource ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="purchaseSource" bind:value={selectedPurchaseSource}>
+                    <SelectTrigger class={addCarContext.errors.purchaseSource ? 'border-destructive' : ''}>
+                        <span>{purchaseSourceTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each purchaseSources as source}
+                            <SelectItem value={source.value}>{source.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={addCarContext.errors.purchaseSource ? [{message: addCarContext.errors.purchaseSource}] : undefined} />
             </div>
 
@@ -121,10 +144,9 @@
                         <span>{homologationStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="completed">Završena</SelectItem>
-                        <SelectItem value="in_progress">U toku</SelectItem>
-                        <SelectItem value="not_started">Nije započeta</SelectItem>
-                        <SelectItem value="not_required">Nije potrebna</SelectItem>
+                        {#each homologationStatusOptions as option}
+                            <SelectItem value={option.value}>{option.text}</SelectItem>
+                        {/each}
                     </SelectContent>
                 </Select>
                 <ErrorMessage issues={addCarContext.errors.homologationStatus ? [{message: addCarContext.errors.homologationStatus}] : undefined} />
@@ -137,9 +159,9 @@
                         <span>{registrationStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="registered">Registrovano</SelectItem>
-                        <SelectItem value="pending">Na čekanju</SelectItem>
-                        <SelectItem value="not_registered">Nije registrovano</SelectItem>
+                        {#each registrationStatusOptions as option}
+                            <SelectItem value={option.value}>{option.text}</SelectItem>
+                        {/each}
                     </SelectContent>
                 </Select>
                 <ErrorMessage issues={addCarContext.errors.registrationStatus ? [{message: addCarContext.errors.registrationStatus}] : undefined} />

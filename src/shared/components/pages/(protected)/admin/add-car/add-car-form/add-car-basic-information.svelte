@@ -8,12 +8,10 @@
     import ErrorMessage from "@/shared/components/ui/error-message/error-message.svelte";
 
     // DATA
-    import { brands as brandData, fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials } from '@/features/cars/data/cars-data';
+    import { brands, fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials } from '@/features/cars/data/cars-data';
 
     // CONTEXT
     import { addCarContext } from "@/features/cars/context/cars-context.svelte";
-
-    const brands = brandData.map(brand => brand.name);
 
     let selectedBrand = $state(addCarContext.formData.brand || "");
     let selectedFuel = $state(addCarContext.formData.fuel || "");
@@ -22,11 +20,11 @@
     let selectedInteriorMaterial = $state(addCarContext.formData.interiorMaterial || "");
     let selectedCurrency = $state(addCarContext.formData.currency || "EUR");
 
-    const brandTriggerContent = $derived(selectedBrand || "Izaberite brend");
-    const fuelTriggerContent = $derived(selectedFuel || "Izaberite gorivo");
-    const transmissionTriggerContent = $derived(selectedTransmission || "Izaberite menjač");
-    const drivetrainTriggerContent = $derived(selectedDrivetrain || "Izaberite pogon");
-    const interiorMaterialTriggerContent = $derived(selectedInteriorMaterial || "Izaberite materijal");
+    const brandTriggerContent = $derived(brands.find(b => b.value === selectedBrand)?.text || "Izaberite brend");
+    const fuelTriggerContent = $derived(fuelTypes.find(f => f.value === selectedFuel)?.text || "Izaberite gorivo");
+    const transmissionTriggerContent = $derived(transmissionTypes.find(t => t.value === selectedTransmission)?.text || "Izaberite menjač");
+    const drivetrainTriggerContent = $derived(drivetrainTypes.find(d => d.value === selectedDrivetrain)?.text || "Izaberite pogon");
+    const interiorMaterialTriggerContent = $derived(interiorMaterials.find(m => m.value === selectedInteriorMaterial)?.text || "Izaberite materijal");
     const currencyTriggerContent = $derived(selectedCurrency || "EUR");
 
     $effect(() => {
@@ -65,7 +63,7 @@
                     </SelectTrigger>
                     <SelectContent>
                         {#each brands as brand}
-                            <SelectItem value={brand}>{brand}</SelectItem>
+                            <SelectItem value={brand.value}>{brand.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
@@ -114,9 +112,9 @@
                             <span>{currencyTriggerContent}</span>
                         </SelectTrigger>
                         <SelectContent>
-                            <SelectItem value="EUR">EUR</SelectItem>
-                            <SelectItem value="USD">USD</SelectItem>
-                            <SelectItem value="RSD">RSD</SelectItem>
+                            <SelectItem value="eur">EUR</SelectItem>
+                            <SelectItem value="usd">USD</SelectItem>
+                            <SelectItem value="rsd">RSD</SelectItem>
                         </SelectContent>
                     </Select>
                 </div>
@@ -144,7 +142,7 @@
                     </SelectTrigger>
                     <SelectContent>
                         {#each fuelTypes as fuel}
-                            <SelectItem value={fuel}>{fuel}</SelectItem>
+                            <SelectItem value={fuel.value}>{fuel.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
@@ -159,7 +157,7 @@
                     </SelectTrigger>
                     <SelectContent>
                         {#each transmissionTypes as transmission}
-                            <SelectItem value={transmission}>{transmission}</SelectItem>
+                            <SelectItem value={transmission.value}>{transmission.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
@@ -199,7 +197,7 @@
                     </SelectTrigger>
                     <SelectContent>
                         {#each drivetrainTypes as drivetrain}
-                            <SelectItem value={drivetrain}>{drivetrain}</SelectItem>
+                            <SelectItem value={drivetrain.value}>{drivetrain.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
@@ -238,7 +236,7 @@
                     </SelectTrigger>
                     <SelectContent>
                         {#each interiorMaterials as material}
-                            <SelectItem value={material}>{material}</SelectItem>
+                            <SelectItem value={material.value}>{material.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>

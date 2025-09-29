@@ -8,9 +8,9 @@
 
 <div class="hidden md:block">
     <Button 
-    href={UNPROTECTED_PAGE_ENDPOINTS.LOGIN_PAGE}
-    aria-label="Login"
->
+        href={UNPROTECTED_PAGE_ENDPOINTS.LOGIN_PAGE}
+        aria-label="Login"
+    >
         Login
     </Button>
 </div>

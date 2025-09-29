@@ -47,8 +47,6 @@
             images: base64Images
         };
 
-        console.log("Validation data:", validationData);
-
         if (!validateForm(addCarCompleteSchema, validationData, (newErrors) => addCarContext.errors = newErrors)) {
             return;
         }

@@ -1,5 +1,15 @@
 // TYPES
-import type { typesCar, typesBuyer } from "../types/types"
+import type {
+    typesBuyer,
+    typesCarHomologationStatusType,
+    typesCarRegistrationStatusType,
+    typesCarFuelType,
+    typesCarTransmissionType,
+    typesCarDrivetrainType,
+    typesCarInteriorMaterialType,
+    typesOriginCountry,
+    typesPurchaseSource
+} from "../types/types"
 
 export const featuredCars = [
     {
@@ -34,18 +44,81 @@ export const featuredCars = [
     }
 ];
 
-export const brands = [
-    { name: 'BMW', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Audi', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Mercedes', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Porsche', logo: '/placeholder.svg?height=60&width=120' },
-    { name: 'Tesla', logo: '/placeholder.svg?height=60&width=120' },
+export const brands: { value: string; text: string; name: string; logo: string }[] = [
+    { value: 'bmw', text: 'BMW', name: 'BMW', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'audi', text: 'Audi', name: 'Audi', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'mercedes', text: 'Mercedes', name: 'Mercedes', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'porsche', text: 'Porsche', name: 'Porsche', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'tesla', text: 'Tesla', name: 'Tesla', logo: '/placeholder.svg?height=60&width=120' }
 ];
 
-export const fuelTypes = ['Benzin', 'Dizel', 'Hibrid', 'Električni', 'Flex Fuel'];
-export const transmissionTypes = ['Automatski', 'Manuelni', 'CVT', 'Poluautomatski'];
-export const drivetrainTypes = ['FWD', 'RWD', 'AWD', '4WD'];
-export const interiorMaterials = ['Tkanina', 'Koža', 'Veštačka koža', 'Alcantara', 'Kombinovano'];
+export const fuelTypes: { value: typesCarFuelType; text: string }[] = [
+    { value: 'gasoline', text: 'Benzin' },
+    { value: 'diesel', text: 'Dizel' },
+    { value: 'hybrid', text: 'Hibrid' },
+    { value: 'electric', text: 'Električni' },
+    { value: 'flex_fuel', text: 'Flex Fuel' }
+];
+
+export const transmissionTypes: { value: typesCarTransmissionType; text: string }[] = [
+    { value: 'automatic', text: 'Automatski' },
+    { value: 'manual', text: 'Manuelni' },
+    { value: 'cvt', text: 'CVT' },
+    { value: 'semi_automatic', text: 'Poluautomatski' }
+];
+
+export const drivetrainTypes: { value: typesCarDrivetrainType; text: string }[] = [
+    { value: 'fwd', text: 'FWD' },
+    { value: 'rwd', text: 'RWD' },
+    { value: 'awd', text: 'AWD' },
+    { value: '4wd', text: '4WD' }
+];
+
+export const interiorMaterials: { value: typesCarInteriorMaterialType; text: string }[] = [
+    { value: 'fabric', text: 'Tkanina' },
+    { value: 'leather', text: 'Koža' },
+    { value: 'synthetic_leather', text: 'Veštačka koža' },
+    { value: 'alcantara', text: 'Alcantara' },
+    { value: 'mixed', text: 'Kombinovano' }
+];
+
+export const homologationStatusOptions: { value: typesCarHomologationStatusType; text: string }[] = [
+    { value: 'completed', text: 'Završena' },
+    { value: 'in_progress', text: 'U toku' },
+    { value: 'not_started', text: 'Nije započeta' },
+    { value: 'not_required', text: 'Nije potrebna' }
+];
+
+export const registrationStatusOptions: { value: typesCarRegistrationStatusType; text: string }[] = [
+    { value: 'registered', text: 'Registrovano' },
+    { value: 'pending', text: 'Na čekanju' },
+    { value: 'not_registered', text: 'Nije registrovano' }
+];
+
+export const titleStatusOptions = [
+    { value: 'clean', text: 'Čist' },
+    { value: 'salvage', text: 'Oštećen' },
+    { value: 'rebuilt', text: 'Obnovljen' },
+    { value: 'lemon', text: 'Lemon' },
+    { value: 'flood', text: 'Poplavljeno' }
+];
+
+export const accidentsOptions = [
+    { value: 'none', text: 'Bez nesreća' },
+    { value: 'minor', text: 'Manje nesreće' },
+    { value: 'major', text: 'Veće nesreće' },
+    { value: 'unknown', text: 'Nepoznato' }
+];
+
+export const originCountries: { value: typesOriginCountry; text: string }[] = [
+    { value: 'usa', text: 'USA' }
+];
+
+export const purchaseSources: { value: typesPurchaseSource; text: string }[] = [
+    { value: 'private_seller', text: 'Private Seller' },
+    { value: 'dealer', text: 'Dealer' },
+    { value: 'auction', text: 'Auction' }
+];
 
 export const dummyBuyers: typesBuyer[] = [
     {
@@ -71,378 +144,5 @@ export const dummyBuyers: typesBuyer[] = [
         email: "stefan.nikolic@email.com",
         address: "Cara Dušana 8, Niš",
         notes: "Kupuje za firmu",
-    },
-]
-
-export const dummyCurrentCars: typesCar[] = [
-    {
-        id: 1,
-        vin: "1FA6P8TH5N5123456",
-        brand: "Ford",
-        model: "Mustang GT",
-        year: 2023,
-        price: 45000,
-        currency: "EUR",
-        mileageKm: 15000,
-        mileageMiles: 9320,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "5.0L V8",
-        powerHp: 450,
-        drivetrain: "RWD",
-        colorExterior: "Race Red",
-        colorInterior: "Ebony",
-        interiorMaterial: "Koža",
-        location: "Beograd",
-        status: "active",
-        description:
-            "Prelepi Ford Mustang GT 2023. godište, uvezen iz USA. Automobil je u odličnom stanju, redovno servisiran.",
-        history: {
-            id: 1,
-            carId: 1,
-            titleStatus: "Clean Title",
-            firstRegistration: "2023-03-15",
-            owners: 1,
-            serviceHistory: "Redovno servisiran u ovlašćenom servisu",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 1,
-            carId: 1,
-            originCountry: "USA",
-            purchaseSource: "Copart Auction",
-            purchaseDate: "2023-12-01",
-            usPurchasePrice: 38000,
-            shippingCost: 2500,
-            customsTax: 4500,
-            importDate: "2024-01-15",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [
-            { id: 1, carId: 1, imageUrl: "/red-ford-mustang-gt-front-view.jpg" },
-            { id: 2, carId: 1, imageUrl: "/red-ford-mustang-gt-interior.jpg" },
-            { id: 3, carId: 1, imageUrl: "/red-ford-mustang-gt-side-view.jpg" },
-        ],
-        sales: [],
-    },
-    {
-        id: 2,
-        vin: "1G1FB1RX8N0123456",
-        brand: "Chevrolet",
-        model: "Camaro SS",
-        year: 2022,
-        price: 42000,
-        currency: "EUR",
-        mileageKm: 22000,
-        mileageMiles: 13670,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "6.2L V8",
-        powerHp: 455,
-        drivetrain: "RWD",
-        colorExterior: "Summit White",
-        colorInterior: "Jet Black",
-        interiorMaterial: "Koža/Alcantara",
-        location: "Novi Sad",
-        status: "pending",
-        description: "Chevrolet Camaro SS 2022, snažan V8 motor. Automobil je trenutno u procesu homologacije.",
-        history: {
-            id: 2,
-            carId: 2,
-            titleStatus: "Clean Title",
-            firstRegistration: "2022-08-20",
-            owners: 1,
-            serviceHistory: "Servisiran prema preporuci proizvođača",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 2,
-            carId: 2,
-            originCountry: "USA",
-            purchaseSource: "Manheim Auction",
-            purchaseDate: "2024-01-05",
-            usPurchasePrice: 35000,
-            shippingCost: 2300,
-            customsTax: 4700,
-            importDate: "2024-01-20",
-            homologationStatus: "U toku",
-            registrationStatus: "Čeka homologaciju",
-        },
-        images: [
-            { id: 4, carId: 2, imageUrl: "/white-chevrolet-camaro-ss-front.jpg" },
-            { id: 5, carId: 2, imageUrl: "/white-chevrolet-camaro-ss-interior.jpg" },
-        ],
-        sales: [],
-    },
-    {
-        id: 3,
-        vin: "2C3CDZC99MH123456",
-        brand: "Dodge",
-        model: "Challenger SRT Hellcat",
-        year: 2021,
-        price: 58000,
-        currency: "EUR",
-        mileageKm: 18500,
-        mileageMiles: 11495,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "6.2L V8 Supercharged",
-        powerHp: 717,
-        drivetrain: "RWD",
-        colorExterior: "Pitch Black",
-        colorInterior: "Red/Black",
-        interiorMaterial: "Nappa koža",
-        location: "Beograd",
-        status: "active",
-        description: "Dodge Challenger SRT Hellcat - zver od 717 KS! Retko viđen primerak u Srbiji.",
-        history: {
-            id: 3,
-            carId: 3,
-            titleStatus: "Clean Title",
-            firstRegistration: "2021-05-10",
-            owners: 2,
-            serviceHistory: "Kompletna istorija servisa dostupna",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 3,
-            carId: 3,
-            originCountry: "USA",
-            purchaseSource: "Barrett-Jackson Auction",
-            purchaseDate: "2023-11-15",
-            usPurchasePrice: 48000,
-            shippingCost: 2800,
-            customsTax: 7200,
-            importDate: "2024-01-10",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [
-            { id: 6, carId: 3, imageUrl: "/black-dodge-challenger-hellcat-front.jpg" },
-            { id: 7, carId: 3, imageUrl: "/black-dodge-challenger-hellcat-interior-red-seats.jpg" },
-            { id: 8, carId: 3, imageUrl: "/black-dodge-challenger-hellcat-engine-bay.jpg" },
-        ],
-        sales: [],
-    },
-    {
-        id: 4,
-        vin: "5YJ3E1EA8MF123456",
-        brand: "Tesla",
-        model: "Model 3 Performance",
-        year: 2021,
-        price: 38000,
-        currency: "EUR",
-        mileageKm: 35000,
-        mileageMiles: 21748,
-        fuel: "Električni",
-        transmission: "Automatik",
-        engine: "Dual Motor",
-        powerHp: 450,
-        drivetrain: "AWD",
-        colorExterior: "Pearl White",
-        colorInterior: "Black",
-        interiorMaterial: "Vegan koža",
-        location: "Kragujevac",
-        status: "active",
-        description: "Tesla Model 3 Performance - budućnost je stigla! Autopilot, over-the-air updates.",
-        history: {
-            id: 4,
-            carId: 4,
-            titleStatus: "Clean Title",
-            firstRegistration: "2021-09-12",
-            owners: 1,
-            serviceHistory: "Tesla Service Center - sve ažurno",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 4,
-            carId: 4,
-            originCountry: "USA",
-            purchaseSource: "Tesla Direct",
-            purchaseDate: "2023-12-20",
-            usPurchasePrice: 32000,
-            shippingCost: 2200,
-            customsTax: 3800,
-            importDate: "2024-01-25",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [
-            { id: 9, carId: 4, imageUrl: "/white-tesla-model-3-performance-front.jpg" },
-            { id: 10, carId: 4, imageUrl: "/tesla-model-3-interior-dashboard-screen.jpg" },
-        ],
-        sales: [],
-    },
-]
-
-export const dummyCarHistory: typesCar[] = [
-    {
-        id: 5,
-        vin: "1G6DV5EP8M0123456",
-        brand: "Cadillac",
-        model: "Escalade Premium",
-        year: 2021,
-        price: 65000,
-        currency: "EUR",
-        mileageKm: 28000,
-        mileageMiles: 17398,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "6.2L V8",
-        powerHp: 420,
-        drivetrain: "AWD",
-        colorExterior: "Black Raven",
-        colorInterior: "Jet Black",
-        interiorMaterial: "Semi-aniline koža",
-        location: "Beograd",
-        status: "sold",
-        description: "Cadillac Escalade Premium - luksuz na najvišem nivou. Prodat zadovoljnom kupcu.",
-        history: {
-            id: 5,
-            carId: 5,
-            titleStatus: "Clean Title",
-            firstRegistration: "2021-04-08",
-            owners: 1,
-            serviceHistory: "Cadillac ovlašćeni servis",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 5,
-            carId: 5,
-            originCountry: "USA",
-            purchaseSource: "Adesa Auction",
-            purchaseDate: "2023-10-15",
-            usPurchasePrice: 52000,
-            shippingCost: 3000,
-            customsTax: 10000,
-            importDate: "2023-12-01",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [{ id: 11, carId: 5, imageUrl: "/black-cadillac-escalade-premium-front.jpg" }],
-        sales: [
-            {
-                id: 1,
-                carId: 5,
-                buyerId: 2,
-                listedDate: "2023-12-15",
-                soldDate: "2024-01-05",
-                finalPrice: 65000,
-                notes: "Kupac je bio vrlo zadovoljan. Plaćeno odmah.",
-            },
-        ],
-    },
-    {
-        id: 6,
-        vin: "1FTFW1ET8MFC12345",
-        brand: "Ford",
-        model: "F-150 Raptor",
-        year: 2022,
-        price: 52000,
-        currency: "EUR",
-        mileageKm: 12000,
-        mileageMiles: 7456,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "3.5L V6 Twin-Turbo",
-        powerHp: 450,
-        drivetrain: "4WD",
-        colorExterior: "Oxford White",
-        colorInterior: "Black",
-        interiorMaterial: "Koža/Alcantara",
-        location: "Novi Sad",
-        status: "sold",
-        description: "Ford F-150 Raptor - off-road zver! Prodat ljubitelju terenskih vozila.",
-        history: {
-            id: 6,
-            carId: 6,
-            titleStatus: "Clean Title",
-            firstRegistration: "2022-06-20",
-            owners: 1,
-            serviceHistory: "Ford ovlašćeni servis",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 6,
-            carId: 6,
-            originCountry: "USA",
-            purchaseSource: "IAA Auction",
-            purchaseDate: "2023-11-01",
-            usPurchasePrice: 42000,
-            shippingCost: 2600,
-            customsTax: 7400,
-            importDate: "2023-12-20",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [{ id: 12, carId: 6, imageUrl: "/white-ford-f150-raptor-pickup-truck.jpg" }],
-        sales: [
-            {
-                id: 2,
-                carId: 6,
-                buyerId: 3,
-                listedDate: "2024-01-01",
-                soldDate: "2024-01-10",
-                finalPrice: 52000,
-                notes: "Kupac kupuje za firmu. Potrebna je bila faktura.",
-            },
-        ],
-    },
-    {
-        id: 7,
-        vin: "1C4RJFAG8MC123456",
-        brand: "Jeep",
-        model: "Grand Cherokee SRT",
-        year: 2021,
-        price: 48000,
-        currency: "EUR",
-        mileageKm: 25000,
-        mileageMiles: 15534,
-        fuel: "Benzin",
-        transmission: "Automatik",
-        engine: "6.4L V8",
-        powerHp: 475,
-        drivetrain: "AWD",
-        colorExterior: "Granite Crystal",
-        colorInterior: "Black/Red",
-        interiorMaterial: "Laguna koža",
-        location: "Beograd",
-        status: "sold",
-        description: "Jeep Grand Cherokee SRT - sportski SUV sa V8 motorom. Brza prodaja!",
-        history: {
-            id: 7,
-            carId: 7,
-            titleStatus: "Clean Title",
-            firstRegistration: "2021-07-15",
-            owners: 1,
-            serviceHistory: "Jeep ovlašćeni servis",
-            accidents: "Bez udesa",
-        },
-        import: {
-            id: 7,
-            carId: 7,
-            originCountry: "USA",
-            purchaseSource: "Copart Auction",
-            purchaseDate: "2023-09-20",
-            usPurchasePrice: 38000,
-            shippingCost: 2400,
-            customsTax: 7600,
-            importDate: "2023-11-15",
-            homologationStatus: "Završena",
-            registrationStatus: "Registrovan",
-        },
-        images: [{ id: 13, carId: 7, imageUrl: "/gray-jeep-grand-cherokee-srt-suv.jpg" }],
-        sales: [
-            {
-                id: 3,
-                carId: 7,
-                buyerId: 1,
-                listedDate: "2023-12-01",
-                soldDate: "2023-12-28",
-                finalPrice: 48000,
-                notes: "Marko je redovan kupac. Treći automobil koji kupuje od nas.",
-            },
-        ],
     },
 ]

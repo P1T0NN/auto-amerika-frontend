@@ -10,11 +10,18 @@
     // CONTEXT
     import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
+    // DATA
+    import { titleStatusOptions, accidentsOptions } from "@/features/cars/data/cars-data";
+
     let selectedTitleStatus = $state(addCarContext.formData.titleStatus || "");
     let selectedAccidents = $state(addCarContext.formData.accidents || "");
 
-    const titleStatusTriggerContent = $derived(selectedTitleStatus || "Izaberite status");
-    const accidentsTriggerContent = $derived(selectedAccidents || "Izaberite");
+    const titleStatusTriggerContent = $derived(
+        titleStatusOptions.find(option => option.value === selectedTitleStatus)?.text || "Izaberite status"
+    );
+    const accidentsTriggerContent = $derived(
+        accidentsOptions.find(option => option.value === selectedAccidents)?.text || "Izaberite"
+    );
 
     $effect(() => {
         addCarContext.formData.titleStatus = selectedTitleStatus;
@@ -35,11 +42,9 @@
                         <span>{titleStatusTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="clean">Čist</SelectItem>
-                        <SelectItem value="salvage">Oštećen</SelectItem>
-                        <SelectItem value="rebuilt">Obnovljen</SelectItem>
-                        <SelectItem value="lemon">Lemon</SelectItem>
-                        <SelectItem value="flood">Poplavljeno</SelectItem>
+                        {#each titleStatusOptions as option}
+                            <SelectItem value={option.value}>{option.text}</SelectItem>
+                        {/each}
                     </SelectContent>
                 </Select>
                 <ErrorMessage issues={addCarContext.errors.titleStatus ? [{message: addCarContext.errors.titleStatus}] : undefined} />
@@ -78,10 +83,9 @@
                         <span>{accidentsTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
-                        <SelectItem value="none">Bez nesreća</SelectItem>
-                        <SelectItem value="minor">Manje nesreće</SelectItem>
-                        <SelectItem value="major">Veće nesreće</SelectItem>
-                        <SelectItem value="unknown">Nepoznato</SelectItem>
+                        {#each accidentsOptions as option}
+                            <SelectItem value={option.value}>{option.text}</SelectItem>
+                        {/each}
                     </SelectContent>
                 </Select>
                 <ErrorMessage issues={addCarContext.errors.accidents ? [{message: addCarContext.errors.accidents}] : undefined} />

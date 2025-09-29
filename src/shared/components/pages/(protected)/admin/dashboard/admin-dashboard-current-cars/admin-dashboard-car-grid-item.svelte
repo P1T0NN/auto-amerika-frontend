@@ -3,11 +3,11 @@
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import { Button } from '@/shared/components/ui/button';
 
-    // LUCIDE ICONS
-    import { Edit2 } from '@lucide/svelte';
-
     // UTILS
     import { getCarStatusClass, getCarStatusText } from '@/features/cars/utils/cars-utils';
+
+    // LUCIDE ICONS
+    import { Edit2 } from '@lucide/svelte';
 
     let { filteredCars } = $props();
 </script>

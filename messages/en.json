@@ -1,4 +1,10 @@
 {
-  "$schema": "https://inlang.com/schema/inlang-message-format",
-  "example_message": "Hello world {username}"
+    "$schema": "https://inlang.com/schema/inlang-message-format",
+    "example_message": "Hello world {username}",
+    "AlertDialogButton": {
+        "title": "Action cannot be reversed",
+        "description": "Are you sure you want to do this? This action cannot be undone.",
+        "cancel": "Cancel",
+        "proceed": "Proceed"
+    }
 }
