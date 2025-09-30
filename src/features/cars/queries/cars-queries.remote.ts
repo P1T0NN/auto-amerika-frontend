@@ -5,26 +5,38 @@ import { error } from "@sveltejs/kit";
 // LIBRARIES
 import { serverApiClient } from "@/shared/lib/api-client/api-client";
 
-export const fetchAllCars = query(async () => {
-    const event = getRequestEvent();
-    const sessionToken = event.cookies.get("session_token");
+// TYPES
+import type { typesCarFiltersRequest } from "@/features/cars/types/filters-types";
 
-    if (!sessionToken) {
-        return {
-            success: false,
-            data: null,
-            message: "USER_NOT_AUTHENTICATED"
-        };
-    }
-
-    const response = await serverApiClient.cars.fetchAllCars(sessionToken);
+export const fetchAllCars = query("unchecked", async (page: number) => {
+    const perPage = 10;
+    const response = await serverApiClient.cars.fetchAllCars(page, perPage);
 
     if (!response.success) {
-        return {
-            success: false,
-            message: "FETCH_FAILED",
-            data: null
-        }
+        error(404, "FETCH_FAILED");
+    }
+
+    return {
+        success: true,
+        message: "FETCH_SUCCESS",
+        data: response.data
+    }
+})
+
+export const fetchCarsByFilters = query("unchecked", async (params: { filters: typesCarFiltersRequest; page: number }) => {
+    const perPage = 6;
+
+    // Merge filters with pagination
+    const requestParams = {
+        ...params.filters,
+        page: params.page,
+        perPage
+    };
+
+    const response = await serverApiClient.cars.fetchCarsByFilters(requestParams);
+
+    if (!response.success) {
+        error(404, "FETCH_FAILED");
     }
 
     return {
@@ -49,7 +61,7 @@ export const fetchCarById = query("unchecked", async (carId: string) => {
     const response = await serverApiClient.cars.fetchCarById(carId, sessionToken);
 
     if (!response.success) {
-        error(404, response.message);
+        error(404, "FETCH_FAILED");
     }
 
     return {

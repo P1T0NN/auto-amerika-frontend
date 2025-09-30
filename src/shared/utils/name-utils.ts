@@ -5,3 +5,8 @@ export function getInitials(name: string): string {
     }
     return words[0].charAt(0).toUpperCase() + words[1].charAt(0).toUpperCase();
 }
+
+export function capitalizeFirstLetter(word: string): string {
+    if (!word) return word;
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}

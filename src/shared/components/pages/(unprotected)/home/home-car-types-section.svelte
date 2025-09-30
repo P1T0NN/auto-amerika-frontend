@@ -1,4 +1,7 @@
 <script lang="ts">
+    // CONFIG
+    import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
+
 	// SVG ICONS
 	import ConvertibleCar from '@/shared/svgs/convertible-car.svelte';
 	import CoupeCar from '@/shared/svgs/coupe-car.svelte';
@@ -9,15 +12,15 @@
     import TruckCar from '@/shared/svgs/truck-car.svelte';
 	import WagonCar from '@/shared/svgs/wagon-car.svelte';
 
-	const vehicleTypes = [
-		{ name: 'Convertibles', icon: ConvertibleCar },
-		{ name: 'Coupes', icon: CoupeCar },
-		{ name: 'Hatchbacks', icon: HatchbackCar },
-		{ name: 'Sedans', icon: SedanCar },
-		{ name: 'SUVs', icon: SuvCar },
-		{ name: 'Vans', icon: VanCar },
-		{ name: 'Trucks', icon: TruckCar },
-		{ name: 'Wagons', icon: WagonCar }
+	const carTypes = [
+		{ name: 'Convertibles', icon: ConvertibleCar, value: 'convertible' },
+		{ name: 'Coupes', icon: CoupeCar, value: 'coupe' },
+		{ name: 'Hatchbacks', icon: HatchbackCar, value: 'hatchback' },
+		{ name: 'Sedans', icon: SedanCar, value: 'sedan' },
+		{ name: 'SUVs', icon: SuvCar, value: 'suv' },
+		{ name: 'Vans', icon: VanCar, value: 'van' },
+		{ name: 'Trucks', icon: TruckCar, value: 'truck' },
+		{ name: 'Wagons', icon: WagonCar, value: 'wagon' }
 	];
 
 	let hoveredType = $state<number | null>(null);
@@ -39,8 +42,9 @@
 
 		<!-- Redesigned grid with more sophisticated cards and better spacing -->
 		<div class="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-6">
-			{#each vehicleTypes as type, index}
-				<button
+			{#each carTypes as type, index}
+				<a
+                    href={`${UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}?carType=${type.value}`}
 					class="group relative rounded-2xl border border-zinc-800 bg-zinc-900/50 p-8 backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-primary/50 hover:bg-zinc-900 hover:shadow-[0_0_30px_rgba(220,38,38,0.15)] md:p-10"
 					onmouseenter={() => (hoveredType = index)}
 					onmouseleave={() => (hoveredType = null)}
@@ -72,7 +76,7 @@
 					<div
 						class="absolute top-4 right-4 h-2 w-2 rounded-full bg-primary opacity-0 transition-opacity duration-300 group-hover:opacity-100"
 					></div>
-				</button>
+				</a>
 			{/each}
 		</div>
 	</div>

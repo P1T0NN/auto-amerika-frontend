@@ -8,6 +8,7 @@ export type typesCarHomologationStatusType = "completed" | "in_progress" | "not_
 export type typesCarRegistrationStatusType = "registered" | "pending" | "not_registered";
 export type typesOriginCountry = "usa";
 export type typesPurchaseSource = "private_seller" | "dealer" | "auction";
+export type typesCarType = "sedan" | "coupe" | "convertible" | "wagon" | "suv" | "hatchback" | "wagon";
 
 export type typesCar = {
     id: string;
@@ -29,6 +30,7 @@ export type typesCar = {
     location: string;
     status: typesCarStatusType;
     description: string;
+    carType: typesCarType;
   
     // Relations
     history?: typesCarHistory;

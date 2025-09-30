@@ -9,7 +9,7 @@
 <section class="relative flex h-screen items-center justify-center overflow-hidden">
 	<div class="absolute inset-0 z-0">
 		<img
-			src="/home/hero.jpg"
+			src="/home/hero1.webp"
 			alt="Luxury American cars"
 			class="h-full w-full object-cover"
 		/>

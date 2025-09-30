@@ -45,11 +45,34 @@ export const featuredCars = [
 ];
 
 export const brands: { value: string; text: string; name: string; logo: string }[] = [
-    { value: 'bmw', text: 'BMW', name: 'BMW', logo: '/placeholder.svg?height=60&width=120' },
     { value: 'audi', text: 'Audi', name: 'Audi', logo: '/placeholder.svg?height=60&width=120' },
-    { value: 'mercedes', text: 'Mercedes', name: 'Mercedes', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'bmw', text: 'BMW', name: 'BMW', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'ford', text: 'Ford', name: 'Ford', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'honda', text: 'Honda', name: 'Honda', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'mercedes', text: 'Mercedes-Benz', name: 'Mercedes-Benz', logo: '/placeholder.svg?height=60&width=120' },
+    { value: 'nissan', text: 'Nissan', name: 'Nissan', logo: '/placeholder.svg?height=60&width=120' },
     { value: 'porsche', text: 'Porsche', name: 'Porsche', logo: '/placeholder.svg?height=60&width=120' },
-    { value: 'tesla', text: 'Tesla', name: 'Tesla', logo: '/placeholder.svg?height=60&width=120' }
+    { value: 'toyota', text: 'Toyota', name: 'Toyota', logo: '/placeholder.svg?height=60&width=120' }
+];
+
+export const bodyTypes: { value: string; text: string }[] = [
+    { value: 'convertible', text: 'Convertible' },
+    { value: 'coupe', text: 'Coupe' },
+    { value: 'hatchback', text: 'Hatchback' },
+    { value: 'sedan', text: 'Sedan' },
+    { value: 'suv', text: 'SUV' },
+    { value: 'truck', text: 'Truck' },
+    { value: 'van', text: 'Van' },
+    { value: 'wagon', text: 'Wagon' }
+];
+
+export const colors: { value: string; text: string }[] = [
+    { value: 'black', text: 'Black' },
+    { value: 'white', text: 'White' },
+    { value: 'gray', text: 'Gray' },
+    { value: 'red', text: 'Red' },
+    { value: 'blue', text: 'Blue' },
+    { value: 'green', text: 'Green' },
 ];
 
 export const fuelTypes: { value: typesCarFuelType; text: string }[] = [

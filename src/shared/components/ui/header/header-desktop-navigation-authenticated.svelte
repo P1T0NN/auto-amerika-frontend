@@ -16,7 +16,7 @@
 
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger>
-		<Button variant="ghost" class="h-auto p-2 hover:bg-zinc-800">
+		<Button variant="ghost" class="hidden md:flex h-auto p-2 hover:bg-zinc-800">
 			<div class="flex items-center space-x-2">
 				<Avatar.Root class="h-8 w-8">
 					<Avatar.Fallback class="bg-primary text-primary-foreground text-sm font-medium">

@@ -7,13 +7,17 @@
     // QUERIES
     import { fetchAllCars } from '@/features/cars/queries/cars-queries.remote';
 
+    // TYPES
+    import type { typesCar } from '@/features/cars/types/types';
+
     let searchTerm = $state('');
 
-    const { data: cars } = $derived(await fetchAllCars());
+    const { data: paginatedData } = $derived(await fetchAllCars(1)); // Fetch first page for admin dashboard
+    const cars = $derived(paginatedData?.items ?? []);
 </script>
 
 <div class="mb-12">
-    {#if cars?.length === 0}
+    {#if cars.length === 0}
         <AdminDashboardCurrentCarsEmpty />
     {:else}
         <AdminDashboardCurrentCarsHeader
@@ -21,6 +25,6 @@
             bind:searchTerm={searchTerm}
         />
 
-        <AdminDashboardCarListItem cars={cars} />
+        <AdminDashboardCarListItem cars={cars as typesCar[]} />
     {/if}
 </div>

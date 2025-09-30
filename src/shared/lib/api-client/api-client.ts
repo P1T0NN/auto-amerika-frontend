@@ -119,14 +119,16 @@ async function serverApiRequest<T>(
  * Server-side API client for use in server-side code
  */
 
-import type { 
-    typesAddCarRequest, 
-    typesEditCarInformationRequest, 
+import type {
+    typesAddCarRequest,
+    typesEditCarInformationRequest,
     typesEditCarHistoryRequest,
     typesEditCarImport,
-    typesEditCarImagesRequest, 
-    typesCar 
+    typesEditCarImagesRequest,
+    typesCar
 } from '@/features/cars/types/types';
+import type { typesPaginatedResponse } from '@/shared/types/pagination-types';
+import type { typesCarFiltersRequest } from '@/features/cars/types/filters-types';
 
 export const serverApiClient = {
     auth: {
@@ -160,8 +162,26 @@ export const serverApiClient = {
         makeUnavailable: async (carId: string, sessionToken: string): Promise<ApiResponse<void>> => {
             return serverApiRequest<void>('/cars/make-unavailable', 'PUT', { carId }, undefined, sessionToken);
         },
-        fetchAllCars: async (sessionToken: string): Promise<ApiResponse<typesCar[]>> => {
-            return serverApiRequest<typesCar[]>('/cars/get-all-cars', 'GET', undefined, undefined, sessionToken);
+        fetchAllCars: async (page: number, perPage: number): Promise<ApiResponse<typesPaginatedResponse<typesCar>>> => {
+            return serverApiRequest<typesPaginatedResponse<typesCar>>(`/cars/get-all-cars?page=${page}&perPage=${perPage}`, 'GET', undefined, undefined, undefined);
+        },
+        fetchCarsByFilters: async (filters: typesCarFiltersRequest): Promise<ApiResponse<typesPaginatedResponse<typesCar>>> => {
+            const queryParams = new URLSearchParams();
+
+            // Add all filter params to query string
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value !== undefined && value !== null) {
+                    queryParams.append(key, String(value));
+                }
+            });
+
+            return serverApiRequest<typesPaginatedResponse<typesCar>>(
+                `/cars/get-cars-by-filters?${queryParams.toString()}`,
+                'GET',
+                undefined,
+                undefined,
+                undefined
+            );
         },
         fetchCarById: async (carId: string, sessionToken: string): Promise<ApiResponse<typesCar>> => {
             return serverApiRequest<typesCar>(`/cars/get-car-by-id?carId=${carId}`, 'GET', undefined, undefined, sessionToken);

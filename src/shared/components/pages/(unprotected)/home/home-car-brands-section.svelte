@@ -1,25 +1,35 @@
 <script lang="ts">
+	// CONFIG
+	import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
+
+	// ICONS
+	import { ArrowRight } from '@lucide/svelte';
+
 	const brands = [
 		{
 			name: 'Audi',
+			value: 'audi',
 			image: '/home/audi.jpg',
 			description: 'German Engineering Excellence',
 			tagline: 'Vorsprung durch Technik'
 		},
 		{
 			name: 'BMW',
+			value: 'bmw',
 			image: '/home/bmw.jpg',
 			description: 'The Ultimate Driving Machine',
 			tagline: 'Sheer Driving Pleasure'
 		},
 		{
 			name: 'Porsche',
+			value: 'porsche',
 			image: '/home/porsche.jpg',
 			description: 'Legendary Sports Performance',
 			tagline: 'There Is No Substitute'
 		},
 		{
 			name: 'Nissan',
+			value: 'nissan',
 			image: '/home/nissan.jpg',
 			description: 'Innovation That Excites',
 			tagline: 'Innovation For All'
@@ -47,7 +57,8 @@
 		<!-- Larger, more impactful brand cards with better hover effects -->
 		<div class="grid grid-cols-1 gap-8 md:grid-cols-2">
 			{#each brands as brand, index}
-				<button
+				<a
+					href={`${UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}?brand=${brand.value}`}
 					class="group relative overflow-hidden rounded-3xl bg-zinc-100 shadow-xl transition-all duration-700 hover:scale-[1.02] hover:shadow-2xl"
 					onmouseenter={() => (hoveredBrand = index)}
 					onmouseleave={() => (hoveredBrand = null)}
@@ -90,19 +101,10 @@
 						<div
 							class="absolute right-8 bottom-8 flex h-14 w-14 scale-75 transform items-center justify-center rounded-full bg-primary opacity-0 shadow-lg transition-all duration-500 group-hover:scale-100 group-hover:opacity-100"
 						>
-							<svg
+							<ArrowRight
 								class="h-7 w-7 transform text-white transition-transform duration-300 group-hover:translate-x-1"
-								fill="none"
-								stroke="currentColor"
-								viewBox="0 0 24 24"
-							>
-								<path
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="2.5"
-									d="M13 7l5 5m0 0l-5 5m5-5H6"
-								/>
-							</svg>
+								strokeWidth={2.5}
+							/>
 						</div>
 					</div>
 
@@ -110,7 +112,7 @@
 					<div
 						class="absolute top-0 left-0 h-1 w-0 bg-primary transition-all duration-700 group-hover:w-32"
 					></div>
-				</button>
+				</a>
 			{/each}
 		</div>
 	</div>
