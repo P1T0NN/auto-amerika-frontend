@@ -7,7 +7,7 @@
     import ErrorMessage from '@/shared/components/ui/error-message/error-message.svelte';
 
     // DATA
-    import { fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials } from '@/features/cars/data/cars-data';
+    import { fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials, colors } from '@/features/cars/data/cars-data';
 
     // TYPES
     import type { typesCar } from '@/features/cars/types/types';
@@ -24,11 +24,15 @@
     let selectedTransmission = $state(editCarForm.input?.transmission || car.transmission || "");
     let selectedDrivetrain = $state(editCarForm.input?.drivetrain || car.drivetrain || "");
     let selectedInteriorMaterial = $state(editCarForm.input?.interiorMaterial || car.interiorMaterial || "");
+    let selectedColorExterior = $state(editCarForm.input?.colorExterior || car.colorExterior || "");
+    let selectedColorInterior = $state(editCarForm.input?.colorInterior || car.colorInterior || "");
 
     const fuelTriggerContent = $derived(fuelTypes.find(f => f.value === selectedFuel)?.text || "Izaberite gorivo");
     const transmissionTriggerContent = $derived(transmissionTypes.find(t => t.value === selectedTransmission)?.text || "Izaberite menjač");
     const drivetrainTriggerContent = $derived(drivetrainTypes.find(d => d.value === selectedDrivetrain)?.text || "Izaberite pogon");
     const interiorMaterialTriggerContent = $derived(interiorMaterials.find(m => m.value === selectedInteriorMaterial)?.text || "Izaberite materijal");
+    const colorExteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorExterior)?.text || "Izaberite boju");
+    const colorInteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorInterior)?.text || "Izaberite boju");
 </script>
 
 <Card>
@@ -124,25 +128,31 @@
 
             <div class="space-y-2">
                 <Label for="colorExterior" class="text-sm font-medium">Exterior Color *</Label>
-                <Input
-                    id="colorExterior"
-                    name="colorExterior"
-                    placeholder="Crvena"
-                    value={editCarForm.input?.colorExterior || car.colorExterior || ''}
-                    class={editCarForm.issues?.colorExterior ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="colorExterior" bind:value={selectedColorExterior}>
+                    <SelectTrigger class={editCarForm.issues?.colorExterior ? 'border-destructive' : ''}>
+                        <span>{colorExteriorTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each colors as color}
+                            <SelectItem value={color.value}>{color.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={editCarForm.issues?.colorExterior} />
             </div>
 
             <div class="space-y-2">
                 <Label for="colorInterior" class="text-sm font-medium">Interior Color *</Label>
-                <Input
-                    id="colorInterior"
-                    name="colorInterior"
-                    placeholder="Crna"
-                    value={editCarForm.input?.colorInterior || car.colorInterior || ''}
-                    class={editCarForm.issues?.colorInterior ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="colorInterior" bind:value={selectedColorInterior}>
+                    <SelectTrigger class={editCarForm.issues?.colorInterior ? 'border-destructive' : ''}>
+                        <span>{colorInteriorTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each colors as color}
+                            <SelectItem value={color.value}>{color.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={editCarForm.issues?.colorInterior} />
             </div>
 

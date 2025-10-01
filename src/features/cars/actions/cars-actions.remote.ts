@@ -73,6 +73,7 @@ export const editCarInformation = form(
         };
 
         const response = await serverApiClient.cars.editCarInformation(processedData, sessionToken as string);
+        console.log(response);
 
         if (!response.success) {
             return {

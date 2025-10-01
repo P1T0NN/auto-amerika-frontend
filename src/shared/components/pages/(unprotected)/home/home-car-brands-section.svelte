@@ -28,9 +28,9 @@
 			tagline: 'There Is No Substitute'
 		},
 		{
-			name: 'Nissan',
-			value: 'nissan',
-			image: '/home/nissan.jpg',
+			name: 'Mercedes',
+			value: 'mercedes',
+			image: '/home/mercedes.webp',
 			description: 'Innovation That Excites',
 			tagline: 'Innovation For All'
 		}

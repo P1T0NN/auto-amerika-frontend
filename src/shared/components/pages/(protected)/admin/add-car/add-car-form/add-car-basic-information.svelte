@@ -8,31 +8,40 @@
     import ErrorMessage from "@/shared/components/ui/error-message/error-message.svelte";
 
     // DATA
-    import { brands, fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials } from '@/features/cars/data/cars-data';
+    import { brands, bodyTypes, fuelTypes, transmissionTypes, drivetrainTypes, interiorMaterials, colors } from '@/features/cars/data/cars-data';
 
     // CONTEXT
     import { addCarContext } from "@/features/cars/context/cars-context.svelte";
 
     let selectedBrand = $state(addCarContext.formData.brand || "");
+    let selectedCarType = $state(addCarContext.formData.carType || "");
     let selectedFuel = $state(addCarContext.formData.fuel || "");
     let selectedTransmission = $state(addCarContext.formData.transmission || "");
     let selectedDrivetrain = $state(addCarContext.formData.drivetrain || "");
     let selectedInteriorMaterial = $state(addCarContext.formData.interiorMaterial || "");
+    let selectedColorExterior = $state(addCarContext.formData.colorExterior || "");
+    let selectedColorInterior = $state(addCarContext.formData.colorInterior || "");
     let selectedCurrency = $state(addCarContext.formData.currency || "EUR");
 
     const brandTriggerContent = $derived(brands.find(b => b.value === selectedBrand)?.text || "Izaberite brend");
+    const carTypeTriggerContent = $derived(bodyTypes.find(bt => bt.value === selectedCarType)?.text || "Izaberite tip");
     const fuelTriggerContent = $derived(fuelTypes.find(f => f.value === selectedFuel)?.text || "Izaberite gorivo");
     const transmissionTriggerContent = $derived(transmissionTypes.find(t => t.value === selectedTransmission)?.text || "Izaberite menjač");
     const drivetrainTriggerContent = $derived(drivetrainTypes.find(d => d.value === selectedDrivetrain)?.text || "Izaberite pogon");
     const interiorMaterialTriggerContent = $derived(interiorMaterials.find(m => m.value === selectedInteriorMaterial)?.text || "Izaberite materijal");
+    const colorExteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorExterior)?.text || "Izaberite boju");
+    const colorInteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorInterior)?.text || "Izaberite boju");
     const currencyTriggerContent = $derived(selectedCurrency || "EUR");
 
     $effect(() => {
         addCarContext.formData.brand = selectedBrand;
+        addCarContext.formData.carType = selectedCarType;
         addCarContext.formData.fuel = selectedFuel;
         addCarContext.formData.transmission = selectedTransmission;
         addCarContext.formData.drivetrain = selectedDrivetrain;
         addCarContext.formData.interiorMaterial = selectedInteriorMaterial;
+        addCarContext.formData.colorExterior = selectedColorExterior;
+        addCarContext.formData.colorInterior = selectedColorInterior;
         addCarContext.formData.currency = selectedCurrency;
     });
 </script>
@@ -94,6 +103,21 @@
                     class={addCarContext.errors.year ? 'border-destructive' : ''}
                 />
                 <ErrorMessage issues={addCarContext.errors.year ? [{message: addCarContext.errors.year}] : undefined} />
+            </div>
+
+            <div class="space-y-2">
+                <Label for="carType">Tip vozila *</Label>
+                <Select type="single" name="carType" bind:value={selectedCarType}>
+                    <SelectTrigger class={addCarContext.errors.carType ? 'border-destructive' : ''}>
+                        <span>{carTypeTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each bodyTypes as bodyType}
+                            <SelectItem value={bodyType.value}>{bodyType.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
+                <ErrorMessage issues={addCarContext.errors.carType ? [{message: addCarContext.errors.carType}] : undefined} />
             </div>
 
             <div class="space-y-2">
@@ -206,25 +230,31 @@
 
             <div class="space-y-2">
                 <Label for="colorExterior">Spoljašnja boja *</Label>
-                <Input
-                    id="colorExterior"
-                    name="colorExterior"
-                    bind:value={addCarContext.formData.colorExterior}
-                    placeholder="Crvena"
-                    class={addCarContext.errors.colorExterior ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="colorExterior" bind:value={selectedColorExterior}>
+                    <SelectTrigger class={addCarContext.errors.colorExterior ? 'border-destructive' : ''}>
+                        <span>{colorExteriorTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each colors as color}
+                            <SelectItem value={color.value}>{color.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={addCarContext.errors.colorExterior ? [{message: addCarContext.errors.colorExterior}] : undefined} />
             </div>
 
             <div class="space-y-2">
                 <Label for="colorInterior">Unutrašnja boja *</Label>
-                <Input
-                    id="colorInterior"
-                    name="colorInterior"
-                    bind:value={addCarContext.formData.colorInterior}
-                    placeholder="Crna"
-                    class={addCarContext.errors.colorInterior ? 'border-destructive' : ''}
-                />
+                <Select type="single" name="colorInterior" bind:value={selectedColorInterior}>
+                    <SelectTrigger class={addCarContext.errors.colorInterior ? 'border-destructive' : ''}>
+                        <span>{colorInteriorTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each colors as color}
+                            <SelectItem value={color.value}>{color.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
                 <ErrorMessage issues={addCarContext.errors.colorInterior ? [{message: addCarContext.errors.colorInterior}] : undefined} />
             </div>
 

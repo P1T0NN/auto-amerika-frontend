@@ -13,7 +13,8 @@ export const UNPROTECTED_PAGE_ENDPOINTS = {
     REVIEWS_PAGE: "/reviews",
     LOGIN_PAGE: "/login",
     TERMS_OF_USE: "/terms-of-use",
-    PRIVACY_POLICY: "/privacy-policy"
+    PRIVACY_POLICY: "/privacy-policy",
+    SETTINGS_PAGE: "/settings"
 }
 
 export const ADMIN_PROTECTED_PAGE_ENDPOINTS = {

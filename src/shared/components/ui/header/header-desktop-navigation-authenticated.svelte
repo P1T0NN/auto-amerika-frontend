@@ -40,10 +40,6 @@
 		</DropdownMenu.Label>
 		<DropdownMenu.Group>
 			<DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-				Profile
-			</DropdownMenu.Item>
-
-			<DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
 				Settings
 			</DropdownMenu.Item>
 

@@ -50,7 +50,36 @@
                 {item.name}
             </a>
         {/each}
-        
+
+        <div class="border-t border-zinc-800 pt-2 mt-2">
+            <a
+                href={UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE}
+                class="block px-3 py-2 text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-md transition-colors {page.url.pathname === UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE ? 'bg-zinc-800 text-white border-l-2 border-primary' : ''}"
+                onclick={() => (mobileMenuOpen = false)}
+                aria-label="Settings"
+            >
+                Settings
+            </a>
+
+            <a
+                href={UNPROTECTED_PAGE_ENDPOINTS.PRIVACY_POLICY}
+                class="block px-3 py-2 text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-md transition-colors {page.url.pathname === UNPROTECTED_PAGE_ENDPOINTS.PRIVACY_POLICY ? 'bg-zinc-800 text-white border-l-2 border-primary' : ''}"
+                onclick={() => (mobileMenuOpen = false)}
+                aria-label="Privacy Policy"
+            >
+                Privacy Policy
+            </a>
+
+            <a
+                href={UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_USE}
+                class="block px-3 py-2 text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-md transition-colors {page.url.pathname === UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_USE ? 'bg-zinc-800 text-white border-l-2 border-primary' : ''}"
+                onclick={() => (mobileMenuOpen = false)}
+                aria-label="Terms and Conditions"
+            >
+                Terms and Conditions
+            </a>
+        </div>
+
         <div class="pt-2">
             <LogoutButton />
         </div>

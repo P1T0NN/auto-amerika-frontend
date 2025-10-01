@@ -25,7 +25,7 @@
                 <BreadcrumbSeparator />
 
                 <BreadcrumbItem>
-                    <BreadcrumbPage>{car.brand} {car.model}</BreadcrumbPage>
+                    <BreadcrumbPage>{car.brand.toUpperCase()} {car.model}</BreadcrumbPage>
                 </BreadcrumbItem>
             </BreadcrumbList>
         </Breadcrumb>

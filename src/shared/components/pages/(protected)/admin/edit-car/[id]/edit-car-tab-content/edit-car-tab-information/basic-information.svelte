@@ -8,7 +8,7 @@
     import ErrorMessage from '@/shared/components/ui/error-message/error-message.svelte';
 
     // DATA
-    import { brands } from '@/features/cars/data/cars-data';
+    import { brands, bodyTypes } from '@/features/cars/data/cars-data';
 
     // TYPES
     import type { typesCar } from '@/features/cars/types/types';
@@ -22,9 +22,11 @@
     } = $props();
 
     let selectedBrand = $state(editCarForm.input?.brand || car.brand || "");
+    let selectedCarType = $state(editCarForm.input?.carType || car.carType || "");
     let selectedCurrency = $state(editCarForm.input?.currency || car.currency || "EUR");
 
     const brandTriggerContent = $derived(brands.find(b => b.value === selectedBrand)?.text || "Izaberite brend");
+    const carTypeTriggerContent = $derived(bodyTypes.find(bt => bt.value === selectedCarType)?.text || "Izaberite tip");
     const currencyTriggerContent = $derived(selectedCurrency || "EUR");
 </script>
 
@@ -91,6 +93,21 @@
                     class={editCarForm.issues?.year ? 'border-destructive' : ''}
                 />
                 <ErrorMessage issues={editCarForm.issues?.year} />
+            </div>
+
+            <div class="space-y-2">
+                <Label for="carType" class="text-sm font-medium">Car Type *</Label>
+                <Select type="single" name="carType" bind:value={selectedCarType}>
+                    <SelectTrigger class={editCarForm.issues?.carType ? 'border-destructive' : ''}>
+                        <span>{carTypeTriggerContent}</span>
+                    </SelectTrigger>
+                    <SelectContent>
+                        {#each bodyTypes as bodyType}
+                            <SelectItem value={bodyType.value}>{bodyType.text}</SelectItem>
+                        {/each}
+                    </SelectContent>
+                </Select>
+                <ErrorMessage issues={editCarForm.issues?.carType} />
             </div>
 
             <div class="space-y-2">

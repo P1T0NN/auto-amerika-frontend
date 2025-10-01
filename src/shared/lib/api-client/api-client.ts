@@ -183,8 +183,8 @@ export const serverApiClient = {
                 undefined
             );
         },
-        fetchCarById: async (carId: string, sessionToken: string): Promise<ApiResponse<typesCar>> => {
-            return serverApiRequest<typesCar>(`/cars/get-car-by-id?carId=${carId}`, 'GET', undefined, undefined, sessionToken);
+        fetchCarById: async (carId: string): Promise<ApiResponse<typesCar>> => {
+            return serverApiRequest<typesCar>(`/cars/get-car-by-id?carId=${carId}`, 'GET', undefined, undefined, undefined);
         }
     }
 };

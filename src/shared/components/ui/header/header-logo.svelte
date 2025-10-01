@@ -2,7 +2,7 @@
 <div class="flex items-center">
     <a href="/" class="flex items-center space-x-3 group">
         <img
-            src="/logo.png"
+            src="/logo-white.png"
             alt="AutoAmerika Logo"
             class="h-16 w-16 transition-transform group-hover:scale-105"
         />

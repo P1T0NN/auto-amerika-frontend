@@ -1,50 +1,50 @@
 <script lang="ts">
+	// SVELTEKIT IMPORTS
+	import { onMount } from 'svelte';
+
 	// COMPONENTS
-	import { Button } from "@/shared/components/ui/button";
-    import CarsFiltersHeader from "./cars-filters-header.svelte";
-    import CarsFiltersPriceRange from "./cars-filters-price-range.svelte";
-	import CarsFiltersYear from "./cars-filters-year.svelte";
-	import CarsFiltersCarType from "./cars-filters-car-type.svelte";
-	import CarsFiltersTransmission from "./cars-filters-transmission.svelte";
-	import CarsFiltersColor from "./cars-filters-color.svelte";
-	import CarsFiltersFuelType from "./cars-filters-fuel-type.svelte";
-    import CarsFiltersMileage from "./cars-filters-mileage.svelte";
-    import CarsFiltersBrand from "./cars-filters-brand.svelte";
+    import CarsFiltersLargeView from './cars-filters-large-view.svelte';
+	import CarsFiltersMediumView from './cars-filters-medium-view.svelte';
+    import CarsFiltersMobileView from './cars-filters-mobile-view.svelte';
 
     // CONTEXT
     import { filtersContext } from "@/features/cars/context/filters-context.svelte";
+
+    let filtersOpen = $state(false);
+	let modalOpen = $state(false);
+
+	const handleApplyFilters = () => {
+		filtersContext.applyFilters();
+		modalOpen = false;
+	};
+
+	// Close modal when screen size increases beyond mobile
+	onMount(() => {
+		const mediaQuery = window.matchMedia('(min-width: 640px)');
+
+		const handleMediaChange = (e: MediaQueryListEvent | MediaQueryList) => {
+			if (e.matches && modalOpen) {
+				modalOpen = false;
+			}
+		};
+
+		// Check initial state
+		handleMediaChange(mediaQuery);
+
+		// Listen for changes
+		mediaQuery.addEventListener('change', handleMediaChange);
+
+		return () => {
+			mediaQuery.removeEventListener('change', handleMediaChange);
+		};
+	});
 </script>
 
-<div class="sticky top-4 h-[calc(100vh-2rem)] bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden flex flex-col">
-	<div class="p-6 flex-1 overflow-y-auto">
-		<CarsFiltersHeader />
+<!-- Mobile View (< sm) - Modal -->
+<CarsFiltersMobileView modalOpen={modalOpen} handleApplyFilters={handleApplyFilters} />
 
-		<div class="space-y-6">
-			<CarsFiltersPriceRange />
+<!-- Tablet View (sm to md) - Collapsible -->
+<CarsFiltersMediumView filtersOpen={filtersOpen} />
 
-			<CarsFiltersYear />
-
-			<CarsFiltersBrand />
-
-			<CarsFiltersCarType />
-
-			<CarsFiltersMileage />
-
-			<CarsFiltersTransmission />
-
-			<CarsFiltersFuelType />
-
-			<CarsFiltersColor />
-
-            <!-- Action Buttons -->
-            <div class="pt-6 border-t border-zinc-800 mt-6">
-                <Button
-                    onclick={() => filtersContext.applyFilters()}
-                    class="w-full px-4 py-3 bg-primary text-white font-semibold hover:bg-primary/90"
-                >
-                    Apply Filters
-                </Button>
-            </div>
-        </div>
-	</div>
-</div>
+<!-- Desktop View (>= md) - Sticky Sidebar -->
+<CarsFiltersLargeView />

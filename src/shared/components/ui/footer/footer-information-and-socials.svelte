@@ -6,7 +6,7 @@
 <div class="col-span-1 md:col-span-2">
 	<div class="mb-4 flex items-center space-x-2">
 		<img 
-			src="/logo.png" 
+			src="/logo-white.png" 
 			alt="AutoAmerika Logo" 
 			class="h-16 w-16" 
 		/>

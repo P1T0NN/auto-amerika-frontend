@@ -1,5 +1,5 @@
 // SVELTEKIT IMPORTS
-import { query, getRequestEvent } from "$app/server";
+import { query } from "$app/server";
 import { error } from "@sveltejs/kit";
 
 // LIBRARIES
@@ -9,7 +9,7 @@ import { serverApiClient } from "@/shared/lib/api-client/api-client";
 import type { typesCarFiltersRequest } from "@/features/cars/types/filters-types";
 
 export const fetchAllCars = query("unchecked", async (page: number) => {
-    const perPage = 10;
+    const perPage = 6;
     const response = await serverApiClient.cars.fetchAllCars(page, perPage);
 
     if (!response.success) {
@@ -47,18 +47,7 @@ export const fetchCarsByFilters = query("unchecked", async (params: { filters: t
 })
 
 export const fetchCarById = query("unchecked", async (carId: string) => {
-    const event = getRequestEvent();
-    const sessionToken = event.cookies.get("session_token");
-
-    if (!sessionToken) {
-        return {
-            success: false,
-            data: null,
-            message: "USER_NOT_AUTHENTICATED"
-        };
-    }
-
-    const response = await serverApiClient.cars.fetchCarById(carId, sessionToken);
+    const response = await serverApiClient.cars.fetchCarById(carId);
 
     if (!response.success) {
         error(404, "FETCH_FAILED");

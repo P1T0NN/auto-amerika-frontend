@@ -1,8 +1,8 @@
 <script lang="ts">
-    // LUCIDE ICONS
-    import { Check } from '@lucide/svelte';
+    // TYPES
+    import type { typesCar } from '@/features/cars/types/types';
 
-    let { car } = $props();
+    let { car }: { car: typesCar } = $props();
 </script>
 
 <div class="space-y-6">
