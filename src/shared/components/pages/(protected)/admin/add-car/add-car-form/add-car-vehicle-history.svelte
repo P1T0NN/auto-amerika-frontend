@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Label } from "@/shared/components/ui/label";
     import { Input } from "@/shared/components/ui/input";
@@ -17,10 +20,10 @@
     let selectedAccidents = $state(addCarContext.formData.accidents || "");
 
     const titleStatusTriggerContent = $derived(
-        titleStatusOptions.find(option => option.value === selectedTitleStatus)?.text || "Izaberite status"
+        titleStatusOptions.find(option => option.value === selectedTitleStatus)?.text || m['AddCarPage.AddCarVehicleHistory.titleStatusPlaceholder']()
     );
     const accidentsTriggerContent = $derived(
-        accidentsOptions.find(option => option.value === selectedAccidents)?.text || "Izaberite"
+        accidentsOptions.find(option => option.value === selectedAccidents)?.text || m['AddCarPage.AddCarVehicleHistory.accidentsPlaceholder']()
     );
 
     $effect(() => {
@@ -31,12 +34,12 @@
 
 <Card>
     <CardHeader>
-        <CardTitle>Istorija vozila</CardTitle>
+        <CardTitle>{m['AddCarPage.AddCarVehicleHistory.title']()}</CardTitle>
     </CardHeader>
     <CardContent>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-2">
-                <Label for="titleStatus">Status vlasništva *</Label>
+                <Label for="titleStatus">{m['AddCarPage.AddCarVehicleHistory.titleStatusLabel']()}</Label>
                 <Select type="single" name="titleStatus" bind:value={selectedTitleStatus}>
                     <SelectTrigger class={addCarContext.errors.titleStatus ? 'border-destructive' : ''}>
                         <span>{titleStatusTriggerContent}</span>
@@ -51,7 +54,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="firstRegistration">Prva registracija *</Label>
+                <Label for="firstRegistration">{m['AddCarPage.AddCarVehicleHistory.firstRegistrationLabel']()}</Label>
                 <Input
                     id="firstRegistration"
                     name="firstRegistration"
@@ -63,13 +66,13 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="owners">Broj vlasnika *</Label>
+                <Label for="owners">{m['AddCarPage.AddCarVehicleHistory.ownersLabel']()}</Label>
                 <Input
                     id="owners"
                     name="owners"
                     type="number"
                     min="1"
-                    placeholder="1"
+                    placeholder={m['AddCarPage.AddCarVehicleHistory.ownersPlaceholder']()}
                     bind:value={addCarContext.formData.owners}
                     class={addCarContext.errors.owners ? 'border-destructive' : ''}
                 />
@@ -77,7 +80,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="accidents">Nesreće *</Label>
+                <Label for="accidents">{m['AddCarPage.AddCarVehicleHistory.accidentsLabel']()}</Label>
                 <Select type="single" name="accidents" bind:value={selectedAccidents}>
                     <SelectTrigger class={addCarContext.errors.accidents ? 'border-destructive' : ''}>
                         <span>{accidentsTriggerContent}</span>
@@ -92,11 +95,11 @@
             </div>
 
             <div class="space-y-2 md:col-span-2">
-                <Label for="serviceHistory">Istorija servisiranja *</Label>
+                <Label for="serviceHistory">{m['AddCarPage.AddCarVehicleHistory.serviceHistoryLabel']()}</Label>
                 <Textarea
                     id="serviceHistory"
                     name="serviceHistory"
-                    placeholder="Detalji o servisnoj istoriji vozila..."
+                    placeholder={m['AddCarPage.AddCarVehicleHistory.serviceHistoryPlaceholder']()}
                     bind:value={addCarContext.formData.serviceHistory}
                     rows={3}
                     class={addCarContext.errors.serviceHistory ? 'border-destructive' : ''}

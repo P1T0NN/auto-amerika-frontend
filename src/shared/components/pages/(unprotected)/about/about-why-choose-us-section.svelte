@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import { Card } from '@/shared/components/ui/card';
 
@@ -8,7 +11,7 @@
 
 <section class="bg-muted py-16 md:py-24">
     <div class="mx-auto max-w-7xl px-4">
-        <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">Zašto izabrati nas?</h2>
+        <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m['AboutPage.WhyChooseUsSection.title']()}</h2>
 
         <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <Card class="p-6 text-center">
@@ -17,9 +20,9 @@
                         <Shield class="h-8 w-8 text-primary" />
                     </div>
                 </div>
-                <h3 class="mb-3 text-xl font-semibold">Pouzdanost</h3>
+                <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.WhyChooseUsSection.reliability.title']()}</h3>
                 <p class="text-muted-foreground">
-                    Garantujemo transparentnost i sigurnost u svakoj transakciji
+                    {m['AboutPage.WhyChooseUsSection.reliability.description']()}
                 </p>
             </Card>
 
@@ -29,9 +32,9 @@
                         <Award class="h-8 w-8 text-primary" />
                     </div>
                 </div>
-                <h3 class="mb-3 text-xl font-semibold">Stručnost</h3>
+                <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.WhyChooseUsSection.expertise.title']()}</h3>
                 <p class="text-muted-foreground">
-                    Tim sa dugogodišnjim iskustvom u automobilskoj industriji
+                    {m['AboutPage.WhyChooseUsSection.expertise.description']()}
                 </p>
             </Card>
 
@@ -41,9 +44,9 @@
                         <Clock class="h-8 w-8 text-primary" />
                     </div>
                 </div>
-                <h3 class="mb-3 text-xl font-semibold">Brzina</h3>
+                <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.WhyChooseUsSection.speed.title']()}</h3>
                 <p class="text-muted-foreground">
-                    Efikasan proces uvoza sa jasnim rokovima isporuke
+                    {m['AboutPage.WhyChooseUsSection.speed.description']()}
                 </p>
             </Card>
 
@@ -53,9 +56,9 @@
                         <CheckCircle class="h-8 w-8 text-primary" />
                     </div>
                 </div>
-                <h3 class="mb-3 text-xl font-semibold">Kompletna usluga</h3>
+                <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.WhyChooseUsSection.completeService.title']()}</h3>
                 <p class="text-muted-foreground">
-                    Od kupovine do registracije - sve na jednom mestu
+                    {m['AboutPage.WhyChooseUsSection.completeService.description']()}
                 </p>
             </Card>
         </div>

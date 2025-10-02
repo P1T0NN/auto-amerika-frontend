@@ -129,6 +129,7 @@ import type {
 } from '@/features/cars/types/types';
 import type { typesPaginatedResponse } from '@/shared/types/pagination-types';
 import type { typesCarFiltersRequest } from '@/features/cars/types/filters-types';
+import type { typesContactFormData } from '@/features/contact/types/contact-types';
 
 export const serverApiClient = {
     auth: {
@@ -185,6 +186,12 @@ export const serverApiClient = {
         },
         fetchCarById: async (carId: string): Promise<ApiResponse<typesCar>> => {
             return serverApiRequest<typesCar>(`/cars/get-car-by-id?carId=${carId}`, 'GET', undefined, undefined, undefined);
+        }
+    },
+
+    contact: {
+        sendContactForm: async (formData: typesContactFormData): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/contact/send-contact-form', 'POST', formData, undefined, undefined);
         }
     }
 };

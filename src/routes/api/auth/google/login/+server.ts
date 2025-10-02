@@ -1,9 +1,12 @@
 // SVELTEKIT IMPORTS
 import { json } from '@sveltejs/kit';
-import type { RequestHandler } from './$types';
 
 // LIBRARIES
 import { serverApiClient } from '@/shared/lib/api-client/api-client';
+import { m } from '@/shared/lib/paraglide/messages';
+
+// TYPES
+import type { RequestHandler } from './$types';
 
 export const GET: RequestHandler = async () => {
     try {
@@ -12,7 +15,7 @@ export const GET: RequestHandler = async () => {
         // Check if the request was successful
         if (!result.success) {
             return json(
-                { success: false, message: "GOOGLE_LOGIN_FAILED" },
+                { success: false, message: m["GenericMessages.GOOGLE_LOGIN_FAILED"]() },
                 { status: 500 }
             );
         }
@@ -21,7 +24,7 @@ export const GET: RequestHandler = async () => {
         return json(result);
     } catch (error) {
         return json(
-            { success: false, message: "GOOGLE_LOGIN_FAILED" },
+            { success: false, message: m["GenericMessages.GOOGLE_LOGIN_FAILED"]() },
             { status: 500 }
         );
     }

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import MediaManagement from './media-management/media-management.svelte';
     import SalesInformation from './sales-information.svelte';
@@ -29,11 +32,11 @@
             variant="secondary"
             size="lg"
         >
-            Cancel
+            {m['EditCarPage.EditCarTabSettings.cancel']()}
         </Button>
 
         <div class="flex space-x-4">
-            <Button size="lg" class="bg-primary px-8 py-3 hover:bg-primary/90">Save Settings</Button>
+            <Button size="lg" class="bg-primary px-8 py-3 hover:bg-primary/90">{m['EditCarPage.EditCarTabSettings.saveSettings']()}</Button>
         </div>
     </div>
 </div>

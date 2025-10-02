@@ -1,4 +1,7 @@
 <script lang="ts">
+	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
+
 	// CONFIG
 	import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -9,11 +12,11 @@
 <section class="relative bg-white py-32 overflow-hidden">
 	<div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
 		<h2 class="mb-6 text-5xl font-bold text-zinc-950 md:text-6xl tracking-tight">
-			Spremni za vaš novi automobil?
+			{m['HomePage.CtaSection.title']()}
 		</h2>
 
 		<p class="mb-10 text-xl text-zinc-600 leading-relaxed">
-			Kontaktirajte nas danas i počnimo proces uvoza vašeg idealnog vozila
+			{m['HomePage.CtaSection.description']()}
 		</p>
 
 		<div class="flex flex-col justify-center gap-4 sm:flex-row">
@@ -22,7 +25,7 @@
 				href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT_PAGE}
 				class="text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all"
 			>
-				Kontaktiraj nas
+				{m['HomePage.CtaSection.contactUs']()}
 			</Button>
 
 			<Button
@@ -31,7 +34,7 @@
 				href={UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}
 				class="text-lg px-8 py-6 border-2 border-zinc-300 hover:border-zinc-400 hover:bg-zinc-50 transition-all"
 			>
-				Pogledaj automobile
+				{m['HomePage.CtaSection.seeTheCars']()}
 			</Button>
 		</div>
 	</div>

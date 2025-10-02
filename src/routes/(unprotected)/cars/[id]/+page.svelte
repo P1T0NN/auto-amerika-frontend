@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // SVELTEKIT IMPORTS
 	import { page } from '$app/state';
 
@@ -17,13 +20,15 @@
     import { fetchCarById } from '@/features/cars/queries/cars-queries.remote';
 
 	const carId = page.params.id;
+
+    // TODO: Forbid users from entering this page is the car has status "unavailable"
 </script>
 
 <svelte:head>
-	<title>AutoAmerika</title>
+	<title>{m['CarPage.pageTitle']()}</title>
 	<meta
 		name="description"
-		content="Detalji o automobilu. Kontaktirajte nas za više informacija."
+		content={m['CarPage.pageDescription']()}
 	/>
 </svelte:head>
 
@@ -35,7 +40,7 @@
             <CarPageLoading />
         {/snippet}
 
-        {#if car}
+        {#if car && car.status !== 'unavailable'}
             <CarHeader {car} />
 
             <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -57,6 +62,10 @@
                     <CarContactSidebar {car} />
                 </div>
             </div>
+        {/if}
+
+        {#if car && car.status === 'unavailable'}
+            <CarPageLoading />
         {/if}
     </svelte:boundary>
 </div>

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -48,7 +51,7 @@
                 variant="secondary"
                 size="lg"
             >
-                Cancel
+                {m['EditCarPage.EditCarTabImport.cancel']()}
             </Button>
 
             <div class="flex space-x-4">
@@ -60,7 +63,7 @@
                     {#if editCarImportContext.isSubmitting}
                         <Loader class="mr-2 h-4 w-4 animate-spin" />
                     {/if}
-                    Save Import Data
+                    {m['EditCarPage.EditCarTabImport.saveImportData']()}
                 </Button>
             </div>
         </div>

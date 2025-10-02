@@ -1,6 +1,9 @@
 <script lang="ts">
     // SVELTEKIT IMPORTS
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
+
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
 
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
@@ -13,7 +16,7 @@
     import { AlertCircle, Home, ArrowLeft, RefreshCw, Shield, ServerCrash, FileX } from '@lucide/svelte';
 
     // Extract error information from page store
-    $: ({ status, error } = $page);
+    $: ({ status, error } = page);
 
     // Get appropriate icon based on error status
     function getErrorIcon(status: number) {
@@ -35,17 +38,17 @@
     function getErrorTitle(status: number) {
         switch (status) {
             case 404:
-                return 'Page Not Found';
+                return m['ErrorPage.404.title']();
             case 403:
-                return 'Access Forbidden';
+                return m['ErrorPage.403.title']();
             case 500:
-                return 'Internal Server Error';
+                return m['ErrorPage.500.title']();
             case 502:
-                return 'Bad Gateway';
+                return m['ErrorPage.502.title']();
             case 503:
-                return 'Service Unavailable';
+                return m['ErrorPage.503.title']();
             default:
-                return 'Something Went Wrong';
+                return m['ErrorPage.default.title']();
         }
     }
 
@@ -53,17 +56,17 @@
     function getErrorDescription(status: number) {
         switch (status) {
             case 404:
-                return 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.';
+                return m['ErrorPage.404.description']();
             case 403:
-                return 'You do not have permission to access this resource. Please contact an administrator if you believe this is an error.';
+                return m['ErrorPage.403.description']();
             case 500:
-                return 'We are experiencing technical difficulties. Our team has been notified and is working to resolve the issue.';
+                return m['ErrorPage.500.description']();
             case 502:
-                return 'The server received an invalid response. Please try again in a few moments.';
+                return m['ErrorPage.502.description']();
             case 503:
-                return 'The service is temporarily unavailable due to maintenance or high load. Please try again later.';
+                return m['ErrorPage.503.description']();
             default:
-                return 'An unexpected error occurred. Please try again or contact support if the problem persists.';
+                return m['ErrorPage.default.description']();
         }
     }
 
@@ -83,8 +86,8 @@
 </script>
 
 <svelte:head>
-    <title>Error {status} - AutoAmerika</title>
-    <meta name="description" content="An error occurred while processing your request." />
+    <title>{m['ErrorPage.pageTitle']()} {status} - AutoAmerika</title>
+    <meta name="description" content={m['ErrorPage.pageDescription']()} />
 </svelte:head>
 
 <div class="min-h-screen flex items-center justify-center bg-background p-4">
@@ -128,12 +131,12 @@
                         <div class="flex flex-col sm:flex-row gap-2">
                             <Button onclick={handleGoBack} variant="outline" class="flex-1" size="sm">
                                 <ArrowLeft class="h-4 w-4 mr-2" />
-                                Go Back
+                                {m['ErrorPage.goBackButton']()}
                             </Button>
 
                             <Button href={UNPROTECTED_PAGE_ENDPOINTS.HOME_PAGE} class="flex-1" size="sm">
                                 <Home class="h-4 w-4 mr-2" />
-                                Go Home
+                                {m['ErrorPage.goHomeButton']()}
                             </Button>
                         </div>
 
@@ -141,7 +144,7 @@
                         {#if status >= 500}
                             <Button onclick={handleRefresh} variant="secondary" class="w-full" size="sm">
                                 <RefreshCw class="h-4 w-4 mr-2" />
-                                Try Again
+                                {m['ErrorPage.tryAgainButton']()}
                             </Button>
                         {/if}
                     </div>
@@ -149,9 +152,9 @@
                     <!-- Additional Help -->
                     <div class="pt-4 border-t border-border">
                         <p class="text-xs text-muted-foreground">
-                            Need help?
+                            {m['ErrorPage.additionalHelp']()}
                             <a href="mailto:support@autoamerika.com" class="text-primary hover:underline">
-                                Contact Support
+                                {m['ErrorPage.contactSupport']()}
                             </a>
                         </p>
                     </div>

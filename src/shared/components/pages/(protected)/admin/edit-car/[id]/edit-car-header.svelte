@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -24,7 +27,7 @@
                     size="sm"
                 >
                     <ChevronLeft class="mr-2 h-4 w-4" />
-                    Back to Dashboard
+                    {m['EditCarPage.EditCarHeader.backToDashboard']()}
                 </Button>
             </div>
             

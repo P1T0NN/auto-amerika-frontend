@@ -1,6 +1,9 @@
 // SVELTEKIT IMPORTS
 import { form, getRequestEvent } from "$app/server";
 
+// LIBRARIES
+import { m } from "@/shared/lib/paraglide/messages";
+
 // TYPES
 import type { ApiResponse } from "@/shared/lib/api-client/api-client";
 
@@ -11,7 +14,7 @@ export const logout = form(async (): Promise<ApiResponse<void>> => {
 
     return {
         success: true,
-        message: "USER_LOGGED_OUT_SUCCESSFULLY",
+        message: m["GenericMessages.USER_LOGGED_OUT_SUCCESSFULLY"](),
         data: null
     };
 });

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import VehicleHistory from './vehicle-history.svelte';
     import { Button } from '@/shared/components/ui/button';
@@ -53,7 +56,7 @@
                 size="lg"
                 disabled={editCarHistoryContext.isSubmitting}
             >
-                Cancel
+                {m['EditCarPage.EditCarTabHistory.cancel']()}
             </Button>
 
             <div class="flex space-x-4">
@@ -65,7 +68,7 @@
                     {#if editCarHistoryContext.isSubmitting}
                         <Loader class="mr-2 h-4 w-4 animate-spin" />
                     {/if}
-                    Save History
+                    {m['EditCarPage.EditCarTabHistory.saveHistory']()}
                 </Button>
             </div>
         </div>

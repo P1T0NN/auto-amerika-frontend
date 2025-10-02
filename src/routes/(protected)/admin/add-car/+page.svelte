@@ -1,11 +1,14 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import AddCarHeader from '@/shared/components/pages/(protected)/admin/add-car/add-car-header.svelte';
     import AddCarForm from '@/shared/components/pages/(protected)/admin/add-car/add-car-form/add-car-form.svelte';
 </script>
 
 <svelte:head>
-	<title>Dodaj automobil - AutoAmerika Admin</title>
+	<title>{m['AddCarPage.pageTitle']()}</title>
 </svelte:head>
 
 <div class="min-h-screen bg-muted/30 py-8">

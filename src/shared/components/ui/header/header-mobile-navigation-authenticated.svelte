@@ -2,6 +2,9 @@
     // SVELTEKIT IMPORTS
     import { page } from '$app/state';
 
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -58,7 +61,7 @@
                 onclick={() => (mobileMenuOpen = false)}
                 aria-label="Settings"
             >
-                Settings
+                {m['Header.settings']()}
             </a>
 
             <a
@@ -67,7 +70,7 @@
                 onclick={() => (mobileMenuOpen = false)}
                 aria-label="Privacy Policy"
             >
-                Privacy Policy
+                {m['Header.privacyPolicy']()}
             </a>
 
             <a
@@ -76,7 +79,7 @@
                 onclick={() => (mobileMenuOpen = false)}
                 aria-label="Terms and Conditions"
             >
-                Terms and Conditions
+                {m['Header.termsOfUse']()}
             </a>
         </div>
 

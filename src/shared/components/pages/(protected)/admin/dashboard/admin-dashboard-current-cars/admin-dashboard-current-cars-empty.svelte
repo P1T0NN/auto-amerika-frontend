@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -16,9 +19,9 @@
             <Car class="h-10 w-10 text-muted-foreground" />
         </div>
 
-        <h3 class="mb-2 text-xl font-semibold text-foreground">No cars available</h3>
+        <h3 class="mb-2 text-xl font-semibold text-foreground">{m['AdminDashboardPage.AdminDashboardCurrentCarsEmpty.title']()}</h3>
         <p class="mb-6 max-w-md text-sm text-muted-foreground">
-            You haven't added any cars to your inventory yet. Start building your collection by adding your first vehicle.
+            {m['AdminDashboardPage.AdminDashboardCurrentCarsEmpty.description']()}
         </p>
 
         <div class="flex flex-col gap-3 sm:flex-row">
@@ -27,7 +30,7 @@
                 class="flex items-center gap-2"
             >
                 <Plus class="h-4 w-4" />
-                Add Your First Car
+                {m['AdminDashboardPage.AdminDashboardCurrentCarsEmpty.addFirstCar']()}
             </Button>
         </div>
     </CardContent>

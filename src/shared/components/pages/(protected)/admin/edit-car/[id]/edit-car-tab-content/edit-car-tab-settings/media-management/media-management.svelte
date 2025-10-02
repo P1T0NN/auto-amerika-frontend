@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import { Button } from '@/shared/components/ui/button';
 	import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
@@ -24,7 +27,7 @@
     import type { typesCar } from '@/features/cars/types/types';
 
     // LUCIDE ICONS
-    import { Loader, Plus, X } from '@lucide/svelte';
+    import { Loader, Plus } from '@lucide/svelte';
 
     let { car }: { car: typesCar } = $props();
 
@@ -75,8 +78,8 @@
 
 <Card class={editCarImagesContext.validationError ? "border-red-500 border-2" : ""}>
     <CardHeader>
-        <CardTitle class="text-xl">Media Management</CardTitle>
-        <CardDescription>Upload and manage vehicle photos</CardDescription>
+        <CardTitle class="text-xl">{m['EditCarPage.EditCarTabSettings.MediaManagement.title']()}</CardTitle>
+        <CardDescription>{m['EditCarPage.EditCarTabSettings.MediaManagement.description']()}</CardDescription>
         {#if editCarImagesContext.validationError}
             <div class="bg-red-50 border border-red-200 rounded-md p-3 mt-3">
                 <p class="text-red-800 text-sm font-medium">{editCarImagesContext.validationError}</p>
@@ -109,7 +112,7 @@
                     disabled={editCarImagesContext.isSubmitting}
                 >
                     <Plus class="h-4 w-4" />
-                    Dodaj slike
+                    {m['EditCarPage.EditCarTabSettings.MediaManagement.addImagesButton']()}
                 </Button>
             </div>
 
@@ -127,7 +130,7 @@
                         onclick={editCarImagesContext.resetChanges}
                         disabled={editCarImagesContext.isSubmitting}
                     >
-                        Otkaži promene
+                        {m['EditCarPage.EditCarTabSettings.MediaManagement.cancelButton']()}
                     </Button>
 
                     <Button
@@ -138,7 +141,7 @@
                         {#if editCarImagesContext.isSubmitting}
                             <Loader class="mr-2 h-4 w-4 animate-spin" />
                         {/if}
-                        Sačuvaj promene
+                        {m['EditCarPage.EditCarTabSettings.MediaManagement.saveChangesButton']()}
                     </Button>
                 </div>
             {/if}

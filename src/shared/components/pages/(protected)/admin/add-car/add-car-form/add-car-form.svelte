@@ -2,6 +2,9 @@
     // SVELTEKIT IMPORTS
     import { goto } from "$app/navigation";
 
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from "@/shared/config";
 
@@ -97,7 +100,7 @@
             {#if addCarContext.isSubmitting}
                 <Loader class="mr-2 h-4 w-4 animate-spin" />
             {/if}
-            Dodaj automobil
+            {m['AddCarPage.AddCarForm.submitButton']()}
         </Button>
     </div>
 </div>

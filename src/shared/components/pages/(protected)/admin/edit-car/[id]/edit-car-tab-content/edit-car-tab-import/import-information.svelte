@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import { Label } from '@/shared/components/ui/label';
@@ -26,23 +29,23 @@
     let selectedRegistrationStatus = $state(editCarForm.input?.registrationStatus || car.import?.registrationStatus || "");
 
     const originCountryTriggerContent = $derived(
-        originCountries.find(option => option.value === selectedOriginCountry)?.text || "Izaberite zemlju"
+        originCountries.find(option => option.value === selectedOriginCountry)?.text || m['EditCarPage.EditCarTabImport.ImportInformation.originCountryPlaceholder']()
     );
     const purchaseSourceTriggerContent = $derived(
-        purchaseSources.find(option => option.value === selectedPurchaseSource)?.text || "Izaberite izvor"
+        purchaseSources.find(option => option.value === selectedPurchaseSource)?.text || m['EditCarPage.EditCarTabImport.ImportInformation.purchaseSourcePlaceholder']()
     );
     const homologationStatusTriggerContent = $derived(
-        homologationStatusOptions.find(option => option.value === selectedHomologationStatus)?.text || "Izaberite status"
+        homologationStatusOptions.find(option => option.value === selectedHomologationStatus)?.text || m['EditCarPage.EditCarTabImport.ImportInformation.homologationStatusPlaceholder']()
     );
     const registrationStatusTriggerContent = $derived(
-        registrationStatusOptions.find(option => option.value === selectedRegistrationStatus)?.text || "Izaberite status"
+        registrationStatusOptions.find(option => option.value === selectedRegistrationStatus)?.text || m['EditCarPage.EditCarTabImport.ImportInformation.registrationStatusPlaceholder']()
     );
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-xl">Import Information</CardTitle>
-        <CardDescription>Purchase details, shipping, and customs</CardDescription>
+        <CardTitle class="text-xl">{m['EditCarPage.EditCarTabImport.ImportInformation.title']}</CardTitle>
+        <CardDescription>{m['EditCarPage.EditCarTabImport.ImportInformation.description']}</CardDescription>
     </CardHeader>
     
     <CardContent class="space-y-6">
@@ -51,7 +54,7 @@
             <input type="hidden" name="carId" value={car.id} />
 
             <div class="space-y-2">
-                <Label for="originCountry" class="text-sm font-medium">Origin Country *</Label>
+                <Label for="originCountry" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.originCountry']}</Label>
                 <Select type="single" name="originCountry" bind:value={selectedOriginCountry}>
                     <SelectTrigger class={editCarForm.issues?.originCountry ? 'border-destructive' : ''}>
                         <span>{originCountryTriggerContent}</span>
@@ -66,7 +69,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseSource" class="text-sm font-medium">Purchase Source *</Label>
+                <Label for="purchaseSource" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.purchaseSource']}</Label>
                 <Select type="single" name="purchaseSource" bind:value={selectedPurchaseSource}>
                     <SelectTrigger class={editCarForm.issues?.purchaseSource ? 'border-destructive' : ''}>
                         <span>{purchaseSourceTriggerContent}</span>
@@ -81,7 +84,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseDate" class="text-sm font-medium">Purchase Date *</Label>
+                <Label for="purchaseDate" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.purchaseDate']}</Label>
                 <Input
                     id="purchaseDate"
                     name="purchaseDate"
@@ -93,7 +96,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="usPurchasePrice" class="text-sm font-medium">US Purchase Price ($) *</Label>
+                <Label for="usPurchasePrice" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.usPurchasePrice']}</Label>
                 <Input
                     id="usPurchasePrice"
                     name="usPurchasePrice"
@@ -106,7 +109,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="shippingCost" class="text-sm font-medium">Shipping Cost ($) *</Label>
+                <Label for="shippingCost" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.shippingCost']}</Label>
                 <Input
                     id="shippingCost"
                     name="shippingCost"
@@ -119,7 +122,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="customsTax" class="text-sm font-medium">Customs Tax ($) *</Label>
+                <Label for="customsTax" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.customsTax']}</Label>
                 <Input
                     id="customsTax"
                     name="customsTax"
@@ -132,7 +135,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="importDate" class="text-sm font-medium">Import Date *</Label>
+                <Label for="importDate" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.importDate']}</Label>
                 <Input
                     id="importDate"
                     name="importDate"
@@ -144,7 +147,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="homologationStatus" class="text-sm font-medium">Homologation Status *</Label>
+                <Label for="homologationStatus" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.homologationStatus']}</Label>
                 <Select type="single" name="homologationStatus" bind:value={selectedHomologationStatus}>
                     <SelectTrigger class={editCarForm.issues?.homologationStatus ? 'border-destructive' : ''}>
                         <span>{homologationStatusTriggerContent}</span>
@@ -159,7 +162,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="registrationStatus" class="text-sm font-medium">Registration Status *</Label>
+                <Label for="registrationStatus" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.registrationStatus']}</Label>
                 <Select type="single" name="registrationStatus" bind:value={selectedRegistrationStatus}>
                     <SelectTrigger class={editCarForm.issues?.registrationStatus ? 'border-destructive' : ''}>
                         <span>{registrationStatusTriggerContent}</span>

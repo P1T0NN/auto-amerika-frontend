@@ -1,21 +1,24 @@
+// LIBRARIES
+import { m } from '@/shared/lib/paraglide/messages';
+
 // TYPES
 import type { typesCarStatusType } from '@/features/cars/types/types';
 
 export const carStatusClass = {
     sold: {
-        label: 'PRODATO',
+        label: m["CarStatus.sold"],
         bgColor: 'bg-red-500/90',
         textColor: 'text-white',
         borderColor: 'border-red-600'
     },
     pending: {
-        label: 'USKORO',
+        label: m["CarStatus.pending"],
         bgColor: 'bg-orange-500/90',
         textColor: 'text-white',
         borderColor: 'border-orange-600'
     },
     unavailable: {
-        label: 'NEDOSTUPNO',
+        label: m["CarStatus.unavailable"],
         bgColor: 'bg-zinc-600/90',
         textColor: 'text-white',
         borderColor: 'border-zinc-700'
@@ -35,15 +38,15 @@ export function getCarStatusClass(status: typesCarStatusType) {
 export function getCarStatusText(status: typesCarStatusType) {
     switch (status) {
         case 'available':
-            return 'Dostupan';
+            return m['CarStatus.availableText'];
         case 'sold':
-            return 'Prodat';
+            return m['CarStatus.soldText'];
         case 'pending':
-            return 'Na čekanju';
+            return m['CarStatus.pendingText'];
         case 'unavailable':
-            return 'Nedostupan';
+            return m['CarStatus.unavailableText'];
         default:
-            return 'Nepoznato';
+            return m['CarStatus.unknownText'];
     }
 }
 

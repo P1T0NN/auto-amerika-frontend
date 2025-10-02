@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
 	// CONFIG
 	import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -19,16 +22,16 @@
 
 	<div class="relative z-10 mx-auto max-w-4xl px-4 text-center text-white">
 		<h1 class="mb-6 text-4xl font-bold text-balance md:text-6xl">
-			Prodajemo najbolje <span class="text-primary">američke automobile</span> za vas
+			{m['HomePage.HeroSection.title']()} <span class="text-primary">{m['HomePage.HeroSection.subtitle']()}</span> {m['HomePage.HeroSection.subtitle2']()}
 		</h1>
 
 		<p class="mb-8 text-xl text-pretty text-white/90 md:text-2xl">
-			Od kupovine do registracije - kompletna usluga uvoza vozila iz Amerike
+			{m['HomePage.HeroSection.description']()}
 		</p>
 
 		<div class="flex flex-col justify-center gap-4 sm:flex-row">
 			<Button size="lg" href={UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}>
-				Pogledaj automobile
+				{m["HomePage.HeroSection.seeTheCars"]()}
 			</Button>
 
 			<Button
@@ -36,7 +39,7 @@
                 variant="outline"
                 href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT_PAGE}
 			>
-				Kontaktiraj nas
+				{m["HomePage.HeroSection.contactUs"]()}
 			</Button>
 		</div>
 	</div>

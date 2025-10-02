@@ -1,5 +1,10 @@
+<script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+</script>
+
 <section class="mx-auto max-w-7xl px-4 py-16 md:py-24">
-    <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">Naš proces</h2>
+    <h2 class="mb-12 text-center text-3xl font-bold md:text-4xl">{m['AboutPage.OurProcessSection.title']()}</h2>
 
     <div class="grid gap-8 md:grid-cols-3">
         <div class="text-center">
@@ -10,9 +15,9 @@
                     1
                 </div>
             </div>
-            <h3 class="mb-3 text-xl font-semibold">Pronalaženje vozila</h3>
+            <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.OurProcessSection.step1.title']()}</h3>
             <p class="text-muted-foreground">
-                Pomažemo vam da pronađete savršeno vozilo na američkim aukcijama i kod dilera
+                {m['AboutPage.OurProcessSection.step1.description']()}
             </p>
         </div>
 
@@ -24,9 +29,9 @@
                     2
                 </div>
             </div>
-            <h3 class="mb-3 text-xl font-semibold">Kupovina i transport</h3>
+            <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.OurProcessSection.step2.title']()}</h3>
             <p class="text-muted-foreground">
-                Obavljamo kupovinu i organizujemo siguran transport vozila do Srbije
+                {m['AboutPage.OurProcessSection.step2.description']()}
             </p>
         </div>
 
@@ -38,9 +43,9 @@
                     3
                 </div>
             </div>
-            <h3 class="mb-3 text-xl font-semibold">Carinjenje i registracija</h3>
+            <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.OurProcessSection.step3.title']()}</h3>
             <p class="text-muted-foreground">
-                Brinemo o svim formalnostima i predajemo vam vozilo spremno za vožnju
+                {m['AboutPage.OurProcessSection.step3.description']()}
             </p>
         </div>
     </div>

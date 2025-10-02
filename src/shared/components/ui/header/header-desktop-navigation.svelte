@@ -14,7 +14,7 @@
 </script>
 
 <!-- Updated navigation styling with zinc colors and red active state -->
-<div class="hidden md:block">
+<div class="hidden lg:block">
     <div class="ml-10 flex items-baseline space-x-8">
         {#each navigationLinks as item}
             <a

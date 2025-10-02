@@ -4,12 +4,13 @@ import { command, form, getRequestEvent } from '$app/server';
 // LIBRARIES
 import { serverApiClient } from '@/shared/lib/api-client/api-client';
 import * as v from "valibot";
+import { m } from '@/shared/lib/paraglide/messages';
 
 // QUERIES
 import { fetchCarById } from '../queries/cars-queries.remote';
 
 // SCHEMAS
-import { editCarInformationSchema, editCarHistorySchema, editCarImportSchema, editCarImagesSchema } from '../schemas/cars-schemas';
+import { editCarInformationSchema, editCarHistorySchema, editCarImportSchema } from '../schemas/cars-schemas';
 
 // TYPES
 import type { ApiResponse } from '@/shared/lib/api-client/api-client';
@@ -26,7 +27,7 @@ export const makeUnavailable = command(
             return {
                 success: false,
                 data: null,
-                message: "USER_NOT_AUTHENTICATED"
+                message: m["GenericMessages.USER_NOT_AUTHENTICATED"]()
             };
         }
 
@@ -35,7 +36,7 @@ export const makeUnavailable = command(
         if (!response.success) {
             return {
                 success: false,
-                message: "CAR_MAKE_UNAVAILABLE_FAILED",
+                message: m["GenericMessages.CAR_MAKE_UNAVAILABLE_FAILED"](),
                 data: null
             };
         }
@@ -44,7 +45,7 @@ export const makeUnavailable = command(
 
         return {
             success: true,
-            message: "CAR_MAKE_UNAVAILABLE_SUCCESS",
+            message: m["GenericMessages.CAR_MAKE_UNAVAILABLE_SUCCESS"](),
             data: null
         };
     }
@@ -60,7 +61,7 @@ export const editCarInformation = form(
             return {
                 success: false,
                 data: null,
-                message: "USER_NOT_AUTHENTICATED"
+                message: m["GenericMessages.USER_NOT_AUTHENTICATED"]()
             };
         }
 
@@ -73,12 +74,11 @@ export const editCarInformation = form(
         };
 
         const response = await serverApiClient.cars.editCarInformation(processedData, sessionToken as string);
-        console.log(response);
 
         if (!response.success) {
             return {
                 success: false,
-                message: "CAR_EDIT_INFORMATION_FAILED",
+                message: m["GenericMessages.CAR_EDIT_INFORMATION_FAILED"](),
                 data: null
             };
         }
@@ -87,7 +87,7 @@ export const editCarInformation = form(
 
         return {
             success: true,
-            message: "CAR_EDIT_INFORMATION_SUCCESS",
+            message: m["GenericMessages.CAR_EDIT_INFORMATION_SUCCESS"](),
             data: null
         };
     }
@@ -103,7 +103,7 @@ export const editCarHistory = form(
             return {
                 success: false,
                 data: null,
-                message: "USER_NOT_AUTHENTICATED"
+                message: m["GenericMessages.USER_NOT_AUTHENTICATED"]()
             };
         }
 
@@ -117,7 +117,7 @@ export const editCarHistory = form(
         if (!response.success) {
             return {
                 success: false,
-                message: "CAR_EDIT_HISTORY_FAILED",
+                message: m["GenericMessages.CAR_EDIT_HISTORY_FAILED"](),
                 data: null
             };
         }
@@ -126,7 +126,7 @@ export const editCarHistory = form(
 
         return {
             success: true,
-            message: "CAR_EDIT_HISTORY_SUCCESS",
+            message: m["GenericMessages.CAR_EDIT_HISTORY_SUCCESS"](),
             data: null
         };
     }
@@ -142,7 +142,7 @@ export const editCarImport = form(
             return {
                 success: false,
                 data: null,
-                message: "USER_NOT_AUTHENTICATED"
+                message: m["GenericMessages.USER_NOT_AUTHENTICATED"]()
             };
         }
 
@@ -158,7 +158,7 @@ export const editCarImport = form(
         if (!response.success) {
             return {
                 success: false,
-                message: "CAR_EDIT_IMPORT_FAILED",
+                message: m["GenericMessages.CAR_EDIT_IMPORT_FAILED"](),
                 data: null
             };
         }
@@ -167,7 +167,7 @@ export const editCarImport = form(
 
         return {
             success: true,
-            message: "CAR_EDIT_IMPORT_SUCCESS",
+            message: m["GenericMessages.CAR_EDIT_IMPORT_SUCCESS"](),
             data: null
         };
     }

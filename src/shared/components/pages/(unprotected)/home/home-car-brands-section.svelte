@@ -1,38 +1,41 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
 	// CONFIG
 	import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
-	// ICONS
+	// LUCIDE ICONS
 	import { ArrowRight } from '@lucide/svelte';
 
 	const brands = [
 		{
 			name: 'Audi',
 			value: 'audi',
-			image: '/home/audi.jpg',
-			description: 'German Engineering Excellence',
-			tagline: 'Vorsprung durch Technik'
+			image: '/home/audi.webp',
+			description: m['HomePage.CarBrandsSection.audiDescription'](),
+			tagline: m['HomePage.CarBrandsSection.audiTagline']()
 		},
 		{
 			name: 'BMW',
 			value: 'bmw',
-			image: '/home/bmw.jpg',
-			description: 'The Ultimate Driving Machine',
-			tagline: 'Sheer Driving Pleasure'
+			image: '/home/bmw.webp',
+			description: m['HomePage.CarBrandsSection.bmwDescription'](),
+			tagline: m['HomePage.CarBrandsSection.bmwTagline']()
 		},
 		{
 			name: 'Porsche',
 			value: 'porsche',
-			image: '/home/porsche.jpg',
-			description: 'Legendary Sports Performance',
-			tagline: 'There Is No Substitute'
+			image: '/home/porsche.webp',
+			description: m['HomePage.CarBrandsSection.porscheDescription'](),
+			tagline: m['HomePage.CarBrandsSection.porscheTagline']()
 		},
 		{
 			name: 'Mercedes',
 			value: 'mercedes',
 			image: '/home/mercedes.webp',
-			description: 'Innovation That Excites',
-			tagline: 'Innovation For All'
+			description: m['HomePage.CarBrandsSection.mercedesDescription'](),
+			tagline: m['HomePage.CarBrandsSection.mercedesTagline']()
 		}
 	];
 
@@ -44,13 +47,13 @@
 		<!-- Enhanced typography matching the type section -->
 		<div class="mb-20 text-center">
 			<p class="mb-4 text-sm font-semibold tracking-[0.2em] text-primary uppercase">
-				Premium Automotive Brands
+				{m['HomePage.CarBrandsSection.title']()}
 			</p>
 			<h2 class="mb-6 text-6xl leading-none font-bold tracking-tight text-zinc-950 md:text-7xl">
-				Browse by <span class="text-primary">Brand</span>
+				{m['HomePage.CarBrandsSection.browseBy']()} <span class="text-primary">{m['HomePage.CarBrandsSection.brand']()}</span>
 			</h2>
 			<p class="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-600">
-				Discover iconic manufacturers known for excellence and innovation
+				{m['HomePage.CarBrandsSection.description']()}
 			</p>
 		</div>
 

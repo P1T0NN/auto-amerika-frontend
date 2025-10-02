@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     let isLoading = $state(false);
 
     async function handleGoogleLogin() {
@@ -26,7 +29,7 @@
     <div class="gsi-material-button-content-wrapper">
         {#if isLoading}
             <div class="spinner"></div>
-            <span class="gsi-material-button-contents">Prijavljivanje...</span>
+            <span class="gsi-material-button-contents">{m['GoogleLoginButton.loggingIn']()}</span>
         {:else}
             <div class="gsi-material-button-icon">
                 <svg viewBox="0 0 24 24" width="20" height="20">
@@ -49,7 +52,7 @@
                 </svg>
             </div>
 
-            <span class="gsi-material-button-contents">Nastavite sa Google nalogom</span>
+            <span class="gsi-material-button-contents">{m['GoogleLoginButton.loginWithGoogle']()}</span>
         {/if}
     </div>
 </button>

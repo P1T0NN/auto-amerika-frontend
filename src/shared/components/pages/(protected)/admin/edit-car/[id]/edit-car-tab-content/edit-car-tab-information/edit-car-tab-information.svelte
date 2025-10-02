@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import BasicInformation from './basic-information.svelte';
 	import TechnicalSpecifications from './technical-specifications.svelte';
@@ -53,7 +56,7 @@
                 variant="secondary"
                 size="lg"
             >
-                Cancel
+                {m['EditCarPage.EditCarTabInformation.cancel']()}
             </Button>
 
             <div class="flex space-x-4">
@@ -65,7 +68,7 @@
                     {#if editCarInformationContext.isSubmitting}
                         <Loader class="mr-2 h-4 w-4 animate-spin" />
                     {/if}
-                    Save Information
+                    {m['EditCarPage.EditCarTabInformation.saveInformation']()}
                 </Button>
             </div>
         </div>

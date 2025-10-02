@@ -1,4 +1,7 @@
 <script>
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import HomeHeroSection from '@/shared/components/pages/(unprotected)/home/home-hero-section.svelte';
 	import HomeWhyUsSection from '@/shared/components/pages/(unprotected)/home/home-why-us-section.svelte';
@@ -8,10 +11,10 @@
 </script>
 
 <svelte:head>
-	<title>AutoAmerika - Uvoz automobila iz Amerike</title>
+	<title>{m["HomePage.pageTitle"]()}</title>
 	<meta
 		name="description"
-		content="Specijalizovani smo za uvoz kvalitetnih automobila iz Amerike. Pružamo kompletnu uslugu od kupovine do registracije vozila u Srbiji."
+		content={m["HomePage.pageDescription"]()}
 	/>
 </svelte:head>
 

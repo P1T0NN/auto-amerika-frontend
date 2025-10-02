@@ -1,27 +1,12 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
-	// SVG ICONS
-	import ConvertibleCar from '@/shared/svgs/convertible-car.svelte';
-	import CoupeCar from '@/shared/svgs/coupe-car.svelte';
-	import HatchbackCar from '@/shared/svgs/hatchback-car.svelte';
-	import SedanCar from '@/shared/svgs/sedan-car.svelte';
-	import SuvCar from '@/shared/svgs/suv-car.svelte';
-	import VanCar from '@/shared/svgs/van-car.svelte';
-    import TruckCar from '@/shared/svgs/truck-car.svelte';
-	import WagonCar from '@/shared/svgs/wagon-car.svelte';
-
-	const carTypes = [
-		{ name: 'Convertibles', icon: ConvertibleCar, value: 'convertible' },
-		{ name: 'Coupes', icon: CoupeCar, value: 'coupe' },
-		{ name: 'Hatchbacks', icon: HatchbackCar, value: 'hatchback' },
-		{ name: 'Sedans', icon: SedanCar, value: 'sedan' },
-		{ name: 'SUVs', icon: SuvCar, value: 'suv' },
-		{ name: 'Vans', icon: VanCar, value: 'van' },
-		{ name: 'Trucks', icon: TruckCar, value: 'truck' },
-		{ name: 'Wagons', icon: WagonCar, value: 'wagon' }
-	];
+    // DATA
+    import { carTypes } from '@/features/cars/data/cars-data';
 
 	let hoveredType = $state<number | null>(null);
 </script>
@@ -30,13 +15,13 @@
 	<div class="relative z-10 mx-auto max-w-7xl">
 		<div class="mb-20 text-center">
 			<p class="animate-fade-in mb-4 text-sm font-semibold tracking-[0.2em] text-primary uppercase">
-				Discover Your Dream Car
+				{m["HomePage.CarTypesSection.title"]()}
 			</p>
 			<h2 class="mb-6 text-6xl leading-none font-bold tracking-tight text-white md:text-7xl">
-				Browse by <span class="text-primary">Type</span>
+				{m["HomePage.CarTypesSection.browseBy"]()} <span class="text-primary">{m["HomePage.CarTypesSection.type"]()}</span>
 			</h2>
 			<p class="mx-auto max-w-2xl text-xl leading-relaxed text-zinc-400">
-				Explore our curated collection of premium vehicles across all categories
+				{m["HomePage.CarTypesSection.description"]()}
 			</p>
 		</div>
 

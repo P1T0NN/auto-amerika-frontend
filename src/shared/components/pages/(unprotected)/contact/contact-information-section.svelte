@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { CONTACT_INFO } from '@/shared/config';
 
@@ -10,7 +13,7 @@
 </script>
 
 <div class="lg:col-span-2">
-    <h2 class="mb-8 text-2xl font-bold">Informacije za kontakt</h2>
+    <h2 class="mb-8 text-2xl font-bold">{m['ContactPage.ContactInformation.title']()}</h2>
 
     <div class="space-y-6">
         <Card class="p-6">
@@ -19,7 +22,7 @@
                     <Phone class="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                    <h3 class="mb-1 font-semibold">Telefon</h3>
+                    <h3 class="mb-1 font-semibold">{m['ContactPage.ContactInformation.phone']()}</h3>
                     <a
                         href={`tel:${CONTACT_INFO.PHONE}`}
                         class="text-muted-foreground hover:text-primary"
@@ -36,7 +39,7 @@
                     <Mail class="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                    <h3 class="mb-1 font-semibold">Email</h3>
+                    <h3 class="mb-1 font-semibold">{m['ContactPage.ContactInformation.email']()}</h3>
                     <a
                         href={`mailto:${CONTACT_INFO.EMAIL}`}
                         class="text-muted-foreground hover:text-primary"
@@ -53,7 +56,7 @@
                     <MapPin class="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                    <h3 class="mb-1 font-semibold">Adresa</h3>
+                    <h3 class="mb-1 font-semibold">{m['ContactPage.ContactInformation.address']()}</h3>
                     <p class="text-muted-foreground">{CONTACT_INFO.ADDRESS}</p>
                 </div>
             </div>

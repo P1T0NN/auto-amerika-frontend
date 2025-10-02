@@ -1,6 +1,8 @@
+// LIBRARIES
+import { m } from "@/shared/lib/paraglide/messages"
+
 // TYPES
 import type {
-    typesBuyer,
     typesCarHomologationStatusType,
     typesCarRegistrationStatusType,
     typesCarFuelType,
@@ -11,38 +13,15 @@ import type {
     typesPurchaseSource
 } from "../types/types"
 
-export const featuredCars = [
-    {
-        id: 1,
-        brand: 'Ford',
-        model: 'Mustang GT',
-        year: 2023,
-        price: '€45,000',
-        image: '/placeholder.svg?height=300&width=400',
-        mileage: '15,000 km',
-        fuel: 'Benzin'
-    },
-    {
-        id: 2,
-        brand: 'Chevrolet',
-        model: 'Camaro SS',
-        year: 2022,
-        price: '€42,000',
-        image: '/placeholder.svg?height=300&width=400',
-        mileage: '22,000 km',
-        fuel: 'Benzin'
-    },
-    {
-        id: 3,
-        brand: 'Dodge',
-        model: 'Challenger SRT',
-        year: 2023,
-        price: '€48,000',
-        image: '/placeholder.svg?height=300&width=400',
-        mileage: '8,000 km',
-        fuel: 'Benzin'
-    }
-];
+// SVGS
+import ConvertibleCar from "@/shared/svgs/convertible-car.svelte"
+import CoupeCar from "@/shared/svgs/coupe-car.svelte"
+import HatchbackCar from "@/shared/svgs/hatchback-car.svelte"
+import SedanCar from "@/shared/svgs/sedan-car.svelte"
+import SuvCar from "@/shared/svgs/suv-car.svelte"
+import TruckCar from "@/shared/svgs/truck-car.svelte"
+import VanCar from "@/shared/svgs/van-car.svelte"
+import WagonCar from "@/shared/svgs/wagon-car.svelte"
 
 export const brands: { value: string; text: string; name: string; logo: string }[] = [
     { value: 'audi', text: 'Audi', name: 'Audi', logo: '/placeholder.svg?height=60&width=120' },
@@ -55,117 +34,90 @@ export const brands: { value: string; text: string; name: string; logo: string }
     { value: 'toyota', text: 'Toyota', name: 'Toyota', logo: '/placeholder.svg?height=60&width=120' }
 ];
 
-export const bodyTypes: { value: string; text: string }[] = [
-    { value: 'convertible', text: 'Convertible' },
-    { value: 'coupe', text: 'Coupe' },
-    { value: 'hatchback', text: 'Hatchback' },
-    { value: 'sedan', text: 'Sedan' },
-    { value: 'suv', text: 'SUV' },
-    { value: 'truck', text: 'Truck' },
-    { value: 'van', text: 'Van' },
-    { value: 'wagon', text: 'Wagon' }
+export const carTypes = [
+    { name: 'Convertibles', icon: ConvertibleCar, value: 'convertible', text: m["CarTypes.convertibles"]() },
+    { name: 'Coupes', icon: CoupeCar, value: 'coupe', text: m["CarTypes.coupes"]() },
+    { name: 'Hatchbacks', icon: HatchbackCar, value: 'hatchback', text: m["CarTypes.hatchbacks"]() },
+    { name: 'Sedans', icon: SedanCar, value: 'sedan', text: m["CarTypes.sedans"]() },
+    { name: 'SUVs', icon: SuvCar, value: 'suv', text: m["CarTypes.suvs"]() },
+    { name: 'Vans', icon: VanCar, value: 'van', text: m["CarTypes.vans"]() },
+    { name: 'Trucks', icon: TruckCar, value: 'truck', text: m["CarTypes.trucks"]() },
+    { name: 'Wagons', icon: WagonCar, value: 'wagon', text: m["CarTypes.wagons"]() }
 ];
 
 export const colors: { value: string; text: string }[] = [
-    { value: 'black', text: 'Black' },
-    { value: 'white', text: 'White' },
-    { value: 'gray', text: 'Gray' },
-    { value: 'red', text: 'Red' },
-    { value: 'blue', text: 'Blue' },
-    { value: 'green', text: 'Green' },
+    { value: 'black', text: m["CarColors.black"]() },
+    { value: 'white', text: m["CarColors.white"]() },
+    { value: 'gray', text: m["CarColors.gray"]() },
+    { value: 'red', text: m["CarColors.red"]() },
+    { value: 'blue', text: m["CarColors.blue"]() },
+    { value: 'green', text: m["CarColors.green"]() },
 ];
 
 export const fuelTypes: { value: typesCarFuelType; text: string }[] = [
-    { value: 'gasoline', text: 'Benzin' },
-    { value: 'diesel', text: 'Dizel' },
-    { value: 'hybrid', text: 'Hibrid' },
-    { value: 'electric', text: 'Električni' },
-    { value: 'flex_fuel', text: 'Flex Fuel' }
+    { value: 'gasoline', text: m["CarFuelTypes.gasoline"]() },
+    { value: 'diesel', text: m["CarFuelTypes.diesel"]() },
+    { value: 'hybrid', text: m["CarFuelTypes.hybrid"]() },
+    { value: 'electric', text: m["CarFuelTypes.electric"]() },
+    { value: 'flex_fuel', text: m["CarFuelTypes.flexFuel"]() }
 ];
 
 export const transmissionTypes: { value: typesCarTransmissionType; text: string }[] = [
-    { value: 'automatic', text: 'Automatski' },
-    { value: 'manual', text: 'Manuelni' },
-    { value: 'cvt', text: 'CVT' },
-    { value: 'semi_automatic', text: 'Poluautomatski' }
+    { value: 'automatic', text: m["CarTransmissionTypes.automatic"]() },
+    { value: 'manual', text: m["CarTransmissionTypes.manual"]() },
+    { value: 'cvt', text: m["CarTransmissionTypes.cvt"]() },
+    { value: 'semi_automatic', text: m["CarTransmissionTypes.semiAutomatic"]() }
 ];
 
 export const drivetrainTypes: { value: typesCarDrivetrainType; text: string }[] = [
-    { value: 'fwd', text: 'FWD' },
-    { value: 'rwd', text: 'RWD' },
-    { value: 'awd', text: 'AWD' },
-    { value: '4wd', text: '4WD' }
+    { value: 'fwd', text: m["CarDrivetrainTypes.fwd"]() },
+    { value: 'rwd', text: m["CarDrivetrainTypes.rwd"]() },
+    { value: 'awd', text: m["CarDrivetrainTypes.awd"]() },
+    { value: '4wd', text: m["CarDrivetrainTypes.4wd"]() }
 ];
 
 export const interiorMaterials: { value: typesCarInteriorMaterialType; text: string }[] = [
-    { value: 'fabric', text: 'Tkanina' },
-    { value: 'leather', text: 'Koža' },
-    { value: 'synthetic_leather', text: 'Veštačka koža' },
-    { value: 'alcantara', text: 'Alcantara' },
-    { value: 'mixed', text: 'Kombinovano' }
+    { value: 'fabric', text: m["CarInteriorMaterials.fabric"]() },
+    { value: 'leather', text: m["CarInteriorMaterials.leather"]() },
+    { value: 'synthetic_leather', text: m["CarInteriorMaterials.syntheticLeather"]() },
+    { value: 'alcantara', text: m["CarInteriorMaterials.alcantara"]() },
+    { value: 'mixed', text: m["CarInteriorMaterials.mixed"]() }
 ];
 
 export const homologationStatusOptions: { value: typesCarHomologationStatusType; text: string }[] = [
-    { value: 'completed', text: 'Završena' },
-    { value: 'in_progress', text: 'U toku' },
-    { value: 'not_started', text: 'Nije započeta' },
-    { value: 'not_required', text: 'Nije potrebna' }
+    { value: 'completed', text: m["CarHomologationStatus.completed"]() },
+    { value: 'in_progress', text: m["CarHomologationStatus.inProgress"]() },
+    { value: 'not_started', text: m["CarHomologationStatus.notStarted"]() },
+    { value: 'not_required', text: m["CarHomologationStatus.notRequired"]() }
 ];
 
 export const registrationStatusOptions: { value: typesCarRegistrationStatusType; text: string }[] = [
-    { value: 'registered', text: 'Registrovano' },
-    { value: 'pending', text: 'Na čekanju' },
-    { value: 'not_registered', text: 'Nije registrovano' }
+    { value: 'registered', text: m["CarRegistrationStatus.registered"]() },
+    { value: 'pending', text: m["CarRegistrationStatus.pending"]() },
+    { value: 'not_registered', text: m["CarRegistrationStatus.notRegistered"]() }
 ];
 
 export const titleStatusOptions = [
-    { value: 'clean', text: 'Čist' },
-    { value: 'salvage', text: 'Oštećen' },
-    { value: 'rebuilt', text: 'Obnovljen' },
-    { value: 'lemon', text: 'Lemon' },
-    { value: 'flood', text: 'Poplavljeno' }
+    { value: 'clean', text: m["CarTitleStatus.clean"]() },
+    { value: 'salvage', text: m["CarTitleStatus.salvage"]() },
+    { value: 'rebuilt', text: m["CarTitleStatus.rebuilt"]() },
+    { value: 'lemon', text: m["CarTitleStatus.lemon"]() },
+    { value: 'flood', text: m["CarTitleStatus.flood"]() }
 ];
 
 export const accidentsOptions = [
-    { value: 'none', text: 'Bez nesreća' },
-    { value: 'minor', text: 'Manje nesreće' },
-    { value: 'major', text: 'Veće nesreće' },
-    { value: 'unknown', text: 'Nepoznato' }
+    { value: 'none', text: m["CarAccidents.none"]() },
+    { value: 'minor', text: m["CarAccidents.minor"]() },
+    { value: 'major', text: m["CarAccidents.major"]() },
+    { value: 'unknown', text: m["CarAccidents.unknown"]() }
 ];
 
 export const originCountries: { value: typesOriginCountry; text: string }[] = [
-    { value: 'usa', text: 'USA' }
+    { value: 'usa', text: m["CarOriginCountries.usa"]() }
 ];
 
 export const purchaseSources: { value: typesPurchaseSource; text: string }[] = [
-    { value: 'private_seller', text: 'Private Seller' },
-    { value: 'dealer', text: 'Dealer' },
-    { value: 'auction', text: 'Auction' }
+    { value: 'private_seller', text: m["CarPurchaseSources.privateSeller"]() },
+    { value: 'dealer', text: m["CarPurchaseSources.dealer"]() },
+    { value: 'auction', text: m["CarPurchaseSources.auction"]() }
 ];
-
-export const dummyBuyers: typesBuyer[] = [
-    {
-        id: 1,
-        name: "Marko Petrović",
-        phone: "+381 64 123 4567",
-        email: "marko.petrovic@email.com",
-        address: "Knez Mihailova 15, Beograd",
-        notes: "Redovan kupac, plaća odmah",
-    },
-    {
-        id: 2,
-        name: "Ana Jovanović",
-        phone: "+381 63 987 6543",
-        email: "ana.jovanovic@email.com",
-        address: "Bulevar Oslobođenja 25, Novi Sad",
-        notes: "Interesuje je za luksuzne automobile",
-    },
-    {
-        id: 3,
-        name: "Stefan Nikolić",
-        phone: "+381 65 555 1234",
-        email: "stefan.nikolic@email.com",
-        address: "Cara Dušana 8, Niš",
-        notes: "Kupuje za firmu",
-    },
-]

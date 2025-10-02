@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // LUCIDE ICONS
 	import { Expand, X } from '@lucide/svelte';
 
@@ -133,7 +136,7 @@
 			{/if}
 		{:else}
 			<div class="flex h-full w-full items-center justify-center">
-				<span class="text-muted-foreground">Nema dostupnih slika</span>
+				<span class="text-muted-foreground">{m["ImageGallery.noImages"]()}</span>
 			</div>
 		{/if}
 	</div>

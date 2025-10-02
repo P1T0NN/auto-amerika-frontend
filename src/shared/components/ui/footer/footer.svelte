@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
 	// COMPONENTS
 	import FooterQuickLinks from "./footer-quick-links.svelte";
 	import FooterContactInformation from "./footer-contact-information.svelte";
@@ -18,7 +21,7 @@
 
 		<!-- Updated border to zinc-800 and text to zinc-500 -->
 		<div class="mt-8 border-t border-zinc-800 pt-8">
-			<p class="text-center text-zinc-500">© {new Date().getFullYear()} AutoAmerika. Sva prava zadržana.</p>
+			<p class="text-center text-zinc-500">© {new Date().getFullYear()} AutoAmerika. {m['Footer.copyright']()}</p>
 		</div>
 	</div>
 </footer>

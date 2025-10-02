@@ -1,4 +1,10 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
+    // CONFIG
+    import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
+
 	// COMPONENTS
 	import { Button } from '@/shared/components/ui/button';
 	import * as DropdownMenu from '@/shared/components/ui/dropdown-menu/index.js';
@@ -39,17 +45,23 @@
 			</div>
 		</DropdownMenu.Label>
 		<DropdownMenu.Group>
-			<DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-				Settings
-			</DropdownMenu.Item>
+            <a href={UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE}>
+                <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
+                    {m['Header.settings']()}
+                </DropdownMenu.Item>
+            </a>
 
-            <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-                Privacy Policy
-            </DropdownMenu.Item>
+            <a href={UNPROTECTED_PAGE_ENDPOINTS.PRIVACY_POLICY}>
+                <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
+                    {m['Header.privacyPolicy']()}
+                </DropdownMenu.Item>
+            </a>
 
-            <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-                Terms of Use
-            </DropdownMenu.Item>
+            <a href={UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_USE}>
+                <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
+                    {m['Header.termsOfUse']()}
+                </DropdownMenu.Item>
+            </a>
 		</DropdownMenu.Group>
 
 		<DropdownMenu.Separator class="bg-zinc-800" />

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -16,6 +19,6 @@
         size="lg"
     >
         <Plus class="mr-3 h-6 w-6" />
-        Dodaj novi automobil
+        {m['AdminDashboardPage.AdminDashboardAddCarButton.addNewCar']()}
     </Button>
 </div>

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -13,13 +16,13 @@
         <Breadcrumb>
             <BreadcrumbList>
                 <BreadcrumbItem>
-                    <BreadcrumbLink href={UNPROTECTED_PAGE_ENDPOINTS.HOME_PAGE}>Početna</BreadcrumbLink>
+                    <BreadcrumbLink href={UNPROTECTED_PAGE_ENDPOINTS.HOME_PAGE}>{m['CarPage.CarHeader.home']()}</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbSeparator />
 
                 <BreadcrumbItem>
-                    <BreadcrumbLink href={UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}>Automobili</BreadcrumbLink>
+                    <BreadcrumbLink href={UNPROTECTED_PAGE_ENDPOINTS.CARS_PAGE}>{m['CarPage.CarHeader.cars']()}</BreadcrumbLink>
                 </BreadcrumbItem>
 
                 <BreadcrumbSeparator />

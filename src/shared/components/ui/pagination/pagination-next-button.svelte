@@ -1,4 +1,6 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
 	import { Pagination as PaginationPrimitive } from "bits-ui";
 	import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
 	import { buttonVariants } from "@/shared/components/ui/button/index.js";
@@ -13,7 +15,7 @@
 </script>
 
 {#snippet Fallback()}
-	<span>Next</span>
+	<span>{m['Pagination.nextButton']()}</span>
 	<ChevronRightIcon class="size-4" />
 {/snippet}
 

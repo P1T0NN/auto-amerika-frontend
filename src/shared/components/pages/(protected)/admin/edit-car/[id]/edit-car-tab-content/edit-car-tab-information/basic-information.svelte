@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import { Label } from '@/shared/components/ui/label';
@@ -8,7 +11,7 @@
     import ErrorMessage from '@/shared/components/ui/error-message/error-message.svelte';
 
     // DATA
-    import { brands, bodyTypes } from '@/features/cars/data/cars-data';
+    import { brands, carTypes } from '@/features/cars/data/cars-data';
 
     // TYPES
     import type { typesCar } from '@/features/cars/types/types';
@@ -25,15 +28,15 @@
     let selectedCarType = $state(editCarForm.input?.carType || car.carType || "");
     let selectedCurrency = $state(editCarForm.input?.currency || car.currency || "EUR");
 
-    const brandTriggerContent = $derived(brands.find(b => b.value === selectedBrand)?.text || "Izaberite brend");
-    const carTypeTriggerContent = $derived(bodyTypes.find(bt => bt.value === selectedCarType)?.text || "Izaberite tip");
+    const brandTriggerContent = $derived(brands.find(b => b.value === selectedBrand)?.text || m['EditCarPage.EditCarTabInformation.BasicInformation.brandPlaceholder']());
+    const carTypeTriggerContent = $derived(carTypes.find(bt => bt.value === selectedCarType)?.text || m['EditCarPage.EditCarTabInformation.BasicInformation.carTypePlaceholder']());
     const currencyTriggerContent = $derived(selectedCurrency || "EUR");
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-xl">Basic Information</CardTitle>
-        <CardDescription>Core vehicle details and specifications</CardDescription>
+        <CardTitle class="text-xl">{m['EditCarPage.EditCarTabInformation.BasicInformation.title']()}</CardTitle>
+        <CardDescription>{m['EditCarPage.EditCarTabInformation.BasicInformation.description']()}</CardDescription>
     </CardHeader>
 
     <CardContent class="space-y-6">
@@ -42,7 +45,7 @@
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div class="space-y-2">
-                <Label for="vin" class="text-sm font-medium">VIN Number *</Label>
+                <Label for="vin" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.vinNumber']}</Label>
                 <Input
                     id="vin"
                     name="vin"
@@ -54,7 +57,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="brand" class="text-sm font-medium">Brand *</Label>
+                <Label for="brand" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.brand']}</Label>
                 <Select type="single" name="brand" bind:value={selectedBrand}>
                     <SelectTrigger class={editCarForm.issues?.brand ? 'border-destructive' : ''}>
                         <span>{brandTriggerContent}</span>
@@ -70,7 +73,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="model" class="text-sm font-medium">Model *</Label>
+                <Label for="model" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.model']}</Label>
                 <Input
                     id="model"
                     name="model"
@@ -82,7 +85,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="year" class="text-sm font-medium">Year *</Label>
+                <Label for="year" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.year']}</Label>
                 <Input
                     id="year"
                     name="year"
@@ -96,14 +99,14 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="carType" class="text-sm font-medium">Car Type *</Label>
+                <Label for="carType" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.carType']}</Label>
                 <Select type="single" name="carType" bind:value={selectedCarType}>
                     <SelectTrigger class={editCarForm.issues?.carType ? 'border-destructive' : ''}>
                         <span>{carTypeTriggerContent}</span>
                     </SelectTrigger>
                     <SelectContent>
-                        {#each bodyTypes as bodyType}
-                            <SelectItem value={bodyType.value}>{bodyType.text}</SelectItem>
+                        {#each carTypes as carType}
+                            <SelectItem value={carType.value}>{carType.text}</SelectItem>
                         {/each}
                     </SelectContent>
                 </Select>
@@ -111,7 +114,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="price" class="text-sm font-medium">Price *</Label>
+                <Label for="price" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.price']}</Label>
                 <div class="flex">
                     <Input
                         id="price"
@@ -136,7 +139,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="location" class="text-sm font-medium">Location *</Label>
+                <Label for="location" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.location']}</Label>
                 <Input
                     id="location"
                     name="location"
@@ -149,11 +152,11 @@
         </div>
 
         <div class="space-y-2">
-            <Label for="description" class="text-sm font-medium">Description *</Label>
+            <Label for="description" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.BasicInformation.carDescription']}</Label>
             <Textarea
                 id="description"
                 name="description"
-                placeholder="Detaljni opis vozila, stanja, dodatne opreme..."
+                placeholder={m['EditCarPage.EditCarTabInformation.BasicInformation.carDescriptionPlaceholder']()}
                 value={editCarForm.input?.description || car.description || ''}
                 rows={4}
                 class={editCarForm.issues?.description ? 'border-destructive' : ''}

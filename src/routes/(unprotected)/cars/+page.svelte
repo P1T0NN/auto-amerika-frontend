@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // SVELTEKIT
     import { page } from '$app/state';
     import { goto } from '$app/navigation';
@@ -58,10 +61,10 @@
 </script>
 
 <svelte:head>
-	<title>Automobili - AutoAmerika</title>
+	<title>{m['CarsPage.pageTitle']()}</title>
 	<meta
 		name="description"
-		content="Pregledajte naš izbor kvalitetnih američkih automobila. Filtrirajte po brendu, ceni, godištu i drugim karakteristikama."
+		content={m['CarsPage.pageDescription']()}
 	/>
 </svelte:head>
 

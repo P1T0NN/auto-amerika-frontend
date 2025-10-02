@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import CarCard from '@/shared/components/ui/car-card/car-card.svelte';
     import CarsResultsLoading from './loading/cars-results-loading.svelte';
@@ -34,8 +37,8 @@
 
     <div class="flex-1">
         <div class="mb-6">
-            <h1 class="text-3xl font-bold text-white mb-2">Dostupni Automobili</h1>
-            <p class="text-zinc-400">{totalCount} automobila pronađeno</p>
+            <h1 class="text-3xl font-bold text-white mb-2">{m['CarsPage.CarsResults.title']()}</h1>
+            <p class="text-zinc-400">{totalCount} {m['CarsPage.CarsResults.carsFound']()}</p>
         </div>
 
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">

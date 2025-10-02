@@ -1,11 +1,14 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
 	// LUCIDE ICONS
 	import { Facebook, Instagram } from '@lucide/svelte';
 </script>
 
 <div class="col-span-1 md:col-span-2">
 	<div class="mb-4 flex items-center space-x-2">
-		<img 
+		<img
 			src="/logo-white.png" 
 			alt="AutoAmerika Logo" 
 			class="h-16 w-16" 
@@ -16,8 +19,7 @@
 
 	<!-- Updated text color to zinc-400 for better contrast on dark background -->
 	<p class="mb-4 max-w-md text-zinc-400">
-		Specijalizovani smo za uvoz kvalitetnih automobila iz Amerike. Pružamo kompletnu uslugu od
-		kupovine do registracije vozila u Srbiji.
+		{m['Footer.about']()}
 	</p>
 
 	<!-- Updated social icons with zinc-500 default and red hover state -->

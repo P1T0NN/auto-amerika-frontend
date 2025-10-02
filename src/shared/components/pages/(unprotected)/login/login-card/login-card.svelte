@@ -1,4 +1,7 @@
 <script lang="ts">
+	// LIBRARIES
+	import { m } from '@/shared/lib/paraglide/messages';
+
 	// COMPONENTS
 	import {
 		Card,
@@ -12,9 +15,9 @@
 
 <Card class="border-0 bg-card/80 shadow-xl backdrop-blur-sm">
 	<CardHeader class="pb-6 text-center">
-		<CardTitle class="text-2xl font-bold text-foreground">Dobrodošli</CardTitle>
+		<CardTitle class="text-2xl font-bold text-foreground">{m['LoginPage.Card.title']()}</CardTitle>
 		<CardDescription class="text-muted-foreground">
-			Prijavite se ili kreirajte nalog da pristupite ekskluzivnim automobilima
+			{m['LoginPage.Card.description']()}
 		</CardDescription>
 	</CardHeader>
 
@@ -23,7 +26,7 @@
 
 		<div class="text-center">
 			<p class="text-xs text-muted-foreground">
-				Automatski ćete biti registrovani ako je ovo vaša prva prijava
+				{m['LoginPage.Card.autoRegisterNote']()}
 			</p>
 		</div>
 	</CardContent>

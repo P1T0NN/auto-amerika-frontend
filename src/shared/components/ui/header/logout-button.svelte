@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     // COMPONENTS
     import { Button } from '@/shared/components/ui/button';
 
@@ -17,6 +20,6 @@
     >
         <LogOut class="mr-2 h-4 w-4" />
         
-        Sign Out
+        {m['Header.logout']()}
     </Button>
 </form>

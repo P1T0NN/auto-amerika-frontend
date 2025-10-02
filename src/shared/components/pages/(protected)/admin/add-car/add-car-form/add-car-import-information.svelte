@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardHeader, CardTitle } from "@/shared/components/ui/card";
     import { Label } from "@/shared/components/ui/label";
@@ -18,16 +21,16 @@
     let selectedRegistrationStatus = $state(addCarContext.formData.registrationStatus || "");
 
     const originCountryTriggerContent = $derived(
-        originCountries.find(option => option.value === selectedOriginCountry)?.text || "Izaberite zemlju"
+        originCountries.find(option => option.value === selectedOriginCountry)?.text || m['AddCarPage.AddCarImportInformation.originCountryPlaceholder']()
     );
     const purchaseSourceTriggerContent = $derived(
-        purchaseSources.find(option => option.value === selectedPurchaseSource)?.text || "Izaberite izvor"
+        purchaseSources.find(option => option.value === selectedPurchaseSource)?.text || m['AddCarPage.AddCarImportInformation.purchaseSourcePlaceholder']()
     );
     const homologationStatusTriggerContent = $derived(
-        homologationStatusOptions.find(option => option.value === selectedHomologationStatus)?.text || "Izaberite status"
+        homologationStatusOptions.find(option => option.value === selectedHomologationStatus)?.text || m['AddCarPage.AddCarImportInformation.homologationStatusPlaceholder']()
     );
     const registrationStatusTriggerContent = $derived(
-        registrationStatusOptions.find(option => option.value === selectedRegistrationStatus)?.text || "Izaberite status"
+        registrationStatusOptions.find(option => option.value === selectedRegistrationStatus)?.text || m['AddCarPage.AddCarImportInformation.registrationStatusPlaceholder']()
     );
 
     $effect(() => {
@@ -40,12 +43,12 @@
 
 <Card>
     <CardHeader>
-        <CardTitle>Informacije o uvozu</CardTitle>
+        <CardTitle>{m['AddCarPage.AddCarImportInformation.title']()}</CardTitle>
     </CardHeader>
     <CardContent>
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-2">
-                <Label for="originCountry">Zemlja porekla *</Label>
+                <Label for="originCountry">{m['AddCarPage.AddCarImportInformation.originCountryLabel']()}</Label>
                 <Select type="single" name="originCountry" bind:value={selectedOriginCountry}>
                     <SelectTrigger class={addCarContext.errors.originCountry ? 'border-destructive' : ''}>
                         <span>{originCountryTriggerContent}</span>
@@ -60,7 +63,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseSource">Izvor kupovine *</Label>
+                <Label for="purchaseSource">{m['AddCarPage.AddCarImportInformation.purchaseSourceLabel']()}</Label>
                 <Select type="single" name="purchaseSource" bind:value={selectedPurchaseSource}>
                     <SelectTrigger class={addCarContext.errors.purchaseSource ? 'border-destructive' : ''}>
                         <span>{purchaseSourceTriggerContent}</span>
@@ -75,7 +78,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseDate">Datum kupovine *</Label>
+                <Label for="purchaseDate">{m['AddCarPage.AddCarImportInformation.purchaseDateLabel']()}</Label>
                 <Input
                     id="purchaseDate"
                     name="purchaseDate"
@@ -87,12 +90,12 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="usPurchasePrice">Kupovna cena (USD) *</Label>
+                <Label for="usPurchasePrice">{m['AddCarPage.AddCarImportInformation.usPurchasePriceLabel']()}</Label>
                 <Input
                     id="usPurchasePrice"
                     name="usPurchasePrice"
                     type="number"
-                    placeholder="25000"
+                    placeholder={m['AddCarPage.AddCarImportInformation.usPurchasePricePlaceholder']()}
                     bind:value={addCarContext.formData.usPurchasePrice}
                     class={addCarContext.errors.usPurchasePrice ? 'border-destructive' : ''}
                 />
@@ -100,12 +103,12 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="shippingCost">Troškovi transporta (USD) *</Label>
+                <Label for="shippingCost">{m['AddCarPage.AddCarImportInformation.shippingCostLabel']()}</Label>
                 <Input
                     id="shippingCost"
                     name="shippingCost"
                     type="number"
-                    placeholder="2000"
+                    placeholder={m['AddCarPage.AddCarImportInformation.shippingCostPlaceholder']()}
                     bind:value={addCarContext.formData.shippingCost}
                     class={addCarContext.errors.shippingCost ? 'border-destructive' : ''}
                 />
@@ -113,12 +116,12 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="customsTax">Carinska taksa (EUR) *</Label>
+                <Label for="customsTax">{m['AddCarPage.AddCarImportInformation.customsTaxLabel']()}</Label>
                 <Input
                     id="customsTax"
                     name="customsTax"
                     type="number"
-                    placeholder="5000"
+                    placeholder={m['AddCarPage.AddCarImportInformation.customsTaxPlaceholder']()}
                     bind:value={addCarContext.formData.customsTax}
                     class={addCarContext.errors.customsTax ? 'border-destructive' : ''}
                 />
@@ -126,7 +129,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="importDate">Datum uvoza *</Label>
+                <Label for="importDate">{m['AddCarPage.AddCarImportInformation.importDateLabel']()}</Label>
                 <Input
                     id="importDate"
                     name="importDate"
@@ -138,7 +141,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="homologationStatus">Status homologacije *</Label>
+                <Label for="homologationStatus">{m['AddCarPage.AddCarImportInformation.homologationStatusLabel']()}</Label>
                 <Select type="single" name="homologationStatus" bind:value={selectedHomologationStatus}>
                     <SelectTrigger class={addCarContext.errors.homologationStatus ? 'border-destructive' : ''}>
                         <span>{homologationStatusTriggerContent}</span>
@@ -153,7 +156,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="registrationStatus">Status registracije *</Label>
+                <Label for="registrationStatus">{m['AddCarPage.AddCarImportInformation.registrationStatusLabel']()}</Label>
                 <Select type="single" name="registrationStatus" bind:value={selectedRegistrationStatus}>
                     <SelectTrigger class={addCarContext.errors.registrationStatus ? 'border-destructive' : ''}>
                         <span>{registrationStatusTriggerContent}</span>

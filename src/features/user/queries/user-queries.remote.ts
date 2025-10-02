@@ -1,5 +1,6 @@
 // LIBRARIES
 import { serverApiClient } from "@/shared/lib/api-client/api-client";
+import { m } from "@/shared/lib/paraglide/messages";
 
 // UTILS
 import { guardedQuery } from "@/features/auth/utils/auth-utils";
@@ -14,14 +15,14 @@ export const fetchCurrentUser = guardedQuery(async (sessionToken): Promise<ApiRe
     if (!response.success) {
         return {
             success: false,
-            message: "USER_FETCH_FAILED",
+            message: m["GenericMessages.FETCH_FAILED"](),
             data: null
         };
     }
 
     return {
         success: true,
-        message: "USER_FETCHED_SUCCESSFULLY",
+        message: m["GenericMessages.FETCH_SUCCESS"](),
         data: response.data
     };
 });

@@ -1,3 +1,6 @@
+// LIBRARIES
+import { m } from "@/shared/lib/paraglide/messages";
+
 export class AddCarClass {
     // Form submission state
     isSubmitting = $state(false);
@@ -29,6 +32,7 @@ export class AddCarClass {
         interiorMaterial: "",
         location: "",
         description: "",
+        carType: "",
 
         // Step 2: History
         titleStatus: "",
@@ -59,14 +63,14 @@ export class AddCarClass {
         // Check file types
         for (const file of files) {
             if (!this.ALLOWED_TYPES.includes(file.type)) {
-                return `Fajl "${file.name}" nije podržan format. Dozvoljen je samo JPG, PNG i WebP.`;
+                return m["ValidationMessages.CarsContext.INVALID_FILE_TYPE"]({ fileName: file.name });
             }
         }
 
         // Check file sizes
         for (const file of files) {
             if (file.size > this.MAX_FILE_SIZE) {
-                return `Fajl "${file.name}" je prevelik. Maksimalna veličina je 5MB.`;
+                return m["ValidationMessages.CarsContext.INVALID_FILE_SIZE"]({ fileName: file.name });
             }
         }
 
@@ -75,7 +79,7 @@ export class AddCarClass {
 
     validateImageCount(): string | null {
         if (this.selectedImages.length < this.MINIMUM_IMAGES) {
-            return `Potrebno je minimum ${this.MINIMUM_IMAGES} slika. Trenutno imate ${this.selectedImages.length}.`;
+            return m["ValidationMessages.CarsContext.INVALID_IMAGE_COUNT"]({ minimum: this.MINIMUM_IMAGES, count: this.selectedImages.length });
         }
         return null;
     }
@@ -127,6 +131,7 @@ export class AddCarClass {
             interiorMaterial: "",
             location: "",
             description: "",
+            carType: "",
 
             // Step 2: History
             titleStatus: "",
@@ -246,14 +251,14 @@ export class EditCarImagesClass {
         // Check file types
         for (const file of files) {
             if (!this.ALLOWED_TYPES.includes(file.type)) {
-                return `Fajl "${file.name}" nije podržan format. Dozvoljen je samo JPG, PNG i WebP.`;
+                return m["ValidationMessages.CarsContext.INVALID_FILE_TYPE"]({ fileName: file.name });
             }
         }
 
         // Check file sizes
         for (const file of files) {
             if (file.size > this.MAX_FILE_SIZE) {
-                return `Fajl "${file.name}" je prevelik. Maksimalna veličina je 5MB.`;
+                return m["ValidationMessages.CarsContext.INVALID_FILE_SIZE"]({ fileName: file.name });
             }
         }
 
@@ -265,7 +270,7 @@ export class EditCarImagesClass {
         const totalImages = remainingExisting + this.newImages.length;
 
         if (totalImages < this.MINIMUM_IMAGES) {
-            return `Potrebno je minimum ${this.MINIMUM_IMAGES} slika. Trenutno imate ${totalImages}.`;
+            return m["ValidationMessages.CarsContext.INVALID_IMAGE_COUNT"]({ minimum: this.MINIMUM_IMAGES, count: totalImages });
         }
         return null;
     }
@@ -275,7 +280,7 @@ export class EditCarImagesClass {
             const countError = this.validateTotalImageCount(existingImagesCount);
             if (countError) {
                 this.validationError = countError;
-            } else if (this.validationError.includes("Potrebno je minimum")) {
+            } else if (this.validationError.includes("Minimum")) {
                 this.validationError = "";
             }
         }
@@ -291,7 +296,7 @@ export class EditCarImagesClass {
 
         // Check if there are any changes to submit
         if (!this.hasChanges()) {
-            this.validationError = "Nema promena za čuvanje.";
+            this.validationError = m["ValidationMessages.CarsContext.NO_CHANGES"]();
             return false;
         }
 

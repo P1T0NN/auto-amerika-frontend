@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import { Label } from '@/shared/components/ui/label';
@@ -27,24 +30,24 @@
     let selectedColorExterior = $state(editCarForm.input?.colorExterior || car.colorExterior || "");
     let selectedColorInterior = $state(editCarForm.input?.colorInterior || car.colorInterior || "");
 
-    const fuelTriggerContent = $derived(fuelTypes.find(f => f.value === selectedFuel)?.text || "Izaberite gorivo");
-    const transmissionTriggerContent = $derived(transmissionTypes.find(t => t.value === selectedTransmission)?.text || "Izaberite menjač");
-    const drivetrainTriggerContent = $derived(drivetrainTypes.find(d => d.value === selectedDrivetrain)?.text || "Izaberite pogon");
-    const interiorMaterialTriggerContent = $derived(interiorMaterials.find(m => m.value === selectedInteriorMaterial)?.text || "Izaberite materijal");
-    const colorExteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorExterior)?.text || "Izaberite boju");
-    const colorInteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorInterior)?.text || "Izaberite boju");
+    const fuelTriggerContent = $derived(fuelTypes.find(f => f.value === selectedFuel)?.text || m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.fuelPlaceholder']());
+    const transmissionTriggerContent = $derived(transmissionTypes.find(t => t.value === selectedTransmission)?.text || m["EditCarPage.EditCarTabInformation.TechnicalSpecifications.transmissionPlaceholder"]());
+    const drivetrainTriggerContent = $derived(drivetrainTypes.find(d => d.value === selectedDrivetrain)?.text || m["EditCarPage.EditCarTabInformation.TechnicalSpecifications.drivetrainPlaceholder"]());
+    const interiorMaterialTriggerContent = $derived(interiorMaterials.find(m => m.value === selectedInteriorMaterial)?.text || m["EditCarPage.EditCarTabInformation.TechnicalSpecifications.interiorMaterialPlaceholder"]());
+    const colorExteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorExterior)?.text || m["EditCarPage.EditCarTabInformation.TechnicalSpecifications.colorExteriorPlaceholder"]());
+    const colorInteriorTriggerContent = $derived(colors.find(c => c.value === selectedColorInterior)?.text || m["EditCarPage.EditCarTabInformation.TechnicalSpecifications.colorInteriorPlaceholder"]());
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-xl">Technical Specifications</CardTitle>
-        <CardDescription>Engine, performance, and physical details</CardDescription>
+        <CardTitle class="text-xl">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.title']}</CardTitle>
+        <CardDescription>{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.description']}</CardDescription>
     </CardHeader>
 
     <CardContent class="space-y-6">
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <div class="space-y-2">
-                <Label for="mileageKm" class="text-sm font-medium">Mileage (KM) *</Label>
+                <Label for="mileageKm" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.mileageKm']}</Label>
                 <Input
                     id="mileageKm"
                     name="mileageKm"
@@ -57,7 +60,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="fuel" class="text-sm font-medium">Fuel Type *</Label>
+                <Label for="fuel" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.fuel']}</Label>
                 <Select type="single" name="fuel" bind:value={selectedFuel}>
                     <SelectTrigger class={editCarForm.issues?.fuel ? 'border-destructive' : ''}>
                         <span>{fuelTriggerContent}</span>
@@ -72,7 +75,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="transmission" class="text-sm font-medium">Transmission *</Label>
+                <Label for="transmission" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.transmission']}</Label>
                 <Select type="single" name="transmission" bind:value={selectedTransmission}>
                     <SelectTrigger class={editCarForm.issues?.transmission ? 'border-destructive' : ''}>
                         <span>{transmissionTriggerContent}</span>
@@ -87,7 +90,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="engine" class="text-sm font-medium">Engine *</Label>
+                <Label for="engine" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.engine']}</Label>
                 <Input
                     id="engine"
                     name="engine"
@@ -99,7 +102,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="powerHp" class="text-sm font-medium">Power (HP) *</Label>
+                <Label for="powerHp" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.powerHp']}</Label>
                 <Input
                     id="powerHp"
                     name="powerHp"
@@ -112,7 +115,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="drivetrain" class="text-sm font-medium">Drivetrain *</Label>
+                <Label for="drivetrain" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.drivetrain']}</Label>
                 <Select type="single" name="drivetrain" bind:value={selectedDrivetrain}>
                     <SelectTrigger class={editCarForm.issues?.drivetrain ? 'border-destructive' : ''}>
                         <span>{drivetrainTriggerContent}</span>
@@ -127,7 +130,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="colorExterior" class="text-sm font-medium">Exterior Color *</Label>
+                <Label for="colorExterior" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.colorExterior']}</Label>
                 <Select type="single" name="colorExterior" bind:value={selectedColorExterior}>
                     <SelectTrigger class={editCarForm.issues?.colorExterior ? 'border-destructive' : ''}>
                         <span>{colorExteriorTriggerContent}</span>
@@ -142,7 +145,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="colorInterior" class="text-sm font-medium">Interior Color *</Label>
+                <Label for="colorInterior" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.colorInterior']}</Label>
                 <Select type="single" name="colorInterior" bind:value={selectedColorInterior}>
                     <SelectTrigger class={editCarForm.issues?.colorInterior ? 'border-destructive' : ''}>
                         <span>{colorInteriorTriggerContent}</span>
@@ -157,7 +160,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="interiorMaterial" class="text-sm font-medium">Interior Material *</Label>
+                <Label for="interiorMaterial" class="text-sm font-medium">{m['EditCarPage.EditCarTabInformation.TechnicalSpecifications.interiorMaterial']}</Label>
                 <Select type="single" name="interiorMaterial" bind:value={selectedInteriorMaterial}>
                     <SelectTrigger class={editCarForm.issues?.interiorMaterial ? 'border-destructive' : ''}>
                         <span>{interiorMaterialTriggerContent}</span>

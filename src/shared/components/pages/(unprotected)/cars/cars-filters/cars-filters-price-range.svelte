@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Label } from "@/shared/components/ui/label";
     import { Input } from "@/shared/components/ui/input";
@@ -10,7 +13,7 @@
 
 <div class="border-b border-zinc-800 pb-6">
     <CollapsibleSectionHeader
-        label="Price Range"
+        label={m['CarsPage.CarsFilters.priceRange']()}
         isExpanded={filtersContext.expandedSections.price}
         onclick={() => filtersContext.toggleSection('price')}
     />
@@ -19,7 +22,7 @@
         <div class="space-y-4">
             <div class="flex items-center gap-4">
                 <div class="flex-1">
-                    <Label for="price-min" class="text-xs text-zinc-500 mb-1 block">Min</Label>
+                    <Label for="price-min" class="text-xs text-zinc-500 mb-1 block">{m['CarsPage.CarsFilters.priceMin']()}</Label>
                     <Input
                         id="price-min"
                         type="number"
@@ -28,7 +31,7 @@
                     />
                 </div>
                 <div class="flex-1">
-                    <Label for="price-max" class="text-xs text-zinc-500 mb-1 block">Max</Label>
+                    <Label for="price-max" class="text-xs text-zinc-500 mb-1 block">{m['CarsPage.CarsFilters.priceMax']()}</Label>
                     <Input
                         id="price-max"
                         type="number"

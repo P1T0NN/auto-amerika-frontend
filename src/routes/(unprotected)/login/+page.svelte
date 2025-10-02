@@ -1,4 +1,7 @@
 <script>
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import LoginHeader from '@/shared/components/pages/(unprotected)/login/login-header.svelte';
 	import LoginFooter from '@/shared/components/pages/(unprotected)/login/login-footer.svelte';
@@ -6,10 +9,10 @@
 </script>
 
 <svelte:head>
-	<title>Prijava - AutoAmerika</title>
+	<title>{m['LoginPage.pageTitle']()}</title>
 	<meta
 		name="description"
-		content="Prijavite se na AutoAmerika platformu za pristup ekskluzivnim automobilima iz Amerike."
+		content={m['LoginPage.pageDescription']()}
 	/>
 </svelte:head>
 

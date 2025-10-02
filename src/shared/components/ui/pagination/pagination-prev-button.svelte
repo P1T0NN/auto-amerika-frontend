@@ -1,4 +1,6 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
 	import { Pagination as PaginationPrimitive } from "bits-ui";
 	import ChevronLeftIcon from "@lucide/svelte/icons/chevron-left";
 	import { buttonVariants } from "@/shared/components/ui/button/index.js";
@@ -14,7 +16,7 @@
 
 {#snippet Fallback()}
 	<ChevronLeftIcon class="size-4" />
-	<span>Previous</span>
+	<span>{m['Pagination.prevButton']()}</span>
 {/snippet}
 
 <PaginationPrimitive.PrevButton

@@ -1,11 +1,14 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
 	// CONFIG
 	import { CONTACT_INFO } from "@/shared/config";
 </script>
 
 <div>
 	<!-- Updated heading to zinc-300 for better hierarchy -->
-	<h3 class="mb-4 text-sm font-semibold tracking-wider uppercase text-zinc-300">Kontakt</h3>
+	<h3 class="mb-4 text-sm font-semibold tracking-wider uppercase text-zinc-300">{m['Footer.contact']()}</h3>
 	<!-- Updated text color to zinc-400 for better contrast -->
 	<ul class="space-y-2 text-zinc-400">
 		<li>{CONTACT_INFO.PHONE}</li>

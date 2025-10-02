@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Label } from "@/shared/components/ui/label";
     import CollapsibleSectionHeader from "@/shared/components/ui/collapsible-section-header.svelte";
@@ -9,7 +12,7 @@
 
 <div class="pb-6">
     <CollapsibleSectionHeader
-        label="Color"
+        label={m['CarsPage.CarsFilters.color']()}
         isExpanded={filtersContext.expandedSections.color}
         onclick={() => filtersContext.toggleSection('color')}
     />

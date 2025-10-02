@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import * as Table from '@/shared/components/ui/table';
@@ -21,37 +24,37 @@
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-2xl font-semibold">Istorija vozila</CardTitle>
+        <CardTitle class="text-2xl font-semibold">{m['CarPage.CarHistorySection.title']()}</CardTitle>
     </CardHeader>
-    
+
     <CardContent>
         {#if car.history}
             <Table.Root>
                 <Table.Body>
                     <Table.Row>
-                        <Table.Cell class="font-semibold">Status vlasništva</Table.Cell>
+                        <Table.Cell class="font-semibold">{m['CarPage.CarHistorySection.titleStatus']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">
                             {titleStatus}
                         </Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
-                        <Table.Cell class="font-semibold">Prva registracija</Table.Cell>
+                        <Table.Cell class="font-semibold">{m['CarPage.CarHistorySection.firstRegistration']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">{formatDate(car.history.firstRegistration)}</Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
-                        <Table.Cell class="font-semibold">Broj vlasnika</Table.Cell>
+                        <Table.Cell class="font-semibold">{m['CarPage.CarHistorySection.owners']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">{car.history.owners}</Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
-                        <Table.Cell class="font-semibold">Servisna istorija</Table.Cell>
+                        <Table.Cell class="font-semibold">{m['CarPage.CarHistorySection.serviceHistory']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">{capitalizeFirstLetter(car.history.serviceHistory)}</Table.Cell>
                     </Table.Row>
 
                     <Table.Row>
-                        <Table.Cell class="font-semibold">Nezgode</Table.Cell>
+                        <Table.Cell class="font-semibold">{m['CarPage.CarHistorySection.accidents']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">
                             {accidents}
                         </Table.Cell>

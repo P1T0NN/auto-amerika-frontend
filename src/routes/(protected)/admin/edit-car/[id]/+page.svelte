@@ -2,6 +2,9 @@
     // SVELTEKIT IMPORTS
 	import { page } from '$app/state';
 
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+    
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -26,7 +29,7 @@
 </script>
 
 <svelte:head>
-	<title>Edit Car - {car?.brand} {car?.model} - AutoAmerika Admin</title>
+	<title>{m['EditCarPage.pageTitle']()} - {car?.brand} {car?.model} - AutoAmerika Admin</title>
 </svelte:head>
 
 <svelte:boundary>

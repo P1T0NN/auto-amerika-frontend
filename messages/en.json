@@ -6,5 +6,743 @@
         "description": "Are you sure you want to do this? This action cannot be undone.",
         "cancel": "Cancel",
         "proceed": "Proceed"
+    },
+    "ImageGallery": {
+        "noImages": "No images available"
+    },
+    "Pagination": {
+        "nextButton": "Next",
+        "prevButton": "Previous"
+    },
+    "GoogleLoginButton": {
+        "loginWithGoogle": "Login with Google",
+        "loggingIn": "Logging in..."
+    },
+    "Header": {
+        "settings": "Settings",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfUse": "Terms of Use",
+        "login": "Login",
+        "logout": "Logout",
+        "NavigationLinks": {
+            "home": "Home",
+            "cars": "Cars",
+            "about": "About",
+            "contact": "Contact",
+            "reviews": "Reviews"
+        }
+    },
+    "CarStatus": {
+        "unavailable": "UNAVAILABLE",
+        "sold": "SOLD",
+        "pending": "PENDING",
+        "availableText": "Available",
+        "soldText": "Sold",
+        "pendingText": "Pending",
+        "unavailableText": "Unavailable",
+        "unknownText": "Unknown"
+    },
+    "CarTypes": {
+        "convertibles": "Convertibles",
+        "coupes": "Coupes",
+        "hatchbacks": "Hatchbacks",
+        "sedans": "Sedans",
+        "suvs": "SUVs",
+        "vans": "Vans",
+        "trucks": "Trucks",
+        "wagons": "Wagons"
+    },
+    "CarColors": {
+        "black": "Black",
+        "white": "White",
+        "gray": "Gray",
+        "red": "Red",
+        "blue": "Blue",
+        "green": "Green"
+    },
+    "CarFuelTypes": {
+        "gasoline": "Gasoline",
+        "diesel": "Diesel",
+        "hybrid": "Hybrid",
+        "electric": "Electric",
+        "flexFuel": "Flex Fuel"
+    },
+    "CarTransmissionTypes": {
+        "automatic": "Automatic",
+        "manual": "Manual",
+        "cvt": "CVT",
+        "semiAutomatic": "Semi-Automatic"
+    },
+    "CarDrivetrainTypes": {
+        "fwd": "FWD",
+        "rwd": "RWD",
+        "awd": "AWD",
+        "4wd": "4WD"
+    },
+    "CarInteriorMaterials": {
+        "fabric": "Fabric",
+        "leather": "Leather",
+        "syntheticLeather": "Synthetic Leather",
+        "alcantara": "Alcantara",
+        "mixed": "Mixed"
+    },
+    "CarHomologationStatus": {
+        "completed": "Completed",
+        "inProgress": "In Progress",
+        "notStarted": "Not Started",
+        "notRequired": "Not Required"
+    },
+    "CarRegistrationStatus": {
+        "registered": "Registered",
+        "pending": "Pending",
+        "notRegistered": "Not Registered"
+    },
+    "CarTitleStatus": {
+        "clean": "Clean",
+        "salvage": "Salvage",
+        "rebuilt": "Rebuilt",
+        "lemon": "Lemon",
+        "flood": "Flood"
+    },
+    "CarAccidents": {
+        "none": "None",
+        "minor": "Minor",
+        "major": "Major",
+        "unknown": "Unknown"
+    },
+    "CarOriginCountries": {
+        "usa": "USA"
+    },
+    "CarPurchaseSources": {
+        "privateSeller": "Private Seller",
+        "dealer": "Dealer",
+        "auction": "Auction"
+    },
+    "Footer": {
+        "copyright": "All rights reserved.",
+        "contact": "Contact",
+        "about": "We specialize in importing quality cars from America",
+        "quickLinks": {
+            "title": "Quick Links",
+            "cars": "Cars",
+            "about": "About",
+            "contact": "Contact",
+            "reviews": "Reviews"
+        }
+    },
+    "HomePage": {
+        "pageTitle": "AutoAmerika - Selling cars that come from America",
+        "pageDescription": "We specialize in importing quality cars from America",
+        "HeroSection": {
+            "title": "We are selling",
+            "subtitle": "the best american cars",
+            "subtitle2": "for you",
+            "description": "Od kupovine do registracije - kompletna usluga uvoza vozila iz Amerike",
+            "seeTheCars": "See the cars",
+            "contactUs": "Contact us"
+        },
+        "CarTypesSection": {
+            "title": "Discover Your Dream Car",
+            "browseBy": "Browse by",
+            "description": "Explore our curated collection of premium vehicles across all categories",
+            "type": "Type"
+        },
+        "CarBrandsSection": {
+            "audiDescription": "German Engineering Excellence",
+            "audiTagline": "Lead through Technology",
+            "bmwDescription": "The Ultimate Driving Machine",
+            "bmwTagline": "Sheer Driving Pleasure",
+            "porscheDescription": "Legendary Sports Performance",
+            "porscheTagline": "There Is No Substitute",
+            "mercedesDescription": "Innovation That Excites",
+            "mercedesTagline": "Innovation For All",
+            "title": "Premium Automotive Brands",
+            "description": "Discover iconic manufacturers known for excellence and innovation",
+            "browseBy": "Browse by",
+            "brand": "Brand"
+        },
+        "WhyUsSection": {
+            "title": "Why AutoAmerika?",
+            "description": "Years of experience in importing cars from America",
+            "provenQuality": "Proven Quality",
+            "provenQualityDescription": "Every car goes through a detailed inspection before import",
+            "fastProcedure": "Fast Procedure",
+            "fastProcedureDescription": "We offer fast delivery to your doorstep",
+            "transparentPrices": "Transparent Prices",
+            "transparentPricesDescription": "We accept all major credit cards and cryptocurrencies"
+        },
+        "CtaSection": {
+            "title": "Are you ready for your new car?",
+            "description": "Contact us today and start the process of importing your ideal vehicle",
+            "contactUs": "Contact us",
+            "seeTheCars": "See the cars"
+        }
+    },
+    "AboutPage": {
+        "HeroSection": {
+            "title": "About Us",
+            "subtitle": "Your trusted partner for importing luxury American cars"
+        },
+        "IntroductionSection": {
+            "title": "Our Story",
+            "paragraph1": "With over 10 years of experience in importing cars from America, we have specialized in providing complete service to our clients. From finding the perfect vehicle to its registration in Serbia, we take care of every detail.",
+            "paragraph2": "Our team of experts has deep knowledge of the American car market and provides personalized service that guarantees you will get a vehicle that fully meets your needs and expectations."
+        },
+        "WhyChooseUsSection": {
+            "title": "Why Choose Us?",
+            "reliability": {
+                "title": "Reliability",
+                "description": "We guarantee transparency and security in every transaction"
+            },
+            "expertise": {
+                "title": "Expertise",
+                "description": "A team with years of experience in the automotive industry"
+            },
+            "speed": {
+                "title": "Speed",
+                "description": "Efficient import process with clear delivery deadlines"
+            },
+            "completeService": {
+                "title": "Complete Service",
+                "description": "From purchase to registration - everything in one place"
+            }
+        },
+        "OurProcessSection": {
+            "title": "Our Process",
+            "step1": {
+                "title": "Finding the Vehicle",
+                "description": "We help you find the perfect vehicle at American auctions and dealerships"
+            },
+            "step2": {
+                "title": "Purchase and Transport",
+                "description": "We handle the purchase and organize safe transport of the vehicle to Serbia"
+            },
+            "step3": {
+                "title": "Customs and Registration",
+                "description": "We take care of all formalities and hand over the vehicle ready to drive"
+            }
+        },
+        "CtaSection": {
+            "title": "Ready to import your dream car?",
+            "description": "Contact us today and start the journey to your new vehicle",
+            "contactUs": "Contact us",
+            "seeTheCars": "See the cars"
+        }
+    },
+    "ContactPage": {
+        "HeroSection": {
+            "title": "Contact Us",
+            "description": "Have questions? We're happy to help. Contact us via the form or directly."
+        },
+        "ContactForm": {
+            "title": "Send Us a Message",
+            "nameLabel": "Full Name *",
+            "namePlaceholder": "Your full name",
+            "emailLabel": "Email *",
+            "emailPlaceholder": "your@email.com",
+            "phoneLabel": "Phone",
+            "phonePlaceholder": "+381 11 123 4567",
+            "subjectLabel": "Subject *",
+            "subjectPlaceholder": "Message subject",
+            "messageLabel": "Message *",
+            "messagePlaceholder": "How can we help you?",
+            "submitButton": "Send Message",
+            "validationError": "Please fill in all required fields correctly"
+        },
+        "ContactInformation": {
+            "title": "Contact Information",
+            "phone": "Phone",
+            "email": "Email",
+            "address": "Address"
+        }
+    },
+    "LoginPage": {
+        "pageTitle": "Login - AutoAmerika",
+        "pageDescription": "Log in to the AutoAmerika platform to access exclusive cars from America.",
+        "Header": {
+            "title": "AutoAmerika",
+            "subtitle": "Importing cars from America"
+        },
+        "Card": {
+            "title": "Welcome",
+            "description": "Log in or create an account to access exclusive cars",
+            "autoRegisterNote": "You will be automatically registered if this is your first login"
+        },
+        "Footer": {
+            "agreementText": "By logging in, you agree to our",
+            "termsOfUse": "terms of use",
+            "and": "and",
+            "privacyPolicy": "privacy policy",
+            "home": "Home",
+            "about": "About",
+            "contact": "Contact"
+        }
+    },
+    "CarsPage": {
+        "pageTitle": "Cars - AutoAmerika",
+        "pageDescription": "Browse our selection of quality American cars. Filter by brand, price, year and other characteristics.",
+        "CarsResults": {
+            "title": "Available Cars",
+            "carsFound": "cars found"
+        },
+        "CarsFilters": {
+            "title": "Filters",
+            "subtitle": "Refine your search",
+            "clearAll": "Clear All Filters",
+            "applyFilters": "Apply Filters",
+            "brand": "Car Brand",
+            "priceRange": "Price Range",
+            "priceMin": "Min",
+            "priceMax": "Max",
+            "year": "Year",
+            "yearFrom": "From",
+            "yearTo": "To",
+            "carType": "Car Type",
+            "mileage": "Mileage",
+            "mileageMax": "Max Mileage",
+            "mileageUpTo": "Up to {value} km",
+            "transmission": "Transmission",
+            "fuelType": "Fuel Type",
+            "color": "Color"
+        }
+    },
+    "CarPage": {
+        "pageTitle": "AutoAmerika",
+        "pageDescription": "Car details. Contact us for more information.",
+        "CarHeader": {
+            "home": "Home",
+            "cars": "Cars"
+        },
+        "CarBasicInformationSection": {
+            "title": "Basic Information",
+            "vin": "VIN",
+            "brand": "Brand",
+            "model": "Model",
+            "year": "Year",
+            "carType": "Car Type",
+            "mileage": "Mileage",
+            "fuel": "Fuel",
+            "transmission": "Transmission",
+            "engine": "Engine",
+            "power": "Power",
+            "drivetrain": "Drivetrain",
+            "exteriorColor": "Exterior Color",
+            "interiorColor": "Interior Color",
+            "interiorMaterial": "Interior Material",
+            "location": "Location"
+        },
+        "CarDescriptionSection": {
+            "title": "Vehicle Description"
+        },
+        "CarHistorySection": {
+            "title": "Vehicle History",
+            "titleStatus": "Ownership Status",
+            "firstRegistration": "First Registration",
+            "owners": "Number of Owners",
+            "serviceHistory": "Service History",
+            "accidents": "Accidents"
+        },
+        "CarImportSection": {
+            "title": "Import Information",
+            "originCountry": "Country of Origin",
+            "purchaseSource": "Purchase Source",
+            "purchaseDate": "Purchase Date",
+            "importDate": "Import Date",
+            "homologationStatus": "Homologation Status",
+            "registrationStatus": "Registration Status"
+        },
+        "CarContactSidebar": {
+            "priceDescription": "Final price includes all costs",
+            "contactButton": "Contact Us"
+        }
+    },
+    "AddCarPage": {
+        "pageTitle": "Add Car - AutoAmerika Admin",
+        "AddCarHeader": {
+            "title": "Add New Car",
+            "description": "Enter all necessary information about the car you are importing"
+        },
+        "AddCarForm": {
+            "submitButton": "Add Car"
+        },
+        "AddCarBasicInformation": {
+            "title": "Basic Vehicle Information",
+            "vinLabel": "VIN Number *",
+            "vinPlaceholder": "1HGBH41JXMN109186",
+            "brandLabel": "Brand *",
+            "brandPlaceholder": "Select brand",
+            "modelLabel": "Model *",
+            "modelPlaceholder": "Mustang GT",
+            "yearLabel": "Year *",
+            "carTypeLabel": "Vehicle Type *",
+            "carTypePlaceholder": "Select type",
+            "priceLabel": "Price *",
+            "pricePlaceholder": "45000",
+            "mileageLabel": "Mileage (km) *",
+            "mileagePlaceholder": "50000",
+            "fuelLabel": "Fuel *",
+            "fuelPlaceholder": "Select fuel",
+            "transmissionLabel": "Transmission *",
+            "transmissionPlaceholder": "Select transmission",
+            "engineLabel": "Engine *",
+            "enginePlaceholder": "5.0L V8",
+            "powerLabel": "Power (HP) *",
+            "powerPlaceholder": "450",
+            "drivetrainLabel": "Drivetrain *",
+            "drivetrainPlaceholder": "Select drivetrain",
+            "colorExteriorLabel": "Exterior Color *",
+            "colorExteriorPlaceholder": "Select color",
+            "colorInteriorLabel": "Interior Color *",
+            "colorInteriorPlaceholder": "Select color",
+            "interiorMaterialLabel": "Interior Material *",
+            "interiorMaterialPlaceholder": "Select material",
+            "locationLabel": "Location *",
+            "locationPlaceholder": "Belgrade, Serbia",
+            "descriptionLabel": "Description *",
+            "descriptionPlaceholder": "Detailed vehicle description, condition, additional equipment..."
+        },
+        "AddCarVehicleHistory": {
+            "title": "Vehicle History",
+            "titleStatusLabel": "Ownership Status *",
+            "titleStatusPlaceholder": "Select status",
+            "firstRegistrationLabel": "First Registration *",
+            "ownersLabel": "Number of Owners *",
+            "ownersPlaceholder": "1",
+            "accidentsLabel": "Accidents *",
+            "accidentsPlaceholder": "Select",
+            "serviceHistoryLabel": "Service History *",
+            "serviceHistoryPlaceholder": "Details about vehicle service history..."
+        },
+        "AddCarImportInformation": {
+            "title": "Import Information",
+            "originCountryLabel": "Country of Origin *",
+            "originCountryPlaceholder": "Select country",
+            "purchaseSourceLabel": "Purchase Source *",
+            "purchaseSourcePlaceholder": "Select source",
+            "purchaseDateLabel": "Purchase Date *",
+            "usPurchasePriceLabel": "Purchase Price (USD) *",
+            "usPurchasePricePlaceholder": "25000",
+            "shippingCostLabel": "Shipping Cost (USD) *",
+            "shippingCostPlaceholder": "2000",
+            "customsTaxLabel": "Customs Tax (EUR) *",
+            "customsTaxPlaceholder": "5000",
+            "importDateLabel": "Import Date *",
+            "homologationStatusLabel": "Homologation Status *",
+            "homologationStatusPlaceholder": "Select status",
+            "registrationStatusLabel": "Registration Status *",
+            "registrationStatusPlaceholder": "Select status"
+        },
+        "AddCarImages": {
+            "title": "Vehicle Images",
+            "uploadTitle": "Add Vehicle Images",
+            "uploadDescription": "Select one or more images (JPG, PNG, WebP)",
+            "uploadInfo": "Minimum {minimum} images • Maximum size: 5MB per image",
+            "selectButton": "Select Images",
+            "selectedImages": "Selected Images ({count})",
+            "needMore": "need {count} more",
+            "checkmark": "✓",
+            "removeImage": "Remove image"
+        }
+    },
+    "AdminDashboardPage": {
+        "pageTitle": "Admin Dashboard - AutoAmerika",
+        "AdminDashboardHeader": {
+            "title": "Admin Dashboard",
+            "subtitle": "Vehicle inventory management"
+        },
+        "AdminDashboardAddCarButton": {
+            "addNewCar": "Add New Car"
+        },
+        "AdminDashboardCurrentCarsHeader": {
+            "title": "Current Cars ({count})",
+            "searchPlaceholder": "Search by brand, model or VIN..."
+        },
+        "AdminDashboardCurrentCarsEmpty": {
+            "title": "No cars available",
+            "description": "You haven't added any cars to your inventory yet. Start building your collection by adding your first vehicle.",
+            "addFirstCar": "Add Your First Car"
+        },
+        "AdminDashboardCarGridItem": {
+            "added": "Added: {date}",
+            "location": "Location: {location}",
+            "homologation": "Homologation: {status}",
+            "editCar": "Edit Car"
+        },
+        "AdminDashboardCarListItem": {
+            "car": "Car",
+            "details": "Details",
+            "price": "Price",
+            "status": "Status",
+            "actions": "Actions",
+            "vin": "VIN: {vin}",
+            "added": "Added:",
+            "edit": "Edit"
+        }
+    },
+    "EditCarPage": {
+        "pageTitle": "Edit Car",
+        "EditCarHeader": {
+            "backToDashboard": "Back to Dashboard"
+        },
+        "EditCarTabNavigation": {
+            "information": "Car Information",
+            "history": "History",
+            "import": "Car Import",
+            "settings": "Settings"
+        },
+        "EditCarTabInformation": {
+            "cancel": "Cancel",
+            "saveInformation": "Save Information",
+            "BasicInformation": {
+                "title": "Basic Information",
+                "description": "Core vehicle details and specifications",
+                "vinNumber": "VIN Number",
+                "brand": "Brand",
+                "brandPlaceholder": "Select brand",
+                "model": "Model",
+                "year": "Year",
+                "carType": "Car Type",
+                "carTypePlaceholder": "Select type",
+                "price": "Price",
+                "location": "Location",
+                "carDescription": "Description",
+                "carDescriptionPlaceholder": "Detailed vehicle description, condition, additional equipment..."
+            },
+            "TechnicalSpecifications": {
+                "title": "Technical Specifications",
+                "description": "Engine, performance, and physical details",
+                "mileageKm": "Mileage (KM) *",
+                "mileageKmPlaceholder": "50000",
+                "fuel": "Fuel Type *",
+                "transmission": "Transmission *",
+                "engine": "Engine *",
+                "powerHp": "Power (HP) *",
+                "drivetrain": "Drivetrain *",
+                "colorExterior": "Exterior Color *",
+                "colorInterior": "Interior Color *",
+                "interiorMaterial": "Interior Material *",
+                "fuelPlaceholder": "Select fuel",
+                "transmissionPlaceholder": "Select transmission",
+                "drivetrainPlaceholder": "Select drivetrain",
+                "interiorMaterialPlaceholder": "Select material",
+                "colorExteriorPlaceholder": "Select color",
+                "colorInteriorPlaceholder": "Select color"
+            }
+        },
+        "EditCarTabHistory": {
+            "cancel": "Cancel",
+            "saveHistory": "Save History",
+            "VehicleHistory": {
+                "title": "Vehicle History",
+                "description": "Title status, ownership, and service records",
+                "titleStatus": "Title Status",
+                "accidents": "Accidents",
+                "serviceHistory": "Service History",
+                "serviceHistoryPlaceholder": "Regular maintenance, oil changes, inspections...",
+                "firstRegistration": "First Registration",
+                "owners": "Number of Previous Owners"
+            }
+        },
+        "EditCarTabImport": {
+            "cancel": "Cancel",
+            "saveImportData": "Save Import Data",
+            "ImportInformation": {
+                "originCountryPlaceholder": "Select country",
+                "purchaseSourcePlaceholder": "Select source",
+                "homologationStatusPlaceholder": "Select status",
+                "registrationStatusPlaceholder": "Select status",
+                "title": "Import Information",
+                "description": "Purchase details, shipping, and customs",
+                "originCountry": "Origin Country",
+                "purchaseSource": "Purchase Source",
+                "purchaseDate": "Purchase Date",
+                "usPurchasePrice": "Purchase Price (USD)",
+                "shippingCost": "Shipping Cost (USD)",
+                "customsTax": "Customs Tax (EUR)",
+                "importDate": "Import Date",
+                "homologationStatus": "Homologation Status",
+                "registrationStatus": "Registration Status"
+            }
+        },
+        "EditCarTabSettings": {
+            "cancel": "Cancel",
+            "saveSettings": "Save Settings",
+            "MediaManagement": {
+                "title": "Media Management",
+                "description": "Upload and manage vehicle photos",
+                "addImagesButton": "Add Images",
+                "saveChangesButton": "Save Changes",
+                "cancelButton": "Cancel",
+                "existingImages": "Existing Images",
+                "removedImages": "Removed Images",
+                "additionalImages": "Additional Images",
+                "newImage": "New Image",
+                "removeNewImage": "Remove New Image",
+                "forAdding": "for adding",
+                "additionallyAddedImages": "Additionally Added Images"
+            }
+        }
+    },
+    "SettingsPage": {
+        "pageTitle": "Settings - AutoAmerika",
+        "pageDescription": "Manage your preferences and customize your experience",
+        "title": "Settings",
+        "description": "Manage your preferences and customize your experience",
+        "SettingsPreferences": {
+            "title": "Preferences",
+            "language": "Language"
+        }
+    },
+    "ErrorPage": {
+        "pageTitle": "Error - AutoAmerika",
+        "pageDescription": "An error occurred while processing your request.",
+        "goBackButton": "Go Back",
+        "goHomeButton": "Go Home",
+        "tryAgainButton": "Try Again",
+        "additionalHelp": "Need help?",
+        "contactSupport": "Contact Support",
+        "404": {
+            "title": "Page Not Found",
+            "description": "The page you are looking for might have been removed, had its name changed, or is temporarily unavailable."
+        },
+        "403": {
+            "title": "Access Forbidden",
+            "description": "You do not have permission to access this page."
+        },
+        "500": {
+            "title": "Internal Server Error",
+            "description": "Something went wrong on our end. Please try again later."
+        },
+        "502": {
+            "title": "Bad Gateway",
+            "description": "The server returned an invalid response. Please try again later."
+        },
+        "503": {
+            "title": "Service Unavailable",
+            "description": "The server is currently unavailable. Please try again later."
+        },
+        "default": {
+            "title": "Something Went Wrong",
+            "description": "Something went wrong. Please try again later."
+        }
+    },
+    "ValidationMessages": {
+        "CarsContext": {
+            "INVALID_IMAGE_COUNT": "Minimum {minimum} images • Maximum size: 5MB per image {count}",
+            "INVALID_FILE_TYPE": "Invalid file type: {fileName}",
+            "INVALID_FILE_SIZE": "File size exceeds limit: {fileName}",
+            "NO_CHANGES": "No changes to submit"
+        },
+        "CarsSchemas": {
+            "AddCarCompleteSchema": {
+                "VIN_MIN_LENGTH": "VIN must be at least 17 characters long",
+                "BRAND_MIN_LENGTH": "Brand must be at least 1 character long",
+                "MODEL_MIN_LENGTH": "Model must be at least 1 character long",
+                "YEAR_MIN_VALUE": "Year must be at least 1900",
+                "CAR_TYPE_MIN_LENGTH": "Car type must be at least 1 character long",
+                "PRICE_MIN_VALUE": "Price must be at least 1",
+                "CURRENCY_PICKLIST": "Currency must be EUR, USD or RSD",
+                "MILEAGE_KM_MIN_VALUE": "Mileage must be at least 0",
+                "FUEL_MIN_LENGTH": "Fuel type must be at least 1 character long",
+                "TRANSMISSION_MIN_LENGTH": "Transmission must be at least 1 character long",
+                "ENGINE_MIN_LENGTH": "Engine must be at least 1 character long",
+                "POWER_HP_MIN_VALUE": "Power must be at least 1",
+                "DRIVETRAIN_MIN_LENGTH": "Drivetrain must be at least 1 character long",
+                "COLOR_EXTERIOR_MIN_LENGTH": "Exterior color must be at least 1 character long",
+                "COLOR_INTERIOR_MIN_LENGTH": "Interior color must be at least 1 character long",
+                "INTERIOR_MATERIAL_MIN_LENGTH": "Interior material must be at least 1 character long",
+                "LOCATION_MIN_LENGTH": "Location must be at least 1 character long",
+                "DESCRIPTION_MIN_LENGTH": "Description must be at least 1 character long",
+                "TITLE_STATUS_MIN_LENGTH": "Title status must be at least 1 character long",
+                "FIRST_REGISTRATION_MIN_LENGTH": "First registration must be at least 1 character long",
+                "OWNERS_MIN_VALUE": "Owners must be at least 1",
+                "ACCIDENTS_MIN_LENGTH": "Accidents must be at least 1 character long",
+                "SERVICE_HISTORY_MIN_LENGTH": "Service history must be at least 1 character long",
+                "ORIGIN_COUNTRY_MIN_LENGTH": "Origin country must be at least 1 character long",
+                "PURCHASE_SOURCE_MIN_LENGTH": "Purchase source must be at least 1 character long",
+                "PURCHASE_DATE_MIN_LENGTH": "Purchase date must be at least 1 character long",
+                "US_PURCHASE_PRICE_MIN_VALUE": "US purchase price must be at least 1",
+                "SHIPPING_COST_MIN_VALUE": "Shipping cost must be at least 0",
+                "CUSTOMS_TAX_MIN_VALUE": "Customs tax must be at least 0",
+                "IMPORT_DATE_MIN_LENGTH": "Import date must be at least 1 character long",
+                "HOMOLOGATION_STATUS_MIN_LENGTH": "Homologation status must be at least 1 character long",
+                "REGISTRATION_STATUS_MIN_LENGTH": "Registration status must be at least 1 character long"
+            },
+            "EditCarInformationSchema": {
+                "ID_MIN_LENGTH": "ID must be at least 1 character long",
+                "VIN_MIN_LENGTH": "VIN must be at least 17 characters long",
+                "BRAND_MIN_LENGTH": "Brand must be at least 1 character long",
+                "MODEL_MIN_LENGTH": "Model must be at least 1 character long",
+                "YEAR_MIN_LENGTH": "Year must be at least 1 character long",
+                "CAR_TYPE_MIN_LENGTH": "Car type must be at least 1 character long",
+                "PRICE_MIN_LENGTH": "Price must be at least 1 character long",
+                "CURRENCY_PICKLIST": "Currency must be EUR, USD or RSD",
+                "MILEAGE_KM_MIN_LENGTH": "Mileage must be at least 1 character long",
+                "FUEL_MIN_LENGTH": "Fuel type must be at least 1 character long",
+                "TRANSMISSION_MIN_LENGTH": "Transmission must be at least 1 character long",
+                "ENGINE_MIN_LENGTH": "Engine must be at least 1 character long",
+                "POWER_HP_MIN_LENGTH": "Power must be at least 1 character long",
+                "DRIVETRAIN_MIN_LENGTH": "Drivetrain must be at least 1 character long",
+                "COLOR_EXTERIOR_MIN_LENGTH": "Exterior color must be at least 1 character long",
+                "COLOR_INTERIOR_MIN_LENGTH": "Interior color must be at least 1 character long",
+                "INTERIOR_MATERIAL_MIN_LENGTH": "Interior material must be at least 1 character long",
+                "LOCATION_MIN_LENGTH": "Location must be at least 1 character long",
+                "DESCRIPTION_MIN_LENGTH": "Description must be at least 1 character long"
+            },
+            "EditCarHistorySchema": {
+                "ID_MIN_LENGTH": "ID must be at least 1 character long",
+                "TITLE_STATUS_MIN_LENGTH": "Title status must be at least 1 character long",
+                "FIRST_REGISTRATION_MIN_LENGTH": "First registration must be at least 1 character long",
+                "OWNERS_MIN_LENGTH": "Owners must be at least 1 character long",
+                "ACCIDENTS_MIN_LENGTH": "Accidents must be at least 1 character long",
+                "SERVICE_HISTORY_MIN_LENGTH": "Service history must be at least 1 character long"
+            },
+            "EditCarImportSchema": {
+                "ID_MIN_LENGTH": "ID must be at least 1 character long",
+                "ORIGIN_COUNTRY_MIN_LENGTH": "Origin country must be at least 1 character long",
+                "PURCHASE_SOURCE_MIN_LENGTH": "Purchase source must be at least 1 character long",
+                "PURCHASE_DATE_MIN_LENGTH": "Purchase date must be at least 1 character long",
+                "US_PURCHASE_PRICE_MIN_LENGTH": "US purchase price must be at least 1 character long",
+                "SHIPPING_COST_MIN_LENGTH": "Shipping cost must be at least 1 character long",
+                "CUSTOMS_TAX_MIN_LENGTH": "Customs tax must be at least 1 character long",
+                "IMPORT_DATE_MIN_LENGTH": "Import date must be at least 1 character long",
+                "HOMOLOGATION_STATUS_MIN_LENGTH": "Homologation status must be at least 1 character long",
+                "REGISTRATION_STATUS_MIN_LENGTH": "Registration status must be at least 1 character long"
+            },
+            "EditCarImagesSchema": {
+                "ID_MIN_LENGTH": "ID must be at least 1 character long"
+            }
+        },
+        "ContactFormSchema": {
+            "NAME_MIN_LENGTH": "Name must be at least 1 character long",
+            "EMAIL_MIN_LENGTH": "Email must be at least 1 character long",
+            "SUBJECT_MIN_LENGTH": "Subject must be at least 1 character long",
+            "MESSAGE_MIN_LENGTH": "Message must be at least 10 characters long"
+        }
+    },
+    "GenericMessages": {
+        "USER_LOGGED_OUT_SUCCESSFULLY": "User logged out successfully",
+        "USER_NOT_AUTHENTICATED": "User not authenticated",
+
+        "CAR_MAKE_UNAVAILABLE_SUCCESS": "Car made unavailable successfully",
+        "CAR_MAKE_UNAVAILABLE_FAILED": "Failed to make car unavailable",
+        "CAR_EDIT_INFORMATION_SUCCESS": "Car information edited successfully",
+        "CAR_EDIT_INFORMATION_FAILED": "Failed to edit car information",
+        "CAR_EDIT_HISTORY_SUCCESS": "Car history edited successfully",
+        "CAR_EDIT_HISTORY_FAILED": "Failed to edit car history",
+        "CAR_EDIT_IMPORT_SUCCESS": "Car import edited successfully",
+        "CAR_EDIT_IMPORT_FAILED": "Failed to edit car import",
+        "CAR_CREATED_SUCCESSFULLY": "Car created successfully",
+        "CAR_CREATED_FAILED": "Failed to create car",
+        "CAR_IMAGES_EDITED_SUCCESSFULLY": "Car images edited successfully",
+        "CAR_IMAGES_EDITED_FAILED": "Failed to edit car images",
+
+        "CONTACT_FORM_SUCCESS": "Contact form submitted successfully",
+        "CONTACT_FORM_FAILED": "Failed to submit contact form",
+
+        "GOOGLE_LOGIN_FAILED": "Google login failed",
+
+        "FETCH_SUCCESS": "Fetch successful",
+        "FETCH_FAILED": "Failed to fetch data"
     }
 }

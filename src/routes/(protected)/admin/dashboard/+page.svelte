@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import AdminDashboardHeader from '@/shared/components/pages/(protected)/admin/dashboard/admin-dashboard-header.svelte';
 	import AdminDashboardAddCarButton from '@/shared/components/pages/(protected)/admin/dashboard/admin-dashboard-add-car-button.svelte';
@@ -6,7 +9,7 @@
 </script>
 
 <svelte:head>
-	<title>Admin Dashboard - AutoAmerika</title>
+	<title>{m['AdminDashboardPage.pageTitle']()}</title>
 </svelte:head>
 
 <div class="min-h-screen bg-background p-6">

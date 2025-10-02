@@ -1,7 +1,7 @@
 // DATA
 import {
     brands,
-    bodyTypes as bodyTypesData,
+    carTypes,
     colors as colorsData,
     fuelTypes as fuelTypesData,
     transmissionTypes
@@ -36,14 +36,14 @@ export class FiltersClass {
     // Filter options (from cars-data)
     // Values for comparison/backend
     readonly brandTypes = brands.map(b => b.value);
-    readonly bodyTypes = bodyTypesData.map(b => b.value);
+    readonly bodyTypes = carTypes.map(b => b.value);
     readonly transmissions = transmissionTypes.map(t => t.value);
     readonly fuelTypes = fuelTypesData.map(f => f.value);
     readonly colors = colorsData.map(c => c.value);
 
     // Full objects with value + text for UI display
     readonly brandsData = brands;
-    readonly bodyTypesData = bodyTypesData;
+    readonly bodyTypesData = carTypes;
     readonly transmissionsData = transmissionTypes;
     readonly fuelTypesData = fuelTypesData;
     readonly colorsData = colorsData;
@@ -93,16 +93,6 @@ export class FiltersClass {
     filterVersion = $state(0);
 
     applyFilters() {
-        console.log('Applying filters:', {
-            priceRange: this.priceRange,
-            yearRange: this.yearRange,
-            mileageMax: this.mileageMax,
-            selectedBrands: this.selectedBrands,
-            selectedBodyTypes: this.selectedBodyTypes,
-            selectedTransmissions: this.selectedTransmissions,
-            selectedFuelTypes: this.selectedFuelTypes,
-            selectedColors: this.selectedColors
-        });
         // Reset to page 1 when filters change
         this.currentPage = 1;
         // Increment version to trigger reactive updates

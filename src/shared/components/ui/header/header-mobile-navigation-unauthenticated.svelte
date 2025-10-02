@@ -2,6 +2,9 @@
     // SVELTEKIT IMPORTS
     import { page } from '$app/state';
 
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -27,6 +30,17 @@
                 {item.name}
             </a>
         {/each}
+
+        <div class="border-t border-zinc-800 pt-2 mt-2">
+            <a
+                href={UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE}
+                class="block px-3 py-2 text-base font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 rounded-md transition-colors {page.url.pathname === UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE ? 'bg-zinc-800 text-white border-l-2 border-primary' : ''}"
+                onclick={() => (mobileMenuOpen = false)}
+                aria-label="Settings"
+            >
+                {m['Header.settings']()}
+            </a>
+        </div>
         
         <div class="pt-2">
             <Button
@@ -34,7 +48,7 @@
                 class="w-full"
                 aria-label="Login"
             >
-                Login
+                {m['Header.login']()}
             </Button>
         </div>
     </div>

@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/shared/components/ui/dialog";
     import { Button } from "@/shared/components/ui/button";
@@ -25,12 +28,12 @@
 	<Dialog bind:open={modalOpen}>
 		<DialogTrigger class={`${buttonVariants({ variant: "default" })} w-full`}>
             <SlidersHorizontal class="mr-2 h-4 w-4" />
-            Filters
+            {m['CarsPage.CarsFilters.title']()}
 		</DialogTrigger>
 
 		<DialogContent class="max-w-[95vw] max-h-[90vh] overflow-y-auto bg-secondary">
 			<DialogHeader>
-				<DialogTitle class="text-white">Filters</DialogTitle>
+				<DialogTitle class="text-white">{m['CarsPage.CarsFilters.title']()}</DialogTitle>
 			</DialogHeader>
 
 			{#if filtersContext.hasActiveFilters}
@@ -42,7 +45,7 @@
 					}}
 					class="w-full px-4 py-2 text-sm"
 				>
-					Clear All Filters
+					{m['CarsPage.CarsFilters.clearAll']()}
 				</Button>
 			{/if}
 
@@ -62,7 +65,7 @@
 					onclick={handleApplyFilters}
 					class="w-full px-4 py-3 bg-primary text-white font-semibold hover:bg-primary/90"
 				>
-					Apply Filters
+					{m['CarsPage.CarsFilters.applyFilters']()}
 				</Button>
 			</div>
 		</DialogContent>

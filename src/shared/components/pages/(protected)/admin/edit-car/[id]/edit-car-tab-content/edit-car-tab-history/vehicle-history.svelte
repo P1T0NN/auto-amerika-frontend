@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
     import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/shared/components/ui/card';
     import { Label } from '@/shared/components/ui/label';
@@ -27,17 +30,17 @@
 
     // Derived trigger content for selects
     const titleStatusTriggerContent = $derived(
-        titleStatusOptions.find(option => option.value === selectedTitleStatus)?.text || "Izaberite status"
+        titleStatusOptions.find(option => option.value === selectedTitleStatus)?.text || m['EditCarPage.EditCarTabHistory.VehicleHistory.titleStatus']()
     );
     const accidentsTriggerContent = $derived(
-        accidentsOptions.find(option => option.value === selectedAccidents)?.text || "Izaberite"
+        accidentsOptions.find(option => option.value === selectedAccidents)?.text || m['EditCarPage.EditCarTabHistory.VehicleHistory.accidents']()
     );
 </script>
 
 <Card>
     <CardHeader>
-        <CardTitle class="text-xl">Vehicle History</CardTitle>
-        <CardDescription>Title status, ownership, and service records</CardDescription>
+        <CardTitle class="text-xl">{m['EditCarPage.EditCarTabHistory.VehicleHistory.title']()}</CardTitle>
+        <CardDescription>{m['EditCarPage.EditCarTabHistory.VehicleHistory.description']()}</CardDescription>
     </CardHeader>
     
     <CardContent class="space-y-6">
@@ -46,7 +49,7 @@
 
         <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
             <div class="space-y-2">
-                <Label for="titleStatus" class="text-sm font-medium">Title Status *</Label>
+                <Label for="titleStatus" class="text-sm font-medium">{m['EditCarPage.EditCarTabHistory.VehicleHistory.titleStatus']()}</Label>
                 <Select type="single" name="titleStatus" bind:value={selectedTitleStatus}>
                     <SelectTrigger class={editCarForm.issues?.titleStatus ? 'border-destructive' : ''}>
                         <span>{titleStatusTriggerContent}</span>
@@ -61,7 +64,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="firstRegistration" class="text-sm font-medium">First Registration *</Label>
+                <Label for="firstRegistration" class="text-sm font-medium">{m['EditCarPage.EditCarTabHistory.VehicleHistory.firstRegistration']()}</Label>
                 <Input
                     id="firstRegistration"
                     name="firstRegistration"
@@ -73,7 +76,7 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="owners" class="text-sm font-medium">Number of Previous Owners *</Label>
+                <Label for="owners" class="text-sm font-medium">{m['EditCarPage.EditCarTabHistory.VehicleHistory.owners']()}</Label>
                 <Input
                     id="owners"
                     name="owners"
@@ -88,11 +91,11 @@
         </div>
 
         <div class="space-y-2">
-            <Label for="serviceHistory" class="text-sm font-medium">Service History *</Label>
+            <Label for="serviceHistory" class="text-sm font-medium">{m['EditCarPage.EditCarTabHistory.VehicleHistory.serviceHistory']()}</Label>
             <Textarea
                 id="serviceHistory"
                 name="serviceHistory"
-                placeholder="Regular maintenance, oil changes, inspections..."
+                placeholder={m['EditCarPage.EditCarTabHistory.VehicleHistory.serviceHistoryPlaceholder']()}
                 value={editCarForm.input?.serviceHistory || car.history?.serviceHistory || ''}
                 rows={3}
                 class={editCarForm.issues?.serviceHistory ? 'border-destructive' : ''}
@@ -101,7 +104,7 @@
         </div>
 
         <div class="space-y-2">
-            <Label for="accidents" class="text-sm font-medium">Accident History *</Label>
+            <Label for="accidents" class="text-sm font-medium">{m['EditCarPage.EditCarTabHistory.VehicleHistory.accidents']()}</Label>
             <Select type="single" name="accidents" bind:value={selectedAccidents}>
                 <SelectTrigger class={editCarForm.issues?.accidents ? 'border-destructive' : ''}>
                     <span>{accidentsTriggerContent}</span>

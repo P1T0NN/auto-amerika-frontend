@@ -1,5 +1,8 @@
 
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     // CONTEXT
     import { editCarImagesContext } from "@/features/cars/context/cars-context.svelte";
 
@@ -22,10 +25,10 @@
 
 <div class="space-y-4">
     <Label class="text-base font-medium">
-        Postojeće slike ({car.images?.filter(img => !editCarImagesContext.removedImageIds.includes(img.id)).length})
+        {m['EditCarPage.EditCarTabSettings.MediaManagement.existingImages']()} ({car.images?.filter(img => !editCarImagesContext.removedImageIds.includes(img.id)).length})
         {#if editCarImagesContext.removedImageIds.length > 0}
             <span class="text-orange-600 text-sm font-normal">
-                - {editCarImagesContext.removedImageIds.length} označeno za brisanje
+                - {editCarImagesContext.removedImageIds.length} {m['EditCarPage.EditCarTabSettings.MediaManagement.removedImages']()}
             </span>
         {/if}
     </Label>

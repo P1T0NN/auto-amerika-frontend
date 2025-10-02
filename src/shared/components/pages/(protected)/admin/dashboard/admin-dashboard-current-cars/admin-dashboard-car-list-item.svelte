@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { ADMIN_PROTECTED_PAGE_ENDPOINTS } from "@/shared/config";
 
@@ -24,11 +27,11 @@
             <table class="w-full">
                 <thead class="border-b bg-muted/50">
                     <tr>
-                        <th class="p-4 text-left text-lg font-semibold">Automobil</th>
-                        <th class="p-4 text-left text-lg font-semibold">Detalji</th>
-                        <th class="p-4 text-left text-lg font-semibold">Cena</th>
-                        <th class="p-4 text-left text-lg font-semibold">Status</th>
-                        <th class="p-4 text-left text-lg font-semibold">Akcije</th>
+                        <th class="p-4 text-left text-lg font-semibold">{m['AdminDashboardPage.AdminDashboardCarListItem.car']()}</th>
+                        <th class="p-4 text-left text-lg font-semibold">{m['AdminDashboardPage.AdminDashboardCarListItem.details']()}</th>
+                        <th class="p-4 text-left text-lg font-semibold">{m['AdminDashboardPage.AdminDashboardCarListItem.price']()}</th>
+                        <th class="p-4 text-left text-lg font-semibold">{m['AdminDashboardPage.AdminDashboardCarListItem.status']()}</th>
+                        <th class="p-4 text-left text-lg font-semibold">{m['AdminDashboardPage.AdminDashboardCarListItem.actions']()}</th>
                     </tr>
                 </thead>
 
@@ -64,7 +67,7 @@
                                     <div>{car.mileageKm?.toLocaleString()} km</div>
                                     <div class="text-muted-foreground">{car.location}</div>
                                     <div class="text-sm text-muted-foreground">
-                                        Dodato:
+                                        {m['AdminDashboardPage.AdminDashboardCarListItem.added']()}
                                     </div>
                                 </div>
                             </td>
@@ -89,7 +92,7 @@
                                     href={`${ADMIN_PROTECTED_PAGE_ENDPOINTS.EDIT_CAR_PAGE}/${car.id}`}
                                 >
                                     <Edit2 class="mr-2 h-4 w-4" />
-                                    Izmeni
+                                    {m['AdminDashboardPage.AdminDashboardCarListItem.edit']()}
                                 </Button>
                             </td>
                         </tr>

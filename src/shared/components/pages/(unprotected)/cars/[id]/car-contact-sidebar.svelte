@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -18,7 +21,7 @@
 <Card class="self-start">
     <CardHeader>
         <CardTitle class="text-3xl text-primary">€{car.price}</CardTitle>
-        <CardDescription>Finalna cena uključuje sve troškove</CardDescription>
+        <CardDescription>{m['CarPage.CarContactSidebar.priceDescription']()}</CardDescription>
     </CardHeader>
 
     <CardContent class="space-y-4">
@@ -28,7 +31,7 @@
                 href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT_PAGE}
             >
                 <Phone class="mr-2 h-4 w-4" />
-                Kontaktirajte nas
+                {m['CarPage.CarContactSidebar.contactButton']()}
             </Button>
         </div>
     </CardContent>

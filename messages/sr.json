@@ -6,5 +6,743 @@
         "description": "Jeste li sigurni da želite uraditi ovo? Ova akcija ne može biti poništena.",
         "cancel": "Poništi",
         "proceed": "Nastavi"
+    },
+    "ImageGallery": {
+        "noImages": "No images available"
+    },
+    "Pagination": {
+        "nextButton": "Sledeće",
+        "prevButton": "Prethodno"
+    },
+    "GoogleLoginButton": {
+        "loginWithGoogle": "Prijavi se preko Google-a",
+        "loggingIn": "Prijavljivanje..."
+    },
+    "Header": {
+        "settings": "Podešavanja",
+        "privacyPolicy": "Politika privatnosti",
+        "termsOfUse": "Uslovi korišćenja",
+        "login": "Prijava",
+        "logout": "Odjava",
+        "NavigationLinks": {
+            "home": "Početna",
+            "cars": "Automobili",
+            "about": "O nama",
+            "contact": "Kontakt",
+            "reviews": "Recenzije"
+        }
+    },
+    "CarStatus": {
+        "unavailable": "NIJE DOSTUPNO",
+        "sold": "PRODATO",
+        "pending": "U TOKU",
+        "availableText": "Dostupno",
+        "soldText": "Prodato",
+        "pendingText": "U toku",
+        "unavailableText": "Nije dostupno",
+        "unknownText": "Nepoznato"
+    },
+    "CarTypes": {
+        "convertibles": "Kabrioleti",
+        "coupes": "Kupei",
+        "hatchbacks": "Hečbekovi",
+        "sedans": "Limuzine",
+        "suvs": "SUV vozila",
+        "vans": "Kombiji",
+        "trucks": "Kamioni",
+        "wagons": "Karavani"
+    },
+    "CarColors": {
+        "black": "Crna",
+        "white": "Bela",
+        "gray": "Siva",
+        "red": "Crvena",
+        "blue": "Plava",
+        "green": "Zelena"
+    },
+    "CarFuelTypes": {
+        "gasoline": "Benzin",
+        "diesel": "Dizel",
+        "hybrid": "Hibrid",
+        "electric": "Električni",
+        "flexFuel": "Fleks gorivo"
+    },
+    "CarTransmissionTypes": {
+        "automatic": "Automatski",
+        "manual": "Manuelni",
+        "cvt": "CVT",
+        "semiAutomatic": "Poluautomatski"
+    },
+    "CarDrivetrainTypes": {
+        "fwd": "Prednji pogon (FWD)",
+        "rwd": "Zadnji pogon (RWD)",
+        "awd": "Pogon na sva četiri točka (AWD)",
+        "4wd": "4x4 (4WD)"
+    },
+    "CarInteriorMaterials": {
+        "fabric": "Tkanina",
+        "leather": "Koža",
+        "syntheticLeather": "Sintetička koža",
+        "alcantara": "Alkantara",
+        "mixed": "Mešano"
+    },
+    "CarHomologationStatus": {
+        "completed": "Završeno",
+        "inProgress": "U toku",
+        "notStarted": "Nije započeto",
+        "notRequired": "Nije potrebno"
+    },
+    "CarRegistrationStatus": {
+        "registered": "Registrovano",
+        "pending": "U toku",
+        "notRegistered": "Nije registrovano"
+    },
+    "CarTitleStatus": {
+        "clean": "Čist",
+        "salvage": "Oštećen",
+        "rebuilt": "Rekonstruisan",
+        "lemon": "Problematičan",
+        "flood": "Poplavljen"
+    },
+    "CarAccidents": {
+        "none": "Bez",
+        "minor": "Manji",
+        "major": "Veći",
+        "unknown": "Nepoznato"
+    },
+    "CarOriginCountries": {
+        "usa": "SAD"
+    },
+    "CarPurchaseSources": {
+        "privateSeller": "Privatni prodavac",
+        "dealer": "Diler",
+        "auction": "Aukcija"
+    },
+    "Footer": {
+        "copyright": "Sva prava zadržana.",
+        "contact": "Kontakt",
+        "about": "Specijalizovani smo za uvoz kvalitetnih automobila iz Amerike. Pružamo kompletnu uslugu od kupovine do registracije vozila u Srbiji.",
+        "quickLinks": {
+            "title": "Brzi linkovi",
+            "cars": "Automobili",
+            "about": "O nama",
+            "contact": "Kontakt",
+            "reviews": "Recenzije"
+        }
+    },
+    "HomePage": {
+        "pageTitle": "AutoAmerika - Prodaja automobila iz Amerike",
+        "pageDescription": "Specijalizovani smo za uvoz kvalitetnih automobila iz Amerike",
+        "HeroSection": {
+            "title": "Mi prodajemo",
+            "subtitle": "najbolje američke automobile",
+            "subtitle2": "za vas",
+            "description": "Od kupovine do registracije – kompletna usluga uvoza vozila iz Amerike",
+            "seeTheCars": "Pogledaj automobile",
+            "contactUs": "Kontaktiraj nas"
+        },
+        "CarTypesSection": {
+            "title": "Otkrij svoj automobil iz snova",
+            "browseBy": "Pretraži po",
+            "description": "Istražite našu pažljivo odabranu kolekciju premium vozila u svim kategorijama",
+            "type": "Tip"
+        },
+        "CarBrandsSection": {
+            "audiDescription": "Nemačko inženjersko savršenstvo",
+            "audiTagline": "Prednost kroz tehnologiju",
+            "bmwDescription": "Savršena mašina za vožnju",
+            "bmwTagline": "Čisto zadovoljstvo u vožnji",
+            "porscheDescription": "Legendarne sportske performanse",
+            "porscheTagline": "Ne postoji zamena",
+            "mercedesDescription": "Inovacija koja inspiriše",
+            "mercedesTagline": "Inovacija za sve",
+            "title": "Premium automobilski brendovi",
+            "description": "Otkrijte kultne proizvođače poznate po izvrsnosti i inovacijama",
+            "browseBy": "Pretraži po",
+            "brand": "Brend"
+        },
+        "WhyUsSection": {
+            "title": "Zašto AutoAmerika?",
+            "description": "Godine iskustva u uvozu automobila iz Amerike",
+            "provenQuality": "Dokazan kvalitet",
+            "provenQualityDescription": "Svaki automobil prolazi detaljnu inspekciju pre uvoza",
+            "fastProcedure": "Brza procedura",
+            "fastProcedureDescription": "Nudimo brzu isporuku do vašeg praga",
+            "transparentPrices": "Transparentne cene",
+            "transparentPricesDescription": "Prihvatamo sve glavne kreditne kartice i kriptovalute"
+        },
+        "CtaSection": {
+            "title": "Da li ste spremni za svoj novi automobil?",
+            "description": "Kontaktirajte nas danas i započnite proces uvoza svog idealnog vozila",
+            "contactUs": "Kontaktiraj nas",
+            "seeTheCars": "Pogledaj automobile"
+        }
+    },
+    "AboutPage": {
+        "HeroSection": {
+            "title": "O nama",
+            "subtitle": "Vaš pouzdan partner za uvoz luksuznih američkih automobila"
+        },
+        "IntroductionSection": {
+            "title": "Naša priča",
+            "paragraph1": "Sa više od 10 godina iskustva u uvozu automobila iz Amerike, specijalizovali smo se za pružanje kompletne usluge našim klijentima. Od pronalaženja savršenog vozila do njegove registracije u Srbiji, brinemo o svakom detalju.",
+            "paragraph2": "Naš tim stručnjaka ima duboko znanje američkog tržišta automobila i pruža personalizovanu uslugu koja garantuje da ćete dobiti vozilo koje u potpunosti odgovara vašim potrebama i očekivanjima."
+        },
+        "WhyChooseUsSection": {
+            "title": "Zašto izabrati nas?",
+            "reliability": {
+                "title": "Pouzdanost",
+                "description": "Garantujemo transparentnost i sigurnost u svakoj transakciji"
+            },
+            "expertise": {
+                "title": "Stručnost",
+                "description": "Tim sa dugogodišnjim iskustvom u automobilskoj industriji"
+            },
+            "speed": {
+                "title": "Brzina",
+                "description": "Efikasan proces uvoza sa jasno definisanim rokovima isporuke"
+            },
+            "completeService": {
+                "title": "Kompletna usluga",
+                "description": "Od kupovine do registracije – sve na jednom mestu"
+            }
+        },
+        "OurProcessSection": {
+            "title": "Naš proces",
+            "step1": {
+                "title": "Pronalaženje vozila",
+                "description": "Pomažemo vam da pronađete savršeno vozilo na američkim aukcijama i kod dilera"
+            },
+            "step2": {
+                "title": "Kupovina i transport",
+                "description": "Obavljamo kupovinu i organizujemo siguran transport vozila do Srbije"
+            },
+            "step3": {
+                "title": "Carina i registracija",
+                "description": "Brinemo o svim formalnostima i predajemo vam vozilo spremno za vožnju"
+            }
+        },
+        "CtaSection": {
+            "title": "Spremni da uvezete automobil iz snova?",
+            "description": "Kontaktirajte nas danas i započnite put ka svom novom vozilu",
+            "contactUs": "Kontaktiraj nas",
+            "seeTheCars": "Pogledaj automobile"
+        }
+    },
+    "ContactPage": {
+        "HeroSection": {
+            "title": "Kontaktirajte nas",
+            "description": "Imate pitanja? Biće nam drago da vam pomognemo. Kontaktirajte nas putem forme ili direktno."
+        },
+        "ContactForm": {
+            "title": "Pošaljite nam poruku",
+            "nameLabel": "Puno ime *",
+            "namePlaceholder": "Vaše puno ime",
+            "emailLabel": "Email *",
+            "emailPlaceholder": "vas@email.com",
+            "phoneLabel": "Telefon",
+            "phonePlaceholder": "+381 11 123 4567",
+            "subjectLabel": "Tema *",
+            "subjectPlaceholder": "Tema poruke",
+            "messageLabel": "Poruka *",
+            "messagePlaceholder": "Kako možemo da vam pomognemo?",
+            "submitButton": "Pošalji poruku",
+            "validationError": "Molimo popunite sva obavezna polja ispravno"
+        },
+        "ContactInformation": {
+            "title": "Kontakt informacije",
+            "phone": "Telefon",
+            "email": "Email",
+            "address": "Adresa"
+        }
+    },
+    "LoginPage": {
+        "pageTitle": "Prijava - AutoAmerika",
+        "pageDescription": "Prijavite se na AutoAmerika platformu da biste pristupili ekskluzivnim automobilima iz Amerike.",
+        "Header": {
+            "title": "AutoAmerika",
+            "subtitle": "Uvoz automobila iz Amerike"
+        },
+        "Card": {
+            "title": "Dobrodošli",
+            "description": "Prijavite se ili napravite nalog da biste pristupili ekskluzivnim automobilima",
+            "autoRegisterNote": "Bićete automatski registrovani ako je ovo vaša prva prijava"
+        },
+        "Footer": {
+            "agreementText": "Prijavljivanjem se slažete sa našim",
+            "termsOfUse": "uslovima korišćenja",
+            "and": "i",
+            "privacyPolicy": "politikom privatnosti",
+            "home": "Početna",
+            "about": "O nama",
+            "contact": "Kontakt"
+        }
+    },
+    "CarsPage": {
+        "pageTitle": "Automobili - AutoAmerika",
+        "pageDescription": "Pregledajte našu ponudu kvalitetnih američkih automobila. Filtrirajte po brendu, ceni, godini i drugim karakteristikama.",
+        "CarsResults": {
+            "title": "Dostupni automobili",
+            "carsFound": "pronađenih automobila"
+        },
+        "CarsFilters": {
+            "title": "Filteri",
+            "subtitle": "Precizirajte pretragu",
+            "clearAll": "Obriši sve filtere",
+            "applyFilters": "Primeni filtere",
+            "brand": "Marka automobila",
+            "priceRange": "Raspon cena",
+            "priceMin": "Min",
+            "priceMax": "Maks",
+            "year": "Godina",
+            "yearFrom": "Od",
+            "yearTo": "Do",
+            "carType": "Tip automobila",
+            "mileage": "Kilometraža",
+            "mileageMax": "Maks. kilometraža",
+            "mileageUpTo": "Do {value} km",
+            "transmission": "Menjač",
+            "fuelType": "Gorivo",
+            "color": "Boja"
+        }
+    },
+    "CarPage": {
+        "pageTitle": "AutoAmerika",
+        "pageDescription": "Detalji o automobilu. Kontaktirajte nas za više informacija.",
+        "CarHeader": {
+            "home": "Početna",
+            "cars": "Automobili"
+        },
+        "CarBasicInformationSection": {
+            "title": "Osnovne informacije",
+            "vin": "VIN",
+            "brand": "Marka",
+            "model": "Model",
+            "year": "Godina",
+            "carType": "Tip automobila",
+            "mileage": "Kilometraža",
+            "fuel": "Gorivo",
+            "transmission": "Menjač",
+            "engine": "Motor",
+            "power": "Snaga",
+            "drivetrain": "Pogon",
+            "exteriorColor": "Spoljašnja boja",
+            "interiorColor": "Unutrašnja boja",
+            "interiorMaterial": "Materijal enterijera",
+            "location": "Lokacija"
+        },
+        "CarDescriptionSection": {
+            "title": "Opis vozila"
+        },
+        "CarHistorySection": {
+            "title": "Istorija vozila",
+            "titleStatus": "Status vlasništva",
+            "firstRegistration": "Prva registracija",
+            "owners": "Broj vlasnika",
+            "serviceHistory": "Servisna istorija",
+            "accidents": "Udesi"
+        },
+        "CarImportSection": {
+            "title": "Informacije o uvozu",
+            "originCountry": "Zemlja porekla",
+            "purchaseSource": "Izvor kupovine",
+            "purchaseDate": "Datum kupovine",
+            "importDate": "Datum uvoza",
+            "homologationStatus": "Status homologacije",
+            "registrationStatus": "Status registracije"
+        },
+        "CarContactSidebar": {
+            "priceDescription": "Konačna cena uključuje sve troškove",
+            "contactButton": "Kontaktiraj nas"
+        }
+    },
+    "AddCarPage": {
+        "pageTitle": "Dodaj automobil - AutoAmerika Admin",
+        "AddCarHeader": {
+            "title": "Dodaj novi automobil",
+            "description": "Unesite sve neophodne informacije o vozilu koje uvozite"
+        },
+        "AddCarForm": {
+            "submitButton": "Dodaj automobil"
+        },
+        "AddCarBasicInformation": {
+            "title": "Osnovne informacije o vozilu",
+            "vinLabel": "VIN broj *",
+            "vinPlaceholder": "1HGBH41JXMN109186",
+            "brandLabel": "Marka *",
+            "brandPlaceholder": "Izaberite marku",
+            "modelLabel": "Model *",
+            "modelPlaceholder": "Mustang GT",
+            "yearLabel": "Godina *",
+            "carTypeLabel": "Tip vozila *",
+            "carTypePlaceholder": "Izaberite tip",
+            "priceLabel": "Cena *",
+            "pricePlaceholder": "45000",
+            "mileageLabel": "Kilometraža (km) *",
+            "mileagePlaceholder": "50000",
+            "fuelLabel": "Gorivo *",
+            "fuelPlaceholder": "Izaberite gorivo",
+            "transmissionLabel": "Menjač *",
+            "transmissionPlaceholder": "Izaberite menjač",
+            "engineLabel": "Motor *",
+            "enginePlaceholder": "5.0L V8",
+            "powerLabel": "Snaga (KS) *",
+            "powerPlaceholder": "450",
+            "drivetrainLabel": "Pogon *",
+            "drivetrainPlaceholder": "Izaberite pogon",
+            "colorExteriorLabel": "Spoljašnja boja *",
+            "colorExteriorPlaceholder": "Izaberite boju",
+            "colorInteriorLabel": "Unutrašnja boja *",
+            "colorInteriorPlaceholder": "Izaberite boju",
+            "interiorMaterialLabel": "Materijal enterijera *",
+            "interiorMaterialPlaceholder": "Izaberite materijal",
+            "locationLabel": "Lokacija *",
+            "locationPlaceholder": "Beograd, Srbija",
+            "descriptionLabel": "Opis *",
+            "descriptionPlaceholder": "Detaljan opis vozila, stanje, dodatna oprema..."
+        },
+        "AddCarVehicleHistory": {
+            "title": "Istorija vozila",
+            "titleStatusLabel": "Status vlasništva *",
+            "titleStatusPlaceholder": "Izaberite status",
+            "firstRegistrationLabel": "Prva registracija *",
+            "ownersLabel": "Broj vlasnika *",
+            "ownersPlaceholder": "1",
+            "accidentsLabel": "Udesi *",
+            "accidentsPlaceholder": "Izaberite",
+            "serviceHistoryLabel": "Servisna istorija *",
+            "serviceHistoryPlaceholder": "Detalji o servisnoj istoriji vozila..."
+        },
+        "AddCarImportInformation": {
+            "title": "Informacije o uvozu",
+            "originCountryLabel": "Zemlja porekla *",
+            "originCountryPlaceholder": "Izaberite zemlju",
+            "purchaseSourceLabel": "Izvor kupovine *",
+            "purchaseSourcePlaceholder": "Izaberite izvor",
+            "purchaseDateLabel": "Datum kupovine *",
+            "usPurchasePriceLabel": "Cena kupovine (USD) *",
+            "usPurchasePricePlaceholder": "25000",
+            "shippingCostLabel": "Trošak transporta (USD) *",
+            "shippingCostPlaceholder": "2000",
+            "customsTaxLabel": "Carinska taksa (EUR) *",
+            "customsTaxPlaceholder": "5000",
+            "importDateLabel": "Datum uvoza *",
+            "homologationStatusLabel": "Status homologacije *",
+            "homologationStatusPlaceholder": "Izaberite status",
+            "registrationStatusLabel": "Status registracije *",
+            "registrationStatusPlaceholder": "Izaberite status"
+        },
+        "AddCarImages": {
+            "title": "Slike vozila",
+            "uploadTitle": "Dodajte slike vozila",
+            "uploadDescription": "Izaberite jednu ili više slika (JPG, PNG, WebP)",
+            "uploadInfo": "Minimum {minimum} slika • Maksimalna veličina: 5MB po slici",
+            "selectButton": "Izaberite slike",
+            "selectedImages": "Izabrane slike ({count})",
+            "needMore": "potrebno još {count}",
+            "checkmark": "✓",
+            "removeImage": "Ukloni sliku"
+        }
+    },
+    "AdminDashboardPage": {
+        "pageTitle": "Admin panel - AutoAmerika",
+        "AdminDashboardHeader": {
+            "title": "Admin panel",
+            "subtitle": "Upravljanje inventarom automobila"
+        },
+        "AdminDashboardAddCarButton": {
+            "addNewCar": "Dodaj novi automobil"
+        },
+        "AdminDashboardCurrentCarsHeader": {
+            "title": "Trenutni automobili ({count})",
+            "searchPlaceholder": "Pretraži po marki, modelu ili VIN..."
+        },
+        "AdminDashboardCurrentCarsEmpty": {
+            "title": "Nema dostupnih automobila",
+            "description": "Još uvek niste dodali nijedan automobil u inventar. Započnite izgradnju svoje kolekcije dodavanjem prvog vozila.",
+            "addFirstCar": "Dodaj prvi automobil"
+        },
+        "AdminDashboardCarGridItem": {
+            "added": "Dodato: {date}",
+            "location": "Lokacija: {location}",
+            "homologation": "Homologacija: {status}",
+            "editCar": "Izmeni automobil"
+        },
+        "AdminDashboardCarListItem": {
+            "car": "Automobil",
+            "details": "Detalji",
+            "price": "Cena",
+            "status": "Status",
+            "actions": "Akcije",
+            "vin": "VIN: {vin}",
+            "added": "Dodato:",
+            "edit": "Izmeni"
+        }
+    },
+    "EditCarPage": {
+        "pageTitle": "Izmeni automobil",
+        "EditCarHeader": {
+            "backToDashboard": "Nazad na kontrolnu tablu"
+        },
+        "EditCarTabNavigation": {
+            "information": "Informacije o automobilu",
+            "history": "Istorija",
+            "import": "Uvoz vozila",
+            "settings": "Podešavanja"
+        },
+        "EditCarTabInformation": {
+            "cancel": "Otkaži",
+            "saveInformation": "Sačuvaj informacije",
+            "BasicInformation": {
+                "title": "Osnovne informacije",
+                "description": "Osnovni podaci i specifikacije vozila",
+                "vinNumber": "VIN broj",
+                "brand": "Marka",
+                "brandPlaceholder": "Izaberite marku",
+                "model": "Model",
+                "year": "Godina",
+                "carType": "Tip automobila",
+                "carTypePlaceholder": "Izaberite tip",
+                "price": "Cena",
+                "location": "Lokacija",
+                "carDescription": "Opis",
+                "carDescriptionPlaceholder": "Detaljan opis vozila, stanje, dodatna oprema..."
+            },
+            "TechnicalSpecifications": {
+                "title": "Tehničke specifikacije",
+                "description": "Motor, performanse i fizički podaci",
+                "mileageKm": "Kilometraža (KM) *",
+                "mileageKmPlaceholder": "50000",
+                "fuel": "Tip goriva *",
+                "transmission": "Menjač *",
+                "engine": "Motor *",
+                "powerHp": "Snaga (KS) *",
+                "drivetrain": "Pogon *",
+                "colorExterior": "Spoljašnja boja *",
+                "colorInterior": "Unutrašnja boja *",
+                "interiorMaterial": "Materijal enterijera *",
+                "fuelPlaceholder": "Izaberite gorivo",
+                "transmissionPlaceholder": "Izaberite menjač",
+                "drivetrainPlaceholder": "Izaberite pogon",
+                "interiorMaterialPlaceholder": "Izaberite materijal",
+                "colorExteriorPlaceholder": "Izaberite boju",
+                "colorInteriorPlaceholder": "Izaberite boju"
+            }
+        },
+        "EditCarTabHistory": {
+            "cancel": "Otkaži",
+            "saveHistory": "Sačuvaj istoriju",
+            "VehicleHistory": {
+                "title": "Istorija vozila",
+                "description": "Status vlasništva, vlasnici i servisni zapisi",
+                "titleStatus": "Status vlasništva",
+                "accidents": "Udesi",
+                "serviceHistory": "Servisna istorija",
+                "serviceHistoryPlaceholder": "Redovno održavanje, zamena ulja, pregledi...",
+                "firstRegistration": "Prva registracija",
+                "owners": "Broj prethodnih vlasnika"
+            }
+        },
+        "EditCarTabImport": {
+            "cancel": "Otkaži",
+            "saveImportData": "Sačuvaj podatke o uvozu",
+            "ImportInformation": {
+                "originCountryPlaceholder": "Izaberite zemlju",
+                "purchaseSourcePlaceholder": "Izaberite izvor",
+                "homologationStatusPlaceholder": "Izaberite status",
+                "registrationStatusPlaceholder": "Izaberite status",
+                "title": "Informacije o uvozu",
+                "description": "Detalji kupovine, transporta i carine",
+                "originCountry": "Zemlja porekla",
+                "purchaseSource": "Izvor kupovine",
+                "purchaseDate": "Datum kupovine",
+                "usPurchasePrice": "Cena kupovine (USD)",
+                "shippingCost": "Trošak transporta (USD)",
+                "customsTax": "Carinska taksa (EUR)",
+                "importDate": "Datum uvoza",
+                "homologationStatus": "Status homologacije",
+                "registrationStatus": "Status registracije"
+            }
+        },
+        "EditCarTabSettings": {
+            "cancel": "Otkaži",
+            "saveSettings": "Sačuvaj podešavanja",
+            "MediaManagement": {
+                "title": "Upravljanje medijima",
+                "description": "Otpremite i upravljajte fotografijama vozila",
+                "addImagesButton": "Dodaj slike",
+                "saveChangesButton": "Sačuvaj izmene",
+                "cancelButton": "Otkaži",
+                "existingImages": "Postojeće slike",
+                "removedImages": "Uklonjene slike",
+                "additionalImages": "Dodatne slike",
+                "newImage": "Nova slika",
+                "removeNewImage": "Ukloni novu sliku",
+                "forAdding": "za dodavanje",
+                "additionallyAddedImages": "Dodatno dodate slike"
+            }
+        }
+    },
+    "SettingsPage": {
+        "pageTitle": "Podešavanja - AutoAmerika",
+        "pageDescription": "Upravljajte svojim preferencama i prilagodite iskustvo",
+        "title": "Podešavanja",
+        "description": "Upravljajte svojim preferencama i prilagodite iskustvo",
+        "SettingsPreferences": {
+            "title": "Preferencije",
+            "language": "Jezik"
+        }
+    },
+    "ErrorPage": {
+        "pageTitle": "Greška - AutoAmerika",
+        "pageDescription": "Došlo je do greške prilikom obrade vašeg zahteva.",
+        "goBackButton": "Vrati se nazad",
+        "goHomeButton": "Idi na početnu",
+        "tryAgainButton": "Pokušaj ponovo",
+        "additionalHelp": "Treba vam pomoć?",
+        "contactSupport": "Kontaktirajte podršku",
+        "404": {
+            "title": "Stranica nije pronađena",
+            "description": "Stranica koju tražite možda je uklonjena, promenjeno joj je ime ili je trenutno nedostupna."
+        },
+        "403": {
+            "title": "Pristup zabranjen",
+            "description": "Nemate dozvolu za pristup ovoj stranici."
+        },
+        "500": {
+            "title": "Interna greška servera",
+            "description": "Došlo je do greške sa naše strane. Molimo pokušajte kasnije."
+        },
+        "502": {
+            "title": "Loš gateway",
+            "description": "Server je vratio neispravan odgovor. Molimo pokušajte kasnije."
+        },
+        "503": {
+            "title": "Servis nedostupan",
+            "description": "Server trenutno nije dostupan. Molimo pokušajte kasnije."
+        },
+        "default": {
+            "title": "Došlo je do greške",
+            "description": "Nešto je pošlo po zlu. Molimo pokušajte kasnije."
+        }
+    },
+    "ValidationMessages": {
+        "CarsContext": {
+            "INVALID_IMAGE_COUNT": "Minimum {minimum} slika • Maksimalna veličina: 5MB po slici {count}",
+            "INVALID_FILE_TYPE": "Neispravan tip fajla: {fileName}",
+            "INVALID_FILE_SIZE": "Veličina fajla prelazi limit: {fileName}",
+            "NO_CHANGES": "Nema izmena za slanje"
+        },
+        "CarsSchemas": {
+            "AddCarCompleteSchema": {
+                "VIN_MIN_LENGTH": "VIN mora imati najmanje 17 karaktera",
+                "BRAND_MIN_LENGTH": "Marka mora imati najmanje 1 karakter",
+                "MODEL_MIN_LENGTH": "Model mora imati najmanje 1 karakter",
+                "YEAR_MIN_VALUE": "Godina mora biti najmanje 1900",
+                "CAR_TYPE_MIN_LENGTH": "Tip automobila mora imati najmanje 1 karakter",
+                "PRICE_MIN_VALUE": "Cena mora biti najmanje 1",
+                "CURRENCY_PICKLIST": "Valuta mora biti EUR, USD ili RSD",
+                "MILEAGE_KM_MIN_VALUE": "Kilometraža mora biti najmanje 0",
+                "FUEL_MIN_LENGTH": "Tip goriva mora imati najmanje 1 karakter",
+                "TRANSMISSION_MIN_LENGTH": "Menjač mora imati najmanje 1 karakter",
+                "ENGINE_MIN_LENGTH": "Motor mora imati najmanje 1 karakter",
+                "POWER_HP_MIN_VALUE": "Snaga mora biti najmanje 1",
+                "DRIVETRAIN_MIN_LENGTH": "Pogon mora imati najmanje 1 karakter",
+                "COLOR_EXTERIOR_MIN_LENGTH": "Spoljašnja boja mora imati najmanje 1 karakter",
+                "COLOR_INTERIOR_MIN_LENGTH": "Unutrašnja boja mora imati najmanje 1 karakter",
+                "INTERIOR_MATERIAL_MIN_LENGTH": "Materijal enterijera mora imati najmanje 1 karakter",
+                "LOCATION_MIN_LENGTH": "Lokacija mora imati najmanje 1 karakter",
+                "DESCRIPTION_MIN_LENGTH": "Opis mora imati najmanje 1 karakter",
+                "TITLE_STATUS_MIN_LENGTH": "Status vlasništva mora imati najmanje 1 karakter",
+                "FIRST_REGISTRATION_MIN_LENGTH": "Prva registracija mora imati najmanje 1 karakter",
+                "OWNERS_MIN_VALUE": "Broj vlasnika mora biti najmanje 1",
+                "ACCIDENTS_MIN_LENGTH": "Udesi moraju imati najmanje 1 karakter",
+                "SERVICE_HISTORY_MIN_LENGTH": "Servisna istorija mora imati najmanje 1 karakter",
+                "ORIGIN_COUNTRY_MIN_LENGTH": "Zemlja porekla mora imati najmanje 1 karakter",
+                "PURCHASE_SOURCE_MIN_LENGTH": "Izvor kupovine mora imati najmanje 1 karakter",
+                "PURCHASE_DATE_MIN_LENGTH": "Datum kupovine mora imati najmanje 1 karakter",
+                "US_PURCHASE_PRICE_MIN_VALUE": "Cena kupovine u SAD mora biti najmanje 1",
+                "SHIPPING_COST_MIN_VALUE": "Trošak transporta mora biti najmanje 0",
+                "CUSTOMS_TAX_MIN_VALUE": "Carinska taksa mora biti najmanje 0",
+                "IMPORT_DATE_MIN_LENGTH": "Datum uvoza mora imati najmanje 1 karakter",
+                "HOMOLOGATION_STATUS_MIN_LENGTH": "Status homologacije mora imati najmanje 1 karakter",
+                "REGISTRATION_STATUS_MIN_LENGTH": "Status registracije mora imati najmanje 1 karakter"
+            },
+            "EditCarInformationSchema": {
+                "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter",
+                "VIN_MIN_LENGTH": "VIN mora imati najmanje 17 karaktera",
+                "BRAND_MIN_LENGTH": "Marka mora imati najmanje 1 karakter",
+                "MODEL_MIN_LENGTH": "Model mora imati najmanje 1 karakter",
+                "YEAR_MIN_LENGTH": "Godina mora imati najmanje 1 karakter",
+                "CAR_TYPE_MIN_LENGTH": "Tip automobila mora imati najmanje 1 karakter",
+                "PRICE_MIN_LENGTH": "Cena mora imati najmanje 1 karakter",
+                "CURRENCY_PICKLIST": "Valuta mora biti EUR, USD ili RSD",
+                "MILEAGE_KM_MIN_LENGTH": "Kilometraža mora imati najmanje 1 karakter",
+                "FUEL_MIN_LENGTH": "Tip goriva mora imati najmanje 1 karakter",
+                "TRANSMISSION_MIN_LENGTH": "Menjač mora imati najmanje 1 karakter",
+                "ENGINE_MIN_LENGTH": "Motor mora imati najmanje 1 karakter",
+                "POWER_HP_MIN_LENGTH": "Snaga mora imati najmanje 1 karakter",
+                "DRIVETRAIN_MIN_LENGTH": "Pogon mora imati najmanje 1 karakter",
+                "COLOR_EXTERIOR_MIN_LENGTH": "Spoljašnja boja mora imati najmanje 1 karakter",
+                "COLOR_INTERIOR_MIN_LENGTH": "Unutrašnja boja mora imati najmanje 1 karakter",
+                "INTERIOR_MATERIAL_MIN_LENGTH": "Materijal enterijera mora imati najmanje 1 karakter",
+                "LOCATION_MIN_LENGTH": "Lokacija mora imati najmanje 1 karakter",
+                "DESCRIPTION_MIN_LENGTH": "Opis mora imati najmanje 1 karakter"
+            },
+            "EditCarHistorySchema": {
+                "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter",
+                "TITLE_STATUS_MIN_LENGTH": "Status vlasništva mora imati najmanje 1 karakter",
+                "FIRST_REGISTRATION_MIN_LENGTH": "Prva registracija mora imati najmanje 1 karakter",
+                "OWNERS_MIN_LENGTH": "Broj vlasnika mora imati najmanje 1 karakter",
+                "ACCIDENTS_MIN_LENGTH": "Udesi moraju imati najmanje 1 karakter",
+                "SERVICE_HISTORY_MIN_LENGTH": "Servisna istorija mora imati najmanje 1 karakter"
+            },
+            "EditCarImportSchema": {
+                "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter",
+                "ORIGIN_COUNTRY_MIN_LENGTH": "Zemlja porekla mora imati najmanje 1 karakter",
+                "PURCHASE_SOURCE_MIN_LENGTH": "Izvor kupovine mora imati najmanje 1 karakter",
+                "PURCHASE_DATE_MIN_LENGTH": "Datum kupovine mora imati najmanje 1 karakter",
+                "US_PURCHASE_PRICE_MIN_LENGTH": "Cena kupovine u SAD mora imati najmanje 1 karakter",
+                "SHIPPING_COST_MIN_LENGTH": "Trošak transporta mora imati najmanje 1 karakter",
+                "CUSTOMS_TAX_MIN_LENGTH": "Carinska taksa mora imati najmanje 1 karakter",
+                "IMPORT_DATE_MIN_LENGTH": "Datum uvoza mora imati najmanje 1 karakter",
+                "HOMOLOGATION_STATUS_MIN_LENGTH": "Status homologacije mora imati najmanje 1 karakter",
+                "REGISTRATION_STATUS_MIN_LENGTH": "Status registracije mora imati najmanje 1 karakter"
+            },
+            "EditCarImagesSchema": {
+                "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter"
+            }
+        },
+        "ContactFormSchema": {
+            "NAME_MIN_LENGTH": "Ime mora imati najmanje 1 karakter",
+            "EMAIL_MIN_LENGTH": "Email mora imati najmanje 1 karakter",
+            "SUBJECT_MIN_LENGTH": "Tema mora imati najmanje 1 karakter",
+            "MESSAGE_MIN_LENGTH": "Poruka mora imati najmanje 10 karaktera"
+        }
+    },
+    "GenericMessages": {
+        "USER_LOGGED_OUT_SUCCESSFULLY": "Korisnik je uspešno odjavljen",
+        "USER_NOT_AUTHENTICATED": "Korisnik nije autentifikovan",
+
+        "CAR_MAKE_UNAVAILABLE_SUCCESS": "Automobil je uspešno postavljen kao nedostupan",
+        "CAR_MAKE_UNAVAILABLE_FAILED": "Nije uspelo postavljanje automobila kao nedostupnog",
+        "CAR_EDIT_INFORMATION_SUCCESS": "Informacije o automobilu uspešno izmenjene",
+        "CAR_EDIT_INFORMATION_FAILED": "Nije uspelo izmeniti informacije o automobilu",
+        "CAR_EDIT_HISTORY_SUCCESS": "Istorija automobila uspešno izmenjena",
+        "CAR_EDIT_HISTORY_FAILED": "Nije uspelo izmeniti istoriju automobila",
+        "CAR_EDIT_IMPORT_SUCCESS": "Podaci o uvozu automobila uspešno izmenjeni",
+        "CAR_EDIT_IMPORT_FAILED": "Nije uspelo izmeniti podatke o uvozu automobila",
+        "CAR_CREATED_SUCCESSFULLY": "Automobil je uspešno kreiran",
+        "CAR_CREATED_FAILED": "Nije uspelo kreirati automobil",
+        "CAR_IMAGES_EDITED_SUCCESSFULLY": "Slike automobila uspešno izmenjene",
+        "CAR_IMAGES_EDITED_FAILED": "Nije uspelo izmeniti slike automobila",
+
+        "CONTACT_FORM_SUCCESS": "Kontakt forma uspešno poslata",
+        "CONTACT_FORM_FAILED": "Nije uspelo poslati kontakt formu",
+
+        "GOOGLE_LOGIN_FAILED": "Prijava putem Google naloga nije uspela",
+
+        "FETCH_SUCCESS": "Učitavanje uspešno",
+        "FETCH_FAILED": "Nije uspelo učitavanje podataka"
     }
 }

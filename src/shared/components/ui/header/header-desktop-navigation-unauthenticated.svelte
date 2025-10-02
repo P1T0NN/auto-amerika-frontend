@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from "@/shared/lib/paraglide/messages";
+
     // CONFIG
     import { UNPROTECTED_PAGE_ENDPOINTS } from '@/shared/config';
 
@@ -11,6 +14,6 @@
         href={UNPROTECTED_PAGE_ENDPOINTS.LOGIN_PAGE}
         aria-label="Login"
     >
-        Login
+        {m['Header.login']()}
     </Button>
 </div>
