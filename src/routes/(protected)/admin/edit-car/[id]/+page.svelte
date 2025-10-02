@@ -30,6 +30,11 @@
 
 <svelte:head>
 	<title>{m['EditCarPage.pageTitle']()} - {car?.brand} {car?.model} - AutoAmerika Admin</title>
+	<meta
+		name="description"
+		content={m['EditCarPage.pageDescription']()}
+	/>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <svelte:boundary>

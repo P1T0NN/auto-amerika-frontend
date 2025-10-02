@@ -179,6 +179,8 @@
         }
     },
     "AboutPage": {
+        "pageTitle": "O nama - AutoAmerika",
+        "pageDescription": "Saznajte više o AutoAmerici, vašem pouzdanom partneru za uvoz kvalitetnih američkih automobila. Više od 10 godina iskustva u kompletnoj usluzi uvoza vozila.",
         "HeroSection": {
             "title": "O nama",
             "subtitle": "Vaš pouzdan partner za uvoz luksuznih američkih automobila"
@@ -230,6 +232,8 @@
         }
     },
     "ContactPage": {
+        "pageTitle": "Kontakt - AutoAmerika",
+        "pageDescription": "Kontaktirajte AutoAmeriku za sve informacije o uvozu američkih automobila. Tu smo da vam pomognemo da pronađete i uvezete vozilo iz snova.",
         "HeroSection": {
             "title": "Kontaktirajte nas",
             "description": "Imate pitanja? Biće nam drago da vam pomognemo. Kontaktirajte nas putem forme ili direktno."
@@ -306,6 +310,10 @@
             "color": "Boja"
         }
     },
+    "ReviewsPage": {
+        "pageTitle": "Recenzije - AutoAmerika",
+        "pageDescription": "Pročitajte recenzije naših zadovoljnih klijenata o uvozu američkih automobila kroz AutoAmeriku. Prava iskustva verifikovanih kupaca."
+    },
     "CarPage": {
         "pageTitle": "AutoAmerika",
         "pageDescription": "Detalji o automobilu. Kontaktirajte nas za više informacija.",
@@ -358,6 +366,7 @@
     },
     "AddCarPage": {
         "pageTitle": "Dodaj automobil - AutoAmerika Admin",
+        "pageDescription": "Dodajte novo vozilo u AutoAmerika inventar. Admin panel za upravljanje uvezenim automobilima.",
         "AddCarHeader": {
             "title": "Dodaj novi automobil",
             "description": "Unesite sve neophodne informacije o vozilu koje uvozite"
@@ -446,6 +455,7 @@
     },
     "AdminDashboardPage": {
         "pageTitle": "Admin panel - AutoAmerika",
+        "pageDescription": "Upravljajte inventarom vozila i pratite uvoz. AutoAmerika admin panel za prodavce automobila.",
         "AdminDashboardHeader": {
             "title": "Admin panel",
             "subtitle": "Upravljanje inventarom automobila"
@@ -481,6 +491,7 @@
     },
     "EditCarPage": {
         "pageTitle": "Izmeni automobil",
+        "pageDescription": "Izmenite informacije o vozilu, specifikacije i fotografije. Admin panel za ažuriranje detalja automobila.",
         "EditCarHeader": {
             "backToDashboard": "Nazad na kontrolnu tablu"
         },

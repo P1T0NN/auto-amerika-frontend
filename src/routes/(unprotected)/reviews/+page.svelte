@@ -1,4 +1,7 @@
 <script lang="ts">
+    // LIBRARIES
+    import { m } from '@/shared/lib/paraglide/messages';
+
     // COMPONENTS
 	import { Button } from '@/shared/components/ui/button';
 	import {
@@ -145,10 +148,10 @@
 </script>
 
 <svelte:head>
-	<title>Recenzije - AutoAmerika</title>
+	<title>{m['ReviewsPage.pageTitle']()}</title>
 	<meta
 		name="description"
-		content="Pročitajte recenzije naših zadovoljnih klijenata o uvozu američkih automobila kroz AutoAmeriku."
+		content={m['ReviewsPage.pageDescription']()}
 	/>
 </svelte:head>
 

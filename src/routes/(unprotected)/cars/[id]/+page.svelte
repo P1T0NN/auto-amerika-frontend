@@ -1,11 +1,9 @@
 <script lang="ts">
-    // LIBRARIES
-    import { m } from '@/shared/lib/paraglide/messages';
-
     // SVELTEKIT IMPORTS
 	import { page } from '$app/state';
 
     // COMPONENTS
+    import CarPageHead from '@/shared/components/pages/(unprotected)/cars/[id]/head/car-page-head.svelte';
 	import CarHeader from '@/shared/components/pages/(unprotected)/cars/[id]/car-header.svelte';
 	import CarHeroSection from '@/shared/components/pages/(unprotected)/cars/[id]/car-hero-section.svelte';
 	import CarImageGallery from '@/shared/components/pages/(unprotected)/cars/[id]/car-image-gallery.svelte';
@@ -20,17 +18,10 @@
     import { fetchCarById } from '@/features/cars/queries/cars-queries.remote';
 
 	const carId = page.params.id;
-
     // TODO: Forbid users from entering this page is the car has status "unavailable"
 </script>
 
-<svelte:head>
-	<title>{m['CarPage.pageTitle']()}</title>
-	<meta
-		name="description"
-		content={m['CarPage.pageDescription']()}
-	/>
-</svelte:head>
+<CarPageHead />
 
 <div class="min-h-screen">
     <svelte:boundary>
@@ -40,7 +31,7 @@
             <CarPageLoading />
         {/snippet}
 
-        {#if car && car.status !== 'unavailable'}
+        {#if car}
             <CarHeader {car} />
 
             <div class="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
@@ -62,10 +53,6 @@
                     <CarContactSidebar {car} />
                 </div>
             </div>
-        {/if}
-
-        {#if car && car.status === 'unavailable'}
-            <CarPageLoading />
         {/if}
     </svelte:boundary>
 </div>

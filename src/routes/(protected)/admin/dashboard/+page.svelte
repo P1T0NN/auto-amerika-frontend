@@ -10,6 +10,11 @@
 
 <svelte:head>
 	<title>{m['AdminDashboardPage.pageTitle']()}</title>
+	<meta
+		name="description"
+		content={m['AdminDashboardPage.pageDescription']()}
+	/>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <div class="min-h-screen bg-background p-6">

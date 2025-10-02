@@ -9,6 +9,11 @@
 
 <svelte:head>
 	<title>{m['AddCarPage.pageTitle']()}</title>
+	<meta
+		name="description"
+		content={m['AddCarPage.pageDescription']()}
+	/>
+	<meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <div class="min-h-screen bg-muted/30 py-8">

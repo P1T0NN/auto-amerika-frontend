@@ -179,6 +179,8 @@
         }
     },
     "AboutPage": {
+        "pageTitle": "About - AutoAmerika",
+        "pageDescription": "Learn about AutoAmerika, your trusted partner for importing quality American cars. Over 10 years of experience in complete vehicle import services.",
         "HeroSection": {
             "title": "About Us",
             "subtitle": "Your trusted partner for importing luxury American cars"
@@ -230,6 +232,8 @@
         }
     },
     "ContactPage": {
+        "pageTitle": "Contact - AutoAmerika",
+        "pageDescription": "Get in touch with AutoAmerika for American car import inquiries. We're here to help you find and import your dream vehicle.",
         "HeroSection": {
             "title": "Contact Us",
             "description": "Have questions? We're happy to help. Contact us via the form or directly."
@@ -306,6 +310,10 @@
             "color": "Color"
         }
     },
+    "ReviewsPage": {
+        "pageTitle": "Reviews - AutoAmerika",
+        "pageDescription": "Read reviews from our satisfied customers about importing American cars through AutoAmerika. Real experiences from verified buyers."
+    },
     "CarPage": {
         "pageTitle": "AutoAmerika",
         "pageDescription": "Car details. Contact us for more information.",
@@ -358,6 +366,7 @@
     },
     "AddCarPage": {
         "pageTitle": "Add Car - AutoAmerika Admin",
+        "pageDescription": "Add a new vehicle to the AutoAmerika inventory. Admin panel for managing imported cars.",
         "AddCarHeader": {
             "title": "Add New Car",
             "description": "Enter all necessary information about the car you are importing"
@@ -446,6 +455,7 @@
     },
     "AdminDashboardPage": {
         "pageTitle": "Admin Dashboard - AutoAmerika",
+        "pageDescription": "Manage your vehicle inventory and track imports. AutoAmerika admin dashboard for car dealers.",
         "AdminDashboardHeader": {
             "title": "Admin Dashboard",
             "subtitle": "Vehicle inventory management"
@@ -481,6 +491,7 @@
     },
     "EditCarPage": {
         "pageTitle": "Edit Car",
+        "pageDescription": "Edit vehicle information, specifications, and photos. Admin panel for updating car details.",
         "EditCarHeader": {
             "backToDashboard": "Back to Dashboard"
         },
