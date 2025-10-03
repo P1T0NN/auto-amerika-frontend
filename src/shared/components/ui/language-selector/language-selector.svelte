@@ -60,7 +60,7 @@
                             </span>
 
                             <span class="font-dm-sans text-xs text-muted-foreground">
-                                {language.locale === 'en' ? 'EN' : 'ES'}
+                                {language.locale === 'en' ? 'EN' : 'SR'}
                             </span>
                         </div>
                     </div>
