@@ -6,7 +6,7 @@
 <section class="relative flex h-[60vh] items-center justify-center overflow-hidden">
     <div class="absolute inset-0 z-0">
         <img
-            src="/placeholder.svg?height=800&width=1600"
+            src="/about/hero.webp"
             alt="About us"
             class="h-full w-full object-cover"
         />

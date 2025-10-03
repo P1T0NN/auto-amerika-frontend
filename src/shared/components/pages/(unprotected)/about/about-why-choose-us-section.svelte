@@ -6,7 +6,7 @@
 	import { Card } from '@/shared/components/ui/card';
 
     // LUCIDE ICONS
-	import { CheckCircle, Shield, Clock, Award } from '@lucide/svelte';
+	import { FileCheck, Shield, Clock, Award } from '@lucide/svelte';
 </script>
 
 <section class="bg-muted py-16 md:py-24">
@@ -53,12 +53,12 @@
             <Card class="p-6 text-center">
                 <div class="mb-4 flex justify-center">
                     <div class="rounded-full bg-primary/10 p-4">
-                        <CheckCircle class="h-8 w-8 text-primary" />
+                        <FileCheck class="h-8 w-8 text-primary" />
                     </div>
                 </div>
-                <h3 class="mb-3 text-xl font-semibold">{m['AboutPage.WhyChooseUsSection.completeService.title']()}</h3>
+                <h3 class="mb-3 text-xl font-semibold">{m['HomePage.WhyUsSection.fullRegistration']()}</h3>
                 <p class="text-muted-foreground">
-                    {m['AboutPage.WhyChooseUsSection.completeService.description']()}
+                    {m['HomePage.WhyUsSection.fullRegistrationDescription']()}
                 </p>
             </Card>
         </div>

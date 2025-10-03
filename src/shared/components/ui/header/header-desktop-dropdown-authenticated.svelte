@@ -11,6 +11,9 @@
 	import * as Avatar from '@/shared/components/ui/avatar/index.js';
     import LogoutButton from './logout-button.svelte';
 
+	// LUCIDE ICONS
+	import { Settings, Shield, FileText } from '@lucide/svelte';
+
     // UTILS
     import { getInitials } from '@/shared/utils/name-utils';
 
@@ -47,19 +50,22 @@
 		<DropdownMenu.Group>
             <a href={UNPROTECTED_PAGE_ENDPOINTS.SETTINGS_PAGE}>
                 <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-                    {m['Header.settings']()}
+                    <Settings class="mr-2 h-4 w-4" />
+                    <span>{m['Header.settings']()}</span>
                 </DropdownMenu.Item>
             </a>
 
             <a href={UNPROTECTED_PAGE_ENDPOINTS.PRIVACY_POLICY}>
                 <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-                    {m['Header.privacyPolicy']()}
+                    <Shield class="mr-2 h-4 w-4" />
+                    <span>{m['Header.privacyPolicy']()}</span>
                 </DropdownMenu.Item>
             </a>
 
             <a href={UNPROTECTED_PAGE_ENDPOINTS.TERMS_OF_USE}>
                 <DropdownMenu.Item class="text-zinc-300 hover:text-white hover:bg-zinc-800">
-                    {m['Header.termsOfUse']()}
+                    <FileText class="mr-2 h-4 w-4" />
+                    <span>{m['Header.termsOfUse']()}</span>
                 </DropdownMenu.Item>
             </a>
 		</DropdownMenu.Group>

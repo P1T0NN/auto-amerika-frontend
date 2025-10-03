@@ -40,12 +40,12 @@
 
     <CardHeader>
         <CardTitle class="text-xl text-white">{car.brand.toUpperCase()} {car.model}</CardTitle>
-        <CardDescription class="text-zinc-400">{car.year} • {car.mileageKm}km • {capitalizeFirstLetter(car.fuel)}</CardDescription>
+        <CardDescription class="text-zinc-400">{car.year} • {car.mileageKm}km • {capitalizeFirstLetter(car.fuel || 'N/A')}</CardDescription>
     </CardHeader>
 
     <CardContent>
         <div class="flex items-center justify-between">
-            <span class="text-2xl font-bold text-red-500">€{car.price}</span>
+            <span class="text-2xl font-bold text-red-500">€{car.price || "N/A"}</span>
 
             <Button 
                 size="sm"

@@ -39,6 +39,9 @@
     });
 
     onMount(() => {
+        // Clear filters when entering the page
+        filtersContext.clearFilters();
+
         const carType = page.url.searchParams.get('carType');
         const brand = page.url.searchParams.get('brand');
 
@@ -57,6 +60,11 @@
         if (filtersApplied) {
             filtersContext.applyFilters();
         }
+
+        // Clean up: clear filters when navigating away
+        return () => {
+            filtersContext.clearFilters();
+        };
     });
 </script>
 

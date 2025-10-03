@@ -54,10 +54,6 @@ export type typesCarImport = {
     carId: number;
     originCountry: string;
     purchaseSource: string;
-    purchaseDate: string; // ISO date string
-    usPurchasePrice: number;
-    shippingCost: number;
-    customsTax: number;
     importDate: string; // ISO date string
     homologationStatus: typesCarHomologationStatusType;
     registrationStatus: typesCarRegistrationStatusType;
@@ -121,16 +117,21 @@ export type typesAddCarRequest = {
     // Step 3: Import Info
     originCountry: string;
     purchaseSource: string;
-    purchaseDate: string;
-    usPurchasePrice: number;
-    shippingCost: number;
-    customsTax: number;
     importDate: string;
     homologationStatus: string;
     registrationStatus: string;
 
     // Step 4: Images
     images: string[];
+}
+
+export type typesAddUnavailableCarRequest = {
+    brand: string;
+    model: string;
+    year: number;
+    carType: string;
+    status: string;
+    image: string;
 }
 
 export interface typesEditCarInformationRequest {
@@ -171,10 +172,6 @@ export interface typesEditCarImport {
 
     originCountry: string;
     purchaseSource: string;
-    purchaseDate: string;
-    usPurchasePrice: number;
-    shippingCost: number;
-    customsTax: number;
     importDate: string;
     homologationStatus: string;
     registrationStatus: string;

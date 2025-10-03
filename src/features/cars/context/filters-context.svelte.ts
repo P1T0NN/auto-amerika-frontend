@@ -89,6 +89,58 @@ export class FiltersClass {
         );
     }
 
+    // Get active filter labels
+    get activeFilterLabels(): string[] {
+        const labels: string[] = [];
+
+        // Add brand labels
+        this.selectedBrands.forEach(value => {
+            const brand = this.brandsData.find(b => b.value === value);
+            if (brand) labels.push(brand.text);
+        });
+
+        // Add body type labels
+        this.selectedBodyTypes.forEach(value => {
+            const bodyType = this.bodyTypesData.find(b => b.value === value);
+            if (bodyType) labels.push(bodyType.text);
+        });
+
+        // Add transmission labels
+        this.selectedTransmissions.forEach(value => {
+            const transmission = this.transmissionsData.find(t => t.value === value);
+            if (transmission) labels.push(transmission.text);
+        });
+
+        // Add fuel type labels
+        this.selectedFuelTypes.forEach(value => {
+            const fuelType = this.fuelTypesData.find(f => f.value === value);
+            if (fuelType) labels.push(fuelType.text);
+        });
+
+        // Add color labels
+        this.selectedColors.forEach(value => {
+            const color = this.colorsData.find(c => c.value === value);
+            if (color) labels.push(color.text);
+        });
+
+        // Add price range if not default
+        if (this.priceRange.min !== 0 || this.priceRange.max !== 100000) {
+            labels.push(`$${this.priceRange.min.toLocaleString()} - $${this.priceRange.max.toLocaleString()}`);
+        }
+
+        // Add year range if not default
+        if (this.yearRange.min !== 2015 || this.yearRange.max !== 2025) {
+            labels.push(`${this.yearRange.min} - ${this.yearRange.max}`);
+        }
+
+        // Add mileage if not default
+        if (this.mileageMax !== 100000) {
+            labels.push(`Max ${this.mileageMax.toLocaleString()} mi`);
+        }
+
+        return labels;
+    }
+
     // Trigger version for reactive updates
     filterVersion = $state(0);
 

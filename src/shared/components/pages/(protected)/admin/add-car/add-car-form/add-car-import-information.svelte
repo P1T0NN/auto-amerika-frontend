@@ -78,57 +78,6 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseDate">{m['AddCarPage.AddCarImportInformation.purchaseDateLabel']()}</Label>
-                <Input
-                    id="purchaseDate"
-                    name="purchaseDate"
-                    type="date"
-                    bind:value={addCarContext.formData.purchaseDate}
-                    class={addCarContext.errors.purchaseDate ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={addCarContext.errors.purchaseDate ? [{message: addCarContext.errors.purchaseDate}] : undefined} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="usPurchasePrice">{m['AddCarPage.AddCarImportInformation.usPurchasePriceLabel']()}</Label>
-                <Input
-                    id="usPurchasePrice"
-                    name="usPurchasePrice"
-                    type="number"
-                    placeholder={m['AddCarPage.AddCarImportInformation.usPurchasePricePlaceholder']()}
-                    bind:value={addCarContext.formData.usPurchasePrice}
-                    class={addCarContext.errors.usPurchasePrice ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={addCarContext.errors.usPurchasePrice ? [{message: addCarContext.errors.usPurchasePrice}] : undefined} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="shippingCost">{m['AddCarPage.AddCarImportInformation.shippingCostLabel']()}</Label>
-                <Input
-                    id="shippingCost"
-                    name="shippingCost"
-                    type="number"
-                    placeholder={m['AddCarPage.AddCarImportInformation.shippingCostPlaceholder']()}
-                    bind:value={addCarContext.formData.shippingCost}
-                    class={addCarContext.errors.shippingCost ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={addCarContext.errors.shippingCost ? [{message: addCarContext.errors.shippingCost}] : undefined} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="customsTax">{m['AddCarPage.AddCarImportInformation.customsTaxLabel']()}</Label>
-                <Input
-                    id="customsTax"
-                    name="customsTax"
-                    type="number"
-                    placeholder={m['AddCarPage.AddCarImportInformation.customsTaxPlaceholder']()}
-                    bind:value={addCarContext.formData.customsTax}
-                    class={addCarContext.errors.customsTax ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={addCarContext.errors.customsTax ? [{message: addCarContext.errors.customsTax}] : undefined} />
-            </div>
-
-            <div class="space-y-2">
                 <Label for="importDate">{m['AddCarPage.AddCarImportInformation.importDateLabel']()}</Label>
                 <Input
                     id="importDate"

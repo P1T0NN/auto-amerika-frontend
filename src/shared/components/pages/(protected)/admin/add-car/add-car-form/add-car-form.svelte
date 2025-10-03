@@ -44,9 +44,6 @@
             mileageKm: Number(addCarContext.formData.mileageKm),
             powerHp: Number(addCarContext.formData.powerHp),
             owners: Number(addCarContext.formData.owners),
-            usPurchasePrice: Number(addCarContext.formData.usPurchasePrice),
-            shippingCost: Number(addCarContext.formData.shippingCost),
-            customsTax: Number(addCarContext.formData.customsTax),
             images: base64Images
         };
 

@@ -38,7 +38,12 @@
     <div class="flex-1">
         <div class="mb-6">
             <h1 class="text-3xl font-bold text-white mb-2">{m['CarsPage.CarsResults.title']()}</h1>
-            <p class="text-zinc-400">{totalCount} {m['CarsPage.CarsResults.carsFound']()}</p>
+            <p class="text-zinc-400">
+                {totalCount} {m['CarsPage.CarsResults.carsFound']()}
+                {#if filtersContext.hasActiveFilters}
+                    {m['CarsPage.CarsResults.forFilters']()}: {filtersContext.activeFilterLabels.join(', ')}
+                {/if}
+            </p>
         </div>
 
         <div class="grid grid-cols-1 xl:grid-cols-2 gap-6">

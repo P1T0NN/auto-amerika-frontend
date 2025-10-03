@@ -19,6 +19,7 @@
         "loggingIn": "Prijavljivanje..."
     },
     "Header": {
+        "menu": "Meni",
         "settings": "Podešavanja",
         "privacyPolicy": "Politika privatnosti",
         "termsOfUse": "Uslovi korišćenja",
@@ -137,7 +138,7 @@
             "title": "Mi prodajemo",
             "subtitle": "najbolje američke automobile",
             "subtitle2": "za vas",
-            "description": "Od kupovine do registracije – kompletna usluga uvoza vozila iz Amerike",
+            "description": "Od kupovine i sa opcijom registracije – kompletna usluga uvoza vozila iz Amerike",
             "seeTheCars": "Pogledaj automobile",
             "contactUs": "Kontaktiraj nas"
         },
@@ -145,7 +146,7 @@
             "title": "Otkrij svoj automobil iz snova",
             "browseBy": "Pretraži po",
             "description": "Istražite našu pažljivo odabranu kolekciju premium vozila u svim kategorijama",
-            "type": "Tip"
+            "type": "Kategoriji"
         },
         "CarBrandsSection": {
             "audiDescription": "Nemačko inženjersko savršenstvo",
@@ -159,7 +160,7 @@
             "title": "Premium automobilski brendovi",
             "description": "Otkrijte kultne proizvođače poznate po izvrsnosti i inovacijama",
             "browseBy": "Pretraži po",
-            "brand": "Brend"
+            "brand": "Brendu"
         },
         "WhyUsSection": {
             "title": "Zašto AutoAmerika?",
@@ -168,8 +169,8 @@
             "provenQualityDescription": "Svaki automobil prolazi detaljnu inspekciju pre uvoza",
             "fastProcedure": "Brza procedura",
             "fastProcedureDescription": "Nudimo brzu isporuku do vašeg praga",
-            "transparentPrices": "Transparentne cene",
-            "transparentPricesDescription": "Prihvatamo sve glavne kreditne kartice i kriptovalute"
+            "fullRegistration": "Kompletna registracija (Opcionalno)",
+            "fullRegistrationDescription": "Opciona usluga potpune registracije uz dodatnu uplatu za vozilo spremno za vožnju"
         },
         "CtaSection": {
             "title": "Da li ste spremni za svoj novi automobil?",
@@ -220,8 +221,8 @@
                 "description": "Obavljamo kupovinu i organizujemo siguran transport vozila do Srbije"
             },
             "step3": {
-                "title": "Carina i registracija",
-                "description": "Brinemo o svim formalnostima i predajemo vam vozilo spremno za vožnju"
+                "title": "Carina i registracija (Opcionalno)",
+                "description": "Opciona usluga: Možemo se pobrinuti za sve formalnosti i predati vam vozilo spremno za vožnju uz dodatnu uplatu"
             }
         },
         "CtaSection": {
@@ -287,7 +288,8 @@
         "pageDescription": "Pregledajte našu ponudu kvalitetnih američkih automobila. Filtrirajte po brendu, ceni, godini i drugim karakteristikama.",
         "CarsResults": {
             "title": "Dostupni automobili",
-            "carsFound": "pronađenih automobila"
+            "carsFound": "pronađenih automobila",
+            "forFilters": "za filtere"
         },
         "CarsFilters": {
             "title": "Filteri",
@@ -367,6 +369,8 @@
     "AddCarPage": {
         "pageTitle": "Dodaj automobil - AutoAmerika Admin",
         "pageDescription": "Dodajte novo vozilo u AutoAmerika inventar. Admin panel za upravljanje uvezenim automobilima.",
+        "addCarTab": "Dodaj automobil",
+        "addUnavailableCarTab": "Dodaj nedostupan automobil",
         "AddCarHeader": {
             "title": "Dodaj novi automobil",
             "description": "Unesite sve neophodne informacije o vozilu koje uvozite"
@@ -428,13 +432,6 @@
             "originCountryPlaceholder": "Izaberite zemlju",
             "purchaseSourceLabel": "Izvor kupovine *",
             "purchaseSourcePlaceholder": "Izaberite izvor",
-            "purchaseDateLabel": "Datum kupovine *",
-            "usPurchasePriceLabel": "Cena kupovine (USD) *",
-            "usPurchasePricePlaceholder": "25000",
-            "shippingCostLabel": "Trošak transporta (USD) *",
-            "shippingCostPlaceholder": "2000",
-            "customsTaxLabel": "Carinska taksa (EUR) *",
-            "customsTaxPlaceholder": "5000",
             "importDateLabel": "Datum uvoza *",
             "homologationStatusLabel": "Status homologacije *",
             "homologationStatusPlaceholder": "Izaberite status",
@@ -452,6 +449,22 @@
             "checkmark": "✓",
             "removeImage": "Ukloni sliku"
         }
+    },
+    "AddUnavailableCarPage": {
+        "title": "Dodaj nedostupan automobil",
+        "brandLabel": "Marka *",
+        "brandPlaceholder": "Izaberite marku",
+        "modelLabel": "Model *",
+        "modelPlaceholder": "Mustang GT",
+        "yearLabel": "Godina *",
+        "yearPlaceholder": "2020",
+        "imageTitle": "Slika vozila",
+        "uploadDescription": "Izaberite sliku (JPG, PNG, WebP)",
+        "uploadInfo": "Maksimalna veličina: 5MB",
+        "selectImageButton": "Izaberite sliku",
+        "selectedImage": "Izabrana slika",
+        "removeImage": "Ukloni",
+        "submitButton": "Dodaj nedostupan automobil"
     },
     "AdminDashboardPage": {
         "pageTitle": "Admin panel - AutoAmerika",
@@ -566,10 +579,6 @@
                 "description": "Detalji kupovine, transporta i carine",
                 "originCountry": "Zemlja porekla",
                 "purchaseSource": "Izvor kupovine",
-                "purchaseDate": "Datum kupovine",
-                "usPurchasePrice": "Cena kupovine (USD)",
-                "shippingCost": "Trošak transporta (USD)",
-                "customsTax": "Carinska taksa (EUR)",
                 "importDate": "Datum uvoza",
                 "homologationStatus": "Status homologacije",
                 "registrationStatus": "Status registracije"
@@ -671,10 +680,6 @@
                 "SERVICE_HISTORY_MIN_LENGTH": "Servisna istorija mora imati najmanje 1 karakter",
                 "ORIGIN_COUNTRY_MIN_LENGTH": "Zemlja porekla mora imati najmanje 1 karakter",
                 "PURCHASE_SOURCE_MIN_LENGTH": "Izvor kupovine mora imati najmanje 1 karakter",
-                "PURCHASE_DATE_MIN_LENGTH": "Datum kupovine mora imati najmanje 1 karakter",
-                "US_PURCHASE_PRICE_MIN_VALUE": "Cena kupovine u SAD mora biti najmanje 1",
-                "SHIPPING_COST_MIN_VALUE": "Trošak transporta mora biti najmanje 0",
-                "CUSTOMS_TAX_MIN_VALUE": "Carinska taksa mora biti najmanje 0",
                 "IMPORT_DATE_MIN_LENGTH": "Datum uvoza mora imati najmanje 1 karakter",
                 "HOMOLOGATION_STATUS_MIN_LENGTH": "Status homologacije mora imati najmanje 1 karakter",
                 "REGISTRATION_STATUS_MIN_LENGTH": "Status registracije mora imati najmanje 1 karakter"
@@ -712,16 +717,20 @@
                 "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter",
                 "ORIGIN_COUNTRY_MIN_LENGTH": "Zemlja porekla mora imati najmanje 1 karakter",
                 "PURCHASE_SOURCE_MIN_LENGTH": "Izvor kupovine mora imati najmanje 1 karakter",
-                "PURCHASE_DATE_MIN_LENGTH": "Datum kupovine mora imati najmanje 1 karakter",
-                "US_PURCHASE_PRICE_MIN_LENGTH": "Cena kupovine u SAD mora imati najmanje 1 karakter",
-                "SHIPPING_COST_MIN_LENGTH": "Trošak transporta mora imati najmanje 1 karakter",
-                "CUSTOMS_TAX_MIN_LENGTH": "Carinska taksa mora imati najmanje 1 karakter",
                 "IMPORT_DATE_MIN_LENGTH": "Datum uvoza mora imati najmanje 1 karakter",
                 "HOMOLOGATION_STATUS_MIN_LENGTH": "Status homologacije mora imati najmanje 1 karakter",
                 "REGISTRATION_STATUS_MIN_LENGTH": "Status registracije mora imati najmanje 1 karakter"
             },
             "EditCarImagesSchema": {
                 "ID_MIN_LENGTH": "ID mora imati najmanje 1 karakter"
+            },
+            "AddUnavailableCarSchema": {
+                "BRAND_MIN_LENGTH": "Marka mora imati najmanje 1 karakter",
+                "MODEL_MIN_LENGTH": "Model mora imati najmanje 1 karakter",
+                "YEAR_MIN_VALUE": "Godina mora biti najmanje 1900",
+                "IMAGE_REQUIRED": "Slika je obavezna",
+                "INVALID_FILE_TYPE": "Neispravan tip fajla: {fileName}",
+                "INVALID_FILE_SIZE": "Veličina fajla prelazi limit: {fileName}"
             }
         },
         "ContactFormSchema": {

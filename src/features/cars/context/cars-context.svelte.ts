@@ -44,10 +44,6 @@ export class AddCarClass {
         // Step 3: Import Info
         originCountry: "",
         purchaseSource: "",
-        purchaseDate: "",
-        usPurchasePrice: "",
-        shippingCost: "",
-        customsTax: "",
         importDate: "",
         homologationStatus: "",
         registrationStatus: "",
@@ -315,9 +311,119 @@ export class EditCarImagesClass {
     }
 }
 
+export class AddUnavailableCarClass {
+    // Form submission state
+    isSubmitting = $state(false);
+
+    // Image validation state
+    selectedImage = $state<File | null>(null);
+    imagePreview = $state<string>("");
+    imageValidationError = $state<string>("");
+
+    // Form validation errors
+    errors = $state<Record<string, string>>({});
+
+    // Form data state
+    formData = $state({
+        brand: "",
+        model: "",
+        year: "",
+        carType: "",
+        status: "unavailable" as const
+    });
+
+    // Image validation constants
+    private readonly MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
+    private readonly ALLOWED_TYPES = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp'];
+
+    // Image validation methods
+    validateFile(file: File): string | null {
+        // Check file type
+        if (!this.ALLOWED_TYPES.includes(file.type)) {
+            return m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.INVALID_FILE_TYPE"]({ fileName: file.name });
+        }
+
+        // Check file size
+        if (file.size > this.MAX_FILE_SIZE) {
+            return m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.INVALID_FILE_SIZE"]({ fileName: file.name });
+        }
+
+        return null;
+    }
+
+    handleImageSelect = (event: Event) => {
+        const input = event.target as HTMLInputElement;
+        const file = input.files?.[0];
+
+        if (!file) return;
+
+        // Validate file
+        const error = this.validateFile(file);
+        if (error) {
+            this.imageValidationError = error;
+            input.value = '';
+            return;
+        }
+
+        this.imageValidationError = "";
+        this.selectedImage = file;
+
+        // Create preview
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            this.imagePreview = e.target?.result as string;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    removeImage = () => {
+        this.selectedImage = null;
+        this.imagePreview = "";
+        this.imageValidationError = "";
+    }
+
+    validateImageForSubmission(): boolean {
+        if (!this.selectedImage) {
+            this.imageValidationError = m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.IMAGE_REQUIRED"]();
+            return false;
+        }
+        this.imageValidationError = "";
+        return true;
+    }
+
+    // Clear validation errors
+    clearErrors() {
+        this.errors = {};
+    }
+
+    // Set validation error for a field
+    setError(field: string, message: string) {
+        this.errors = { ...this.errors, [field]: message };
+    }
+
+    // Reset form
+    reset() {
+        this.isSubmitting = false;
+        this.selectedImage = null;
+        this.imagePreview = "";
+        this.imageValidationError = "";
+        this.errors = {};
+
+        // Reset form data
+        this.formData = {
+            brand: "",
+            model: "",
+            year: "",
+            carType: "",
+            status: "unavailable"
+        };
+    }
+}
+
 // Create and export context
 export const addCarContext = new AddCarClass();
 export const editCarInformationContext = new EditCarInformationClass();
 export const editCarHistoryContext = new EditCarHistoryClass();
 export const editCarImportContext = new EditCarImportClass();
 export const editCarImagesContext = new EditCarImagesClass();
+export const addUnavailableCarContext = new AddUnavailableCarClass();

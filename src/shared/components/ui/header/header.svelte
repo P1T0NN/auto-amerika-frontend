@@ -3,7 +3,8 @@
 	import { Button } from '@/shared/components/ui/button';
     import HeaderLogo from './header-logo.svelte';
     import HeaderDesktopNavigation from './header-desktop-navigation.svelte';
-    import HeaderMobileNavigation from './header-mobile-navigation.svelte';
+    import HeaderMobileMenu from './header-mobile-menu.svelte';
+	import LanguageSelector from '@/shared/components/ui/language-selector/language-selector.svelte';
 
     // LUCIDE ICONS
 	import { Menu } from '@lucide/svelte';
@@ -21,10 +22,12 @@
 		<div class="flex h-20 items-center justify-between">
 			<HeaderLogo />
 
-			<HeaderDesktopNavigation />
+			<div class="hidden md:flex">
+				<HeaderDesktopNavigation />
+			</div>
 
-			<!-- Mobile menu button -->
-			<div class="md:hidden">
+			<div class="md:hidden flex items-center gap-2">
+				<LanguageSelector classPlaceholder="text-white" />
 				<Button
 					onclick={handleOpenMobileMenu}
 					variant="ghost"
@@ -36,9 +39,9 @@
 			</div>
 		</div>
 
-		<!-- Mobile Navigation -->
-		{#if mobileMenuOpen}
-			<HeaderMobileNavigation />
-		{/if}
 	</nav>
 </header>
+
+{#if mobileMenuOpen}
+	<HeaderMobileMenu bind:mobileMenuOpen />
+{/if}

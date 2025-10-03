@@ -52,11 +52,6 @@
                     </Table.Row>
 
                     <Table.Row>
-                        <Table.Cell class="font-semibold">{m['CarPage.CarImportSection.purchaseDate']()}</Table.Cell>
-                        <Table.Cell class="text-right text-muted-foreground">{formatDate(car.import.purchaseDate)}</Table.Cell>
-                    </Table.Row>
-
-                    <Table.Row>
                         <Table.Cell class="font-semibold">{m['CarPage.CarImportSection.importDate']()}</Table.Cell>
                         <Table.Cell class="text-right text-muted-foreground">{formatDate(car.import.importDate)}</Table.Cell>
                     </Table.Row>

@@ -9,6 +9,13 @@
     import UnitedKingdomFlag from '@/shared/svgs/countries/united-kingdom-flag.svelte';
     import SerbiaFlag from '@/shared/svgs/countries/serbia-flag.svelte';
 
+    interface Props {
+        class?: string;
+        classPlaceholder?: string;
+    }
+
+    let { class: className = '', classPlaceholder = 'text-foreground' }: Props = $props();
+
     let selectedLanguage = $state(getLocale() === 'sr' ? 'sr' : 'en');
 
     const languages = [
@@ -24,14 +31,14 @@
 </script>
 
 <Select type="single" bind:value={selectedLanguage} onValueChange={handleLanguageChange}>
-    <SelectTrigger class="flex items-center space-x-2 w-auto">
+    <SelectTrigger class="flex items-center space-x-2 w-auto {className}">
         {#if selectedLanguage === 'en'}
             <UnitedKingdomFlag />
         {:else}
             <SerbiaFlag />
         {/if}
 
-        <span class="font-dm-sans text-sm font-medium text-foreground">
+        <span class="font-dm-sans text-sm font-medium {classPlaceholder}">
             {selectedLanguage === 'en' ? 'EN' : 'SR'}
         </span>
     </SelectTrigger>

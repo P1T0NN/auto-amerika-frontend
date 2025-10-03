@@ -33,10 +33,6 @@ export const addCarCompleteSchema = v.object({
     // Step 3: Import Info
     originCountry: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.ORIGIN_COUNTRY_MIN_LENGTH"])),
     purchaseSource: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.PURCHASE_SOURCE_MIN_LENGTH"])),
-    purchaseDate: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.PURCHASE_DATE_MIN_LENGTH"])),
-    usPurchasePrice: v.pipe(v.number(), v.minValue(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.US_PURCHASE_PRICE_MIN_VALUE"])),
-    shippingCost: v.pipe(v.number(), v.minValue(0, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.SHIPPING_COST_MIN_VALUE"])),
-    customsTax: v.pipe(v.number(), v.minValue(0, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.CUSTOMS_TAX_MIN_VALUE"])),
     importDate: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.IMPORT_DATE_MIN_LENGTH"])),
     homologationStatus: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.HOMOLOGATION_STATUS_MIN_LENGTH"])),
     registrationStatus: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.REGISTRATION_STATUS_MIN_LENGTH"])),
@@ -77,10 +73,6 @@ export const editCarImportSchema = v.object({
     carId: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.ID_MIN_LENGTH"])),
     originCountry: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.ORIGIN_COUNTRY_MIN_LENGTH"])),
     purchaseSource: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.PURCHASE_SOURCE_MIN_LENGTH"])),
-    purchaseDate: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.PURCHASE_DATE_MIN_LENGTH"])),
-    usPurchasePrice: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.US_PURCHASE_PRICE_MIN_LENGTH"])),
-    shippingCost: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.SHIPPING_COST_MIN_LENGTH"])),
-    customsTax: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.CUSTOMS_TAX_MIN_LENGTH"])),
     importDate: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.IMPORT_DATE_MIN_LENGTH"])),
     homologationStatus: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.HOMOLOGATION_STATUS_MIN_LENGTH"])),
     registrationStatus: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.EditCarImportSchema.REGISTRATION_STATUS_MIN_LENGTH"])),
@@ -92,7 +84,16 @@ export const editCarImagesSchema = v.object({
     removeImageIds: v.optional(v.array(v.number())),
 });
 
+export const addUnavailableCarSchema = v.object({
+    brand: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.BRAND_MIN_LENGTH"])),
+    model: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.MODEL_MIN_LENGTH"])),
+    year: v.pipe(v.number(), v.minValue(1900, m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.YEAR_MIN_VALUE"])),
+    carType: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddCarCompleteSchema.CAR_TYPE_MIN_LENGTH"])),
+    image: v.pipe(v.string(), v.minLength(1, m["ValidationMessages.CarsSchemas.AddUnavailableCarSchema.IMAGE_REQUIRED"])),
+});
+
 export type typesEditCarInformationData = v.InferOutput<typeof editCarInformationSchema>;
 export type typesEditCarHistoryData = v.InferOutput<typeof editCarHistorySchema>;
 export type typesEditCarImportData = v.InferOutput<typeof editCarImportSchema>;
 export type typesEditCarImagesData = v.InferOutput<typeof editCarImagesSchema>;
+export type typesAddUnavailableCarData = v.InferOutput<typeof addUnavailableCarSchema>;

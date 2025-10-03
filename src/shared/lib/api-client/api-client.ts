@@ -125,7 +125,8 @@ import type {
     typesEditCarHistoryRequest,
     typesEditCarImport,
     typesEditCarImagesRequest,
-    typesCar
+    typesCar,
+    typesAddUnavailableCarRequest
 } from '@/features/cars/types/types';
 import type { typesPaginatedResponse } from '@/shared/types/pagination-types';
 import type { typesCarFiltersRequest } from '@/features/cars/types/filters-types';
@@ -147,6 +148,9 @@ export const serverApiClient = {
     cars: {
         addCar: async (carData: typesAddCarRequest): Promise<ApiResponse<void>> => {
             return serverApiRequest<void>('/cars/add-car', 'POST', carData, undefined, undefined);
+        },
+        addUnavailableCar: async (carData: typesAddUnavailableCarRequest): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/cars/add-unavailable-car', 'POST', carData, undefined, undefined);
         },
         editCarInformation: async (carData: typesEditCarInformationRequest, sessionToken: string): Promise<ApiResponse<void>> => {
             return serverApiRequest<void>('/cars/edit-car-information', 'PUT', carData, undefined, sessionToken);

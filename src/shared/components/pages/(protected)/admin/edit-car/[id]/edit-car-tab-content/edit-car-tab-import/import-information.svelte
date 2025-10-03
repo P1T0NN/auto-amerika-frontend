@@ -84,57 +84,6 @@
             </div>
 
             <div class="space-y-2">
-                <Label for="purchaseDate" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.purchaseDate']}</Label>
-                <Input
-                    id="purchaseDate"
-                    name="purchaseDate"
-                    type="date"
-                    value={editCarForm.input?.purchaseDate || car.import?.purchaseDate || ''}
-                    class={editCarForm.issues?.purchaseDate ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={editCarForm.issues?.purchaseDate} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="usPurchasePrice" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.usPurchasePrice']}</Label>
-                <Input
-                    id="usPurchasePrice"
-                    name="usPurchasePrice"
-                    type="number"
-                    placeholder="25000"
-                    value={editCarForm.input?.usPurchasePrice || car.import?.usPurchasePrice || ''}
-                    class={editCarForm.issues?.usPurchasePrice ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={editCarForm.issues?.usPurchasePrice} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="shippingCost" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.shippingCost']}</Label>
-                <Input
-                    id="shippingCost"
-                    name="shippingCost"
-                    type="number"
-                    placeholder="1500"
-                    value={editCarForm.input?.shippingCost || car.import?.shippingCost || ''}
-                    class={editCarForm.issues?.shippingCost ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={editCarForm.issues?.shippingCost} />
-            </div>
-
-            <div class="space-y-2">
-                <Label for="customsTax" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.customsTax']}</Label>
-                <Input
-                    id="customsTax"
-                    name="customsTax"
-                    type="number"
-                    placeholder="3000"
-                    value={editCarForm.input?.customsTax || car.import?.customsTax || ''}
-                    class={editCarForm.issues?.customsTax ? 'border-destructive' : ''}
-                />
-                <ErrorMessage issues={editCarForm.issues?.customsTax} />
-            </div>
-
-            <div class="space-y-2">
                 <Label for="importDate" class="text-sm font-medium">{m['EditCarPage.EditCarTabImport.ImportInformation.importDate']}</Label>
                 <Input
                     id="importDate"

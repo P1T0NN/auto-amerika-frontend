@@ -23,8 +23,8 @@
 			<a href={UNPROTECTED_PAGE_ENDPOINTS.CONTACT_PAGE} class="text-zinc-400 transition-colors hover:text-primary">{m['Footer.quickLinks.contact']()}</a>
 		</li>
 		
-		<li>
+		<!-- <li>
 			<a href={UNPROTECTED_PAGE_ENDPOINTS.REVIEWS_PAGE} class="text-zinc-400 transition-colors hover:text-primary">{m['Footer.quickLinks.reviews']()}</a>
-		</li>
+		</li> -->
 	</ul>
 </div>

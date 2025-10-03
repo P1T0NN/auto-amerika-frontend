@@ -147,10 +147,7 @@ export const editCarImport = form(
         }
 
         const processedData = {
-            ...data,
-            usPurchasePrice: Number(data.usPurchasePrice),
-            shippingCost: Number(data.shippingCost),
-            customsTax: Number(data.customsTax)
+            ...data
         };
 
         const response = await serverApiClient.cars.editCarImport(processedData, sessionToken as string);

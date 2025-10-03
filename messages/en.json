@@ -19,6 +19,7 @@
         "loggingIn": "Logging in..."
     },
     "Header": {
+        "menu": "Menu",
         "settings": "Settings",
         "privacyPolicy": "Privacy Policy",
         "termsOfUse": "Terms of Use",
@@ -168,8 +169,8 @@
             "provenQualityDescription": "Every car goes through a detailed inspection before import",
             "fastProcedure": "Fast Procedure",
             "fastProcedureDescription": "We offer fast delivery to your doorstep",
-            "transparentPrices": "Transparent Prices",
-            "transparentPricesDescription": "We accept all major credit cards and cryptocurrencies"
+            "fullRegistration": "Full Registration (Optional)",
+            "fullRegistrationDescription": "Optional full registration service with additional payment for a ready-to-drive vehicle"
         },
         "CtaSection": {
             "title": "Are you ready for your new car?",
@@ -220,8 +221,8 @@
                 "description": "We handle the purchase and organize safe transport of the vehicle to Serbia"
             },
             "step3": {
-                "title": "Customs and Registration",
-                "description": "We take care of all formalities and hand over the vehicle ready to drive"
+                "title": "Customs and Registration (Optional)",
+                "description": "Optional service: We can take care of all formalities and hand over the vehicle ready to drive with additional payment"
             }
         },
         "CtaSection": {
@@ -287,7 +288,8 @@
         "pageDescription": "Browse our selection of quality American cars. Filter by brand, price, year and other characteristics.",
         "CarsResults": {
             "title": "Available Cars",
-            "carsFound": "cars found"
+            "carsFound": "cars found",
+            "forFilters": "for filters"
         },
         "CarsFilters": {
             "title": "Filters",
@@ -367,6 +369,8 @@
     "AddCarPage": {
         "pageTitle": "Add Car - AutoAmerika Admin",
         "pageDescription": "Add a new vehicle to the AutoAmerika inventory. Admin panel for managing imported cars.",
+        "addCarTab": "Add Car",
+        "addUnavailableCarTab": "Add Unavailable Car",
         "AddCarHeader": {
             "title": "Add New Car",
             "description": "Enter all necessary information about the car you are importing"
@@ -428,13 +432,6 @@
             "originCountryPlaceholder": "Select country",
             "purchaseSourceLabel": "Purchase Source *",
             "purchaseSourcePlaceholder": "Select source",
-            "purchaseDateLabel": "Purchase Date *",
-            "usPurchasePriceLabel": "Purchase Price (USD) *",
-            "usPurchasePricePlaceholder": "25000",
-            "shippingCostLabel": "Shipping Cost (USD) *",
-            "shippingCostPlaceholder": "2000",
-            "customsTaxLabel": "Customs Tax (EUR) *",
-            "customsTaxPlaceholder": "5000",
             "importDateLabel": "Import Date *",
             "homologationStatusLabel": "Homologation Status *",
             "homologationStatusPlaceholder": "Select status",
@@ -451,6 +448,24 @@
             "needMore": "need {count} more",
             "checkmark": "✓",
             "removeImage": "Remove image"
+        },
+        "AddUnavailableCar": {
+            "title": "Add Unavailable Car",
+            "brandLabel": "Brand *",
+            "brandPlaceholder": "Select brand",
+            "modelLabel": "Model *",
+            "modelPlaceholder": "Mustang GT",
+            "yearLabel": "Year *",
+            "yearPlaceholder": "2020",
+            "imageTitle": "Vehicle Image",
+            "uploadDescription": "Select an image (JPG, PNG, WebP)",
+            "uploadInfo": "Maximum size: 5MB",
+            "selectImageButton": "Select Image",
+            "selectedImage": "Selected Image",
+            "removeImage": "Remove",
+            "submitButton": "Add Unavailable Car",
+            "carTypeLabel": "Vehicle Type *",
+            "carTypePlaceholder": "Select type"
         }
     },
     "AdminDashboardPage": {
@@ -566,10 +581,6 @@
                 "description": "Purchase details, shipping, and customs",
                 "originCountry": "Origin Country",
                 "purchaseSource": "Purchase Source",
-                "purchaseDate": "Purchase Date",
-                "usPurchasePrice": "Purchase Price (USD)",
-                "shippingCost": "Shipping Cost (USD)",
-                "customsTax": "Customs Tax (EUR)",
                 "importDate": "Import Date",
                 "homologationStatus": "Homologation Status",
                 "registrationStatus": "Registration Status"
@@ -671,10 +682,6 @@
                 "SERVICE_HISTORY_MIN_LENGTH": "Service history must be at least 1 character long",
                 "ORIGIN_COUNTRY_MIN_LENGTH": "Origin country must be at least 1 character long",
                 "PURCHASE_SOURCE_MIN_LENGTH": "Purchase source must be at least 1 character long",
-                "PURCHASE_DATE_MIN_LENGTH": "Purchase date must be at least 1 character long",
-                "US_PURCHASE_PRICE_MIN_VALUE": "US purchase price must be at least 1",
-                "SHIPPING_COST_MIN_VALUE": "Shipping cost must be at least 0",
-                "CUSTOMS_TAX_MIN_VALUE": "Customs tax must be at least 0",
                 "IMPORT_DATE_MIN_LENGTH": "Import date must be at least 1 character long",
                 "HOMOLOGATION_STATUS_MIN_LENGTH": "Homologation status must be at least 1 character long",
                 "REGISTRATION_STATUS_MIN_LENGTH": "Registration status must be at least 1 character long"
@@ -712,16 +719,20 @@
                 "ID_MIN_LENGTH": "ID must be at least 1 character long",
                 "ORIGIN_COUNTRY_MIN_LENGTH": "Origin country must be at least 1 character long",
                 "PURCHASE_SOURCE_MIN_LENGTH": "Purchase source must be at least 1 character long",
-                "PURCHASE_DATE_MIN_LENGTH": "Purchase date must be at least 1 character long",
-                "US_PURCHASE_PRICE_MIN_LENGTH": "US purchase price must be at least 1 character long",
-                "SHIPPING_COST_MIN_LENGTH": "Shipping cost must be at least 1 character long",
-                "CUSTOMS_TAX_MIN_LENGTH": "Customs tax must be at least 1 character long",
                 "IMPORT_DATE_MIN_LENGTH": "Import date must be at least 1 character long",
                 "HOMOLOGATION_STATUS_MIN_LENGTH": "Homologation status must be at least 1 character long",
                 "REGISTRATION_STATUS_MIN_LENGTH": "Registration status must be at least 1 character long"
             },
             "EditCarImagesSchema": {
                 "ID_MIN_LENGTH": "ID must be at least 1 character long"
+            },
+            "AddUnavailableCarSchema": {
+                "BRAND_MIN_LENGTH": "Brand must be at least 1 character long",
+                "MODEL_MIN_LENGTH": "Model must be at least 1 character long",
+                "YEAR_MIN_VALUE": "Year must be at least 1900",
+                "IMAGE_REQUIRED": "Image is required",
+                "INVALID_FILE_TYPE": "Invalid file type: {fileName}",
+                "INVALID_FILE_SIZE": "File size exceeds limit: {fileName}"
             }
         },
         "ContactFormSchema": {
