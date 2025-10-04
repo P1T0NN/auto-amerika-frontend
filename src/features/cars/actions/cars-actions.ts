@@ -25,7 +25,6 @@ export const addCar = async (data: typesAddCarRequest) => {
 
 export const addUnavailableCar = async (data: typesAddUnavailableCarRequest) => {
     const response = await serverApiClient.cars.addUnavailableCar(data);
-    console.log("Response: ", response);
 
     if (!response.success) {
         return {

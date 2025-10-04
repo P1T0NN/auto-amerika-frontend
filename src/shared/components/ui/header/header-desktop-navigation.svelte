@@ -15,7 +15,7 @@
 </script>
 
 <!-- Updated navigation styling with zinc colors and red active state -->
-<div class="ml-10 flex items-baseline space-x-8">
+<div class="ml-10 flex items-center space-x-8">
     {#each navigationLinks as item}
         <a
             href={item.href}

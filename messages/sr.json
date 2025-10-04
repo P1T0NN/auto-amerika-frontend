@@ -743,6 +743,7 @@
     "GenericMessages": {
         "USER_LOGGED_OUT_SUCCESSFULLY": "Korisnik je uspešno odjavljen",
         "USER_NOT_AUTHENTICATED": "Korisnik nije autentifikovan",
+        "USER_LOGOUT_FAILED": "Nije uspelo odjavljivanje korisnika",
 
         "CAR_MAKE_UNAVAILABLE_SUCCESS": "Automobil je uspešno postavljen kao nedostupan",
         "CAR_MAKE_UNAVAILABLE_FAILED": "Nije uspelo postavljanje automobila kao nedostupnog",

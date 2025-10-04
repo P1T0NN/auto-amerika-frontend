@@ -143,6 +143,9 @@ export const serverApiClient = {
         getCurrentUser: async (sessionToken: string): Promise<ApiResponse<typesUser>> => {
             return serverApiRequest<typesUser>('/user/get-current-user', 'GET', undefined, undefined, sessionToken);
         },
+        logout: async (sessionToken: string): Promise<ApiResponse<void>> => {
+            return serverApiRequest<void>('/user/logout', 'POST', undefined, undefined, sessionToken);
+        }
     },
 
     cars: {

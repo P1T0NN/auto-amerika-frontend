@@ -744,6 +744,7 @@
     },
     "GenericMessages": {
         "USER_LOGGED_OUT_SUCCESSFULLY": "User logged out successfully",
+        "USER_LOGOUT_FAILED": "User logout failed",
         "USER_NOT_AUTHENTICATED": "User not authenticated",
 
         "CAR_MAKE_UNAVAILABLE_SUCCESS": "Car made unavailable successfully",
